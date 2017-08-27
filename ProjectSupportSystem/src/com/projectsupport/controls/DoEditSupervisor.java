@@ -52,6 +52,10 @@ public class DoEditSupervisor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
+		if(currentUser == null){
+		    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+		       dispatcher.forward(request, response);
+		  }
 		int studentId = Integer.parseInt(currentUser.getUserName());
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -110,14 +114,15 @@ public class DoEditSupervisor extends HttpServlet {
 			
 			 request.setAttribute("errorString", errorString);
 			 request.setAttribute("newSupervisor", newsupervisor);
-		    
+		   
 		    if (errorString != null) {
 		    	//request.setAttribute("", o);
 		    	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/DoEditSupervisor?success=0");
 		        dispatcher.forward(request, response);
 		       }
 		    else {//out.println("<script>  alert('Student inserted Sucessfully');  </script>");
-		           response.sendRedirect(request.getContextPath() + "/ViewSupervisor?success=1");
+		           response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
+		           return;
 		           
 		    	}
 			

@@ -119,7 +119,7 @@ public class DoAddSupervisor extends HttpServlet {
 		        dispatcher.forward(request, response);
 		       }
 		    else {//out.println("<script>  alert('Student inserted Sucessfully');  </script>");
-		           response.sendRedirect(request.getContextPath() + "/ViewSupervisor?success=1");
+		           response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
 		           
 		    	}
 			

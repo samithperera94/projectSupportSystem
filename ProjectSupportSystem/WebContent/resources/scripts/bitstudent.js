@@ -86,5 +86,9 @@ function viewSupervisor() {
 	  xhttp.open("GET", "student/viewSupervisor.jsp", true);
 	  xhttp.send();
 } 
+
+
  
+
+
 

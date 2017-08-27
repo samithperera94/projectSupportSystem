@@ -9,9 +9,9 @@
 					data-toggle="dropdown" href="">Supervisor Details <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="AddSupervisor"> add
+						<li><a href="FindSupervisor"> add
 								Supervisor</a></li>
-						<li><a href="ViewSupervisor"> View/Edit Supervisor</a></li>
+						<li><a href="EditSupervisorView"> View/Edit Supervisor</a></li>
 
 					</ul></li>
 				<li class="nav-item"><a class="dropdown-toggle"

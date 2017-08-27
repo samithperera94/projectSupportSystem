@@ -48,7 +48,7 @@ public class DeleteSupervisor extends HttpServlet {
 				e.printStackTrace();
 				errorString = e.getMessage();
 			}
-			response.sendRedirect(request.getContextPath() + "/ViewSupervisor?success=1");
+			response.sendRedirect(request.getContextPath() + "/AddSupervisor?success=1");
 		}
 		
 		

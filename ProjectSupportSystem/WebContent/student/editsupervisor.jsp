@@ -22,39 +22,34 @@
 <script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
+<script type="text/javascript" src="resources/scripts/loadSupervisor.js"></script>
 
 </head>
 <body>
-	<script>
-		var app = angular.module('myApp', []);
 
-		app
-				.controller(
-						'MyController',
-						function($scope, $http) {
-							//console.log('angular efef eff');
-							$http(
-									{
-										method : 'GET',
-										url : 'http://localhost:8080/ProjectSupportSystem/DoViewSupervisor'
-									}).then(function successCallback(response) {
-								$scope.supervisor = response.data;
-								console.log('sucess');
-							}, function errorCallback(response) {
-								console.log('error');
-							});
-
-						});
-	</script>
-
+	<!-- adding header -->
 	<jsp:include page="../_header.jsp" />
+
+	<!-- Adding leftSideBar -->
 	<jsp:include page="../_leftSideBarStudent.jsp" />
-	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
+
+	<div id="loginedUser">
+		<p>You are logged in as: ${user.userName}</p>
+	</div>
 	<div class="changer" id="formload">
 		<div class="input-data" id="addsupervisor">
 			<form class="form-horizontal" method="POST" action="DoEditSupervisor"
 				enctype="multipart/form-data">
+				<c:if test="${param.success eq 1}">
+					<div class="alert alert-success">
+						<strong>Successfully Updated !</strong>
+					</div>
+				</c:if>
+				<c:if test="${param.success eq 0}">
+					<div class="alert alert-warning">
+						<strong>Successfully Updated !</strong>
+					</div>
+				</c:if>
 				<center>
 					<h4>Supervisor Details</h4>
 				</center>
@@ -64,7 +59,8 @@
 							Name:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" name="firstName"
-								value="{{supervisor.firstName}}" required>
+								id="firstName" value="{{supervisor.firstName}}"
+								ng-disabled="state" required ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
@@ -72,21 +68,25 @@
 							Name:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" name="lastName"
-								value="{{supervisor.lastName}}" required>
+								id="lastName" value="{{supervisor.lastName}}"
+								ng-disabled="state" required ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="InputEmail" class="col-sm-3 control-label">E-Mail:</label>
 						<div class="col-sm-9">
-							<input type="email" class="form-control" name="email"
-								value="{{supervisor.email}}" required>
+							<input type="email" class="form-control" name="email" id="email"
+								value="{{supervisor.email}}" ng-disabled="state" required
+								ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" name="mobileNo"
-								value="{{supervisor.mobileNo}}" ng-minlength=10 ng-maxlength=10 required>
+								id="mobileNo" value="{{supervisor.mobileNo}}"
+								ng-disabled="state" ng-minlength=10 ng-maxlength=10 required
+								ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
@@ -94,7 +94,8 @@
 							Line 1:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" name="addressLine1"
-								value="{{supervisor.addressLine1}}" required>
+								id="addressLine1" value="{{supervisor.addressLine1}}"
+								ng-disabled="state" required ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
@@ -102,29 +103,42 @@
 							Line 2:</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" name="addressLine2"
-								value="{{supervisor.addressLine2}}" required>
+								id="addressLine2" value="{{supervisor.addressLine2}}"
+								ng-disabled="state" required ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="InputTeleNo" class="col-sm-3 control-label">City:</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" name="city"
-								value="{{supervisor.city}}" required>
+							<input type="text" class="form-control" name="city" id="city"
+								value="{{supervisor.city}}" ng-disabled="state" required
+								ng-init="state=true">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="Inputform" class="col-sm-3 control-label">Submited
 							Form: </label>
 						<div class="col-sm-9">
-							<input type="file" name="agreementForm" required>
+							<input type="file" name="agreementForm" ng-disabled="state"
+								required ng-init="state=true">
 							<p class="help-block col-sm-3">"*filename:
-								supervisorAgreementForm.pdf"</p>
+								supervisorAgreementForm.pdf"</p> <br/>
+							
+							<p class="help-block col-sm-6"> 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="DownloadSupervisorFrom" target="_blank"> previous:
+									{{supervisor.agreementFormPath}} </a>
+							</p>
+							
 						</div>
 					</div>
 
-				</div>
 
-				<button type="submit" class="btn btn-default">Save</button>
+
+					<button type="submit" class="btn btn-default">Save</button>
+					<a class="btn btn-default" ng-click="state=false"> Edit </a> <a
+						class="btn btn-default" href="DeleteSupervisor"> Delete </a>
+				</div>
 			</form>
 
 		</div>

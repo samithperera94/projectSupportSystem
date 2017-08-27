@@ -28,17 +28,31 @@
 <body>
 
 	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarStudent.jsp"/>
-	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
+	<jsp:include page="../_leftSideBarStudent.jsp" />
+
+	<div id="loginedUser">
+		<p>You are logged in as: ${user.userName}</p>
+	</div>
 	<div class="changer" id="formload">
 		<div class="input-data" id="addsupervisor" ng-app="">
 			<form class="form-horizontal" method="POST" action="DoAddSupervisor"
 				enctype="multipart/form-data">
+				<c:if test="${param.success eq 1}">
+					<div class="alert alert-success">
+						<strong>Successfully Deleted !</strong>
+					</div>
+				</c:if>
+				<c:if test="${param.success eq 0}">
+					<div class="alert alert-warning">
+						<strong>Successfully Updated !</strong>
+					</div>
+				</c:if>
+
 				<center>
 					<h4>Supervisor Details</h4>
 				</center>
 				<div class="form-group">
-					<label for="InputFirstName" class="col-sm-3 control-label" >First
+					<label for="InputFirstName" class="col-sm-3 control-label">First
 						Name:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="firstName"
@@ -68,14 +82,16 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="InputTeleNo" class="col-sm-3 control-label">Address Line 1:</label>
+					<label for="InputTeleNo" class="col-sm-3 control-label">Address
+						Line 1:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="addressLine1"
 							placeholder="Address Line 1" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="InputTeleNo" class="col-sm-3 control-label">Address Line 2:</label>
+					<label for="InputTeleNo" class="col-sm-3 control-label">Address
+						Line 2:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="addressLine2"
 							placeholder="Address Line 2" required>
@@ -99,7 +115,7 @@
 				</div>
 
 
-				
+
 				<button type="submit" class="btn btn-default">Save</button>
 			</form>
 		</div>
