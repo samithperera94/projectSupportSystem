@@ -28,25 +28,7 @@
 				<li class="nav-item"><a class="nav-link" href=""
 					onclick="proposal(); return false;">Project Proposal</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
-					onclick="progressReport(); return false;">Progress Report 01</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 02</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 03</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 04</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 05</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 06</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 07</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 08</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 09</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Progress
-						Report 10</a></li>
+					onclick="progressReport(); return false;">Progress Report</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
 					onclick="loadInterim(); return false;">Interim Report</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
