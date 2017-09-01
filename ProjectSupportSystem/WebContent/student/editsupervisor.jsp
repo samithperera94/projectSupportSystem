@@ -51,7 +51,7 @@
 					</div>
 				</c:if>
 				<center>
-					<h4>Supervisor Details</h4>
+					<h4>Supervisor/Advisor Agreement</h4>
 				</center>
 				<div ng-app="myApp" ng-controller="MyController">
 					<div class="form-group">

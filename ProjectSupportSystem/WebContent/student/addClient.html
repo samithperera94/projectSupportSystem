@@ -1,27 +1,36 @@
 <div id="addclient">
 	<form class="form-horizontal">
-		<center><h4> Client Details </h4> </center>
+		<center><h4> Client Agreement Form </h4> </center>
 		<div class="form-group">
-	    	<label for="InputFirstName" class="col-sm-3 control-label">First Name:</label>
-	    	<div class="col-sm-9"><input type="text" class="form-control" name="firstName" placeholder="First Name"> </div>
+	    	<label for="nameOfOrganization" class="col-sm-3 control-label">Name of the Organization:</label>
+	    	<div class="col-sm-9"><input type="text" class="form-control" name="name" placeholder="Company Name"> </div>
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="InputLastName" class="col-sm-3 control-label">Last Name:</label>
+	    	<label for="registrationNo" class="col-sm-3 control-label">Organization Registration No:</label>
 	    	<div class="col-sm-9"><input type="text" class="form-control" name="lastName" placeholder="Last Name"> </div>
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="InputEmail" class="col-sm-3 control-label">E-Mail:</label>
+	    	<label for="addressline1" class="col-sm-3 control-label">Address Line 1:</label>
+	    	<div class="col-sm-9"><input type="text" class="form-control" name="addressLine1" placeholder="Address Line 1"> </div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="addressline2" class="col-sm-3 control-label">Address Line 2:</label>
+	    	<div class="col-sm-9"><input type="text" class="form-control" name="addressLine2" placeholder="Address Line 2"> </div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="addressline3" class="col-sm-3 control-label">Address Line 3(City):</label>
+	    	<div class="col-sm-9"><input type="text" class="form-control" name="addressLine3" placeholder="Address Line 3"> </div>
+	  	</div>
+	  	
+	  	<div class="form-group">
+	    	<label for="InputEmail" class="col-sm-3 control-label">Organization E-Mail:</label>
 	    	<div class="col-sm-9"><input type="email" class="form-control" name="email" placeholder="E-Mail"> </div>
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
-	    	<div class="col-sm-9"><input type="text" class="form-control" name="mobileNo" placeholder="Mobile No"> </div>
+	    	<label for="InputTeleNo" class="col-sm-3 control-label">Telephone No:</label>
+	    	<div class="col-sm-9"><input type="text" class="form-control" name="teleNo" placeholder="Phone"> </div>
 	  	</div>
-	  	<div class="form-group">
-	    	<label for="InputAddress" class="col-sm-3 control-label">Address:</label>
-	    	<div class="col-sm-9"><textarea class="form-control" name="address" rows="3" placeholder="No,Street Name,City Name"></textarea> </div>
-	  	</div>
-	  	<div class="form-group">
+	  		<div class="form-group">
     		<label for="Inputform" class="col-sm-3 control-label">Submit Form: </label>
     		<div class="col-sm-9"><input type="file" name="agreementForm">
     		<p class="help-block col-sm-3"> "*filename: clientAgreementForm.pdf"</p> </div>

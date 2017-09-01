@@ -49,7 +49,7 @@
 				</c:if>
 
 				<center>
-					<h4>Supervisor Details</h4>
+					<h4>Supervisor/Advisor Agreement </h4>
 				</center>
 				<div class="form-group">
 					<label for="InputFirstName" class="col-sm-3 control-label">First
