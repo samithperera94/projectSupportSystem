@@ -8,7 +8,7 @@
 				<li class="nav-item"><a class="nav-link" href="FindSupervisor">
 						Supervisor Details </a></li>
 				
-				<li class="nav-item"><a class="nav-link" href="" onclick="addClient(); return false;">
+				<li class="nav-item"><a class="nav-link" href="FindClient">
 						Client Details </a></li>
 				
 				<!-- <li class="nav-item"> <a class="dropdown-toggle"

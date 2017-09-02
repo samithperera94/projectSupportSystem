@@ -21,26 +21,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-
-import com.projectsupport.models.Supervisor;
+import com.projectsupport.models.Client;
 import com.projectsupport.models.User;
+import com.projectsupport.services.ClientServices;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.SupervisorServices;
 
 /**
- * Servlet implementation class DoEditSupervisor
+ * Servlet implementation class DoAddClient
  */
-
-@WebServlet("/DoEditSupervisor")
+@WebServlet("/DoAddClient")
 @MultipartConfig(maxFileSize = 16177215)
-public class DoEditSupervisor extends HttpServlet {
+public class DoAddClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER = Logger.getLogger(DoEditSupervisor.class.getCanonicalName()); 
-       
+	private final static Logger LOGGER = Logger.getLogger(DoAddClient.class.getCanonicalName());    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DoEditSupervisor() {
+    public DoAddClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,23 +50,23 @@ public class DoEditSupervisor extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
 		if(currentUser == null){
-		    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
-		       dispatcher.forward(request, response);
-		  }
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+		}
 		int studentId = Integer.parseInt(currentUser.getUserName());
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String email = request.getParameter("email");
-		String mobileNo = request.getParameter("mobileNo");
+		String name = request.getParameter("name");
+		String registrationNo = request.getParameter("registrationNo");
 		String addressLine1 = request.getParameter("addressLine1");
 		String addressLine2 = request.getParameter("addressLine2");
-		String city = request.getParameter("city");
+		String addressLine3 = request.getParameter("addressLine3");
+		String email = request.getParameter("email");
+		String telephoneNo = request.getParameter("telephoneNo");
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
-		Part filepart = request.getPart("agreementForm");
+		Part filepart = request.getPart("formName");
 		String fileName = null;
-		String path = "/var/www/html/";
+		String path = "/var/www/html/clientAgreement";
 		String partHeader = filepart.getHeader("content-disposition");
 		LOGGER.log(Level.INFO,"Part Header = {0}",partHeader);
 		for(String content : filepart.getHeader("content-disposition").split(";")){
@@ -89,21 +86,20 @@ public class DoEditSupervisor extends HttpServlet {
 			
 			System.out.println("New file "+fileName+ " created at "+path);
 			LOGGER.log(Level.INFO,"File{0}being uploaded to {1}",new Object[]{fileName,path});
-			Supervisor newsupervisor = new Supervisor();
-			newsupervisor.setStudentId(studentId);
-			newsupervisor.setFirstName(firstName);
-			newsupervisor.setLastName(lastName);
-			newsupervisor.setEmail(email);
-			newsupervisor.setMobileNo(mobileNo);
-			newsupervisor.setAddressLine1(addressLine1);
-			newsupervisor.setAddressLine2(addressLine2);
-			newsupervisor.setCity(city);
-			newsupervisor.setAgreementForm(fileName);
-			
+			Client newclient = new Client();
+			newclient.setOrganizationName(name);
+			newclient.setRegistrationNo(registrationNo);
+			newclient.setAddressLine1(addressLine1);
+			newclient.setAddressLine2(addressLine2);
+			newclient.setAddressLine3(addressLine3);
+			newclient.setOrganizationEmail(email);
+			newclient.setTelephoneNo(telephoneNo);
+			newclient.setFormName(fileName);
+			newclient.setStudentId(studentId);
 			String errorString = null;
 			if(errorString == null){
 				try {
-					SupervisorServices.editSupervisor(conn, newsupervisor);
+					ClientServices.insertClient(conn, newclient);
 					
 				} catch(SQLException e){
 					e.printStackTrace();
@@ -113,16 +109,15 @@ public class DoEditSupervisor extends HttpServlet {
 			}
 			
 			 request.setAttribute("errorString", errorString);
-			 request.setAttribute("newSupervisor", newsupervisor);
-		   
+			 request.setAttribute("newClient", newclient);
+		    
 		    if (errorString != null) {
 		    	//request.setAttribute("", o);
-		    	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/DoEditSupervisor?success=0");
+		    	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/AddClient?success=0");
 		        dispatcher.forward(request, response);
 		       }
 		    else {//out.println("<script>  alert('Student inserted Sucessfully');  </script>");
-		           response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
-		           return;
+		           response.sendRedirect(request.getContextPath() + "/EditClient?success=1");
 		           
 		    	}
 			
@@ -145,14 +140,12 @@ public class DoEditSupervisor extends HttpServlet {
 			}
 		}
 	}
-		
-	
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

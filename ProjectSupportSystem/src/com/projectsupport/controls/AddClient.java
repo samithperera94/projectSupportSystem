@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AddSupervisor
+ * Servlet implementation class AddClient
  */
-@WebServlet("/AddSupervisor")
-public class AddSupervisor extends HttpServlet {
+@WebServlet("/AddClient")
+public class AddClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddSupervisor() {
+    public AddClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,9 @@ public class AddSupervisor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/student/addsupervisor.jsp");
+		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/student/addClient.jsp");
 		dispather.forward(request, response);
-		System.out.println("add supervisor servlet");
+		System.out.println("add client servlet");
 	}
 
 	/**

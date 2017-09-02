@@ -12,23 +12,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.projectsupport.models.Client;
 import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
+import com.projectsupport.services.ClientServices;
 import com.projectsupport.services.MyUtils;
 import com.projectsupport.services.SupervisorServices;
 
 /**
- * Servlet implementation class FindSupervisor
+ * Servlet implementation class FindClient
  */
-
-@WebServlet("/FindSupervisor")
-public class FindSupervisor extends HttpServlet {
+@WebServlet("/FindClient")
+public class FindClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSupervisor() {
+    public FindClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,21 +45,21 @@ public class FindSupervisor extends HttpServlet {
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login");
 			dispatcher.forward(request, response);
 		}
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
-		Supervisor supervisor = null;
+		Client client = null;
 		try {
-			supervisor = SupervisorServices.findSupervisor(conn, studentId);
+			client = ClientServices.findClient(conn, studentId);
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}
-		if(supervisor == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddSupervisor");
+		if(client == null){
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddClient");
 			dispatcher.forward(request, response);
 		}
 		else {
-			response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
+			response.sendRedirect(request.getContextPath() + "/EditClient?success=1");
 			
 		}
 	}
