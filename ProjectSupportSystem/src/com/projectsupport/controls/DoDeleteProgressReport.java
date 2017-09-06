@@ -12,23 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.SupervisorServices;
+import com.projectsupport.services.ProgressReportServices;
+
 
 /**
- * Servlet implementation class FindSupervisor
+ * Servlet implementation class DoDeleteProgressReport
  */
-
-@WebServlet("/FindSupervisor")
-public class FindSupervisor extends HttpServlet {
+@WebServlet("/DoDeleteProgressReport")
+public class DoDeleteProgressReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSupervisor() {
+    public DoDeleteProgressReport() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,31 +35,33 @@ public class FindSupervisor extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		if(currentUser == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login");
-			dispatcher.forward(request, response);
-			return;
+		if(currentUser==null){
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+	        return;
 		}
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
-		Supervisor supervisor = null;
-		try {
-			supervisor = SupervisorServices.findSupervisor(conn, studentId);
-		} catch (SQLException e){
-			e.printStackTrace();
-			errorString = e.getMessage();
+        
+		if(errorString == null){
+			try {
+				System.out.println("Inside try block");
+				ProgressReportServices.deleteProgressReport(conn, studentId);
+			} catch (SQLException e){
+				e.printStackTrace();
+				errorString = e.getMessage();
+			}
+			response.sendRedirect(request.getContextPath() + "/AddProgressReport?success=1");
 		}
-		if(supervisor == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddSupervisor");
-			dispatcher.forward(request, response);
-		}
-		else {
-			response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
+		else{
+			response.sendRedirect(request.getContextPath() + "/EditProgressReport?success=0");
 			
+	        
 		}
 	}
 

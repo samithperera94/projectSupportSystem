@@ -1,10 +1,11 @@
 package com.projectsupport.controls;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,23 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.projectsupport.models.Supervisor;
+import com.projectsupport.models.InterimReport;
 import com.projectsupport.models.User;
+import com.projectsupport.services.InterimReportServices;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.SupervisorServices;
+
 
 /**
- * Servlet implementation class FindSupervisor
+ * Servlet implementation class DownloadInterimReport
  */
-
-@WebServlet("/FindSupervisor")
-public class FindSupervisor extends HttpServlet {
+@WebServlet("/DownloadInterimReport")
+public class DownloadInterimReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSupervisor() {
+    public DownloadInterimReport() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,35 +41,35 @@ public class FindSupervisor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		if(currentUser == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login");
-			dispatcher.forward(request, response);
-			return;
-		}
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
-		Supervisor supervisor = null;
+		InterimReport interim = null;
 		try {
-			supervisor = SupervisorServices.findSupervisor(conn, studentId);
+			interim = InterimReportServices.findInterimReport(conn, studentId);
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}
-		if(supervisor == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddSupervisor");
-			dispatcher.forward(request, response);
+		PrintWriter out = response.getWriter();
+		String fileName = interim.getFormName();
+		String path = "/var//www/html/interimReport/";
+		response.setContentType("APPLICATION/OCTET-STREAM");
+		response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
+		FileInputStream fileinputstream = new FileInputStream(path+fileName);
+		int i;
+		while((i=fileinputstream.read()) != -1){
+			out.write(i);
 		}
-		else {
-			response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
-			
-		}
+		out.close();
+		fileinputstream.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

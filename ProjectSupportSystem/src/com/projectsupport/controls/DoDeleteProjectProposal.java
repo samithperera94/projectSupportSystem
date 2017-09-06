@@ -12,23 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
+import com.projectsupport.services.ClientServices;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.SupervisorServices;
+import com.projectsupport.services.ProjectProposalServices;
 
 /**
- * Servlet implementation class FindSupervisor
+ * Servlet implementation class DoDeleteProjectProposal
  */
-
-@WebServlet("/FindSupervisor")
-public class FindSupervisor extends HttpServlet {
+@WebServlet("/DoDeleteProjectProposal")
+public class DoDeleteProjectProposal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSupervisor() {
+    public DoDeleteProjectProposal() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,35 +39,32 @@ public class FindSupervisor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		if(currentUser == null){
+		if(currentUser==null){
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login");
 			dispatcher.forward(request, response);
 			return;
 		}
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
-		Supervisor supervisor = null;
-		try {
-			supervisor = SupervisorServices.findSupervisor(conn, studentId);
-		} catch (SQLException e){
-			e.printStackTrace();
-			errorString = e.getMessage();
-		}
-		if(supervisor == null){
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddSupervisor");
-			dispatcher.forward(request, response);
-		}
-		else {
-			response.sendRedirect(request.getContextPath() + "/EditSupervisorView?success=1");
-			
-		}
+        
+		if(errorString == null){
+			try {
+				System.out.println("Inside try block");
+				ProjectProposalServices.deleteProgressReport(conn, studentId);
+			} catch (SQLException e){
+				e.printStackTrace();
+				errorString = e.getMessage();
+			}
+			response.sendRedirect(request.getContextPath() + "/AddProjectProposal?success=1");
 	}
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		doGet(request, response);
 	}
 
 }

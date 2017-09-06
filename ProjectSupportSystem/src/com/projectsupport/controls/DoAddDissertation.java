@@ -21,23 +21,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-import com.projectsupport.models.Client;
+
+import com.projectsupport.models.Dissertation;
 import com.projectsupport.models.User;
-import com.projectsupport.services.ClientServices;
+import com.projectsupport.services.DissertationServices;
 import com.projectsupport.services.MyUtils;
 
 /**
- * Servlet implementation class DoAddClient
+ * Servlet implementation class DoAddDissertation
  */
-@WebServlet("/DoAddClient")
+@WebServlet("/DoAddDissertation")
 @MultipartConfig(maxFileSize = 16177215)
-public class DoAddClient extends HttpServlet {
+public class DoAddDissertation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER = Logger.getLogger(DoAddClient.class.getCanonicalName());    
+	private final static Logger LOGGER = Logger.getLogger(DoAddDissertation.class.getCanonicalName());   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DoAddClient() {
+    public DoAddDissertation() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -55,19 +56,12 @@ public class DoAddClient extends HttpServlet {
 	        return;
 		}
 		int studentId = Integer.parseInt(currentUser.getUserName());
-		String name = request.getParameter("name");
-		String registrationNo = request.getParameter("registrationNo");
-		String addressLine1 = request.getParameter("addressLine1");
-		String addressLine2 = request.getParameter("addressLine2");
-		String addressLine3 = request.getParameter("addressLine3");
-		String email = request.getParameter("email");
-		String telephoneNo = request.getParameter("telephoneNo");
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
 		Part filepart = request.getPart("formName");
 		String fileName = null;
-		String path = "/var/www/html/clientAgreement";
+		String path = "/var/www/html/dissertation";
 		String partHeader = filepart.getHeader("content-disposition");
 		LOGGER.log(Level.INFO,"Part Header = {0}",partHeader);
 		for(String content : filepart.getHeader("content-disposition").split(";")){
@@ -87,20 +81,14 @@ public class DoAddClient extends HttpServlet {
 			
 			System.out.println("New file "+fileName+ " created at "+path);
 			LOGGER.log(Level.INFO,"File{0}being uploaded to {1}",new Object[]{fileName,path});
-			Client newclient = new Client();
-			newclient.setOrganizationName(name);
-			newclient.setRegistrationNo(registrationNo);
-			newclient.setAddressLine1(addressLine1);
-			newclient.setAddressLine2(addressLine2);
-			newclient.setAddressLine3(addressLine3);
-			newclient.setOrganizationEmail(email);
-			newclient.setTelephoneNo(telephoneNo);
-			newclient.setFormName(fileName);
-			newclient.setStudentId(studentId);
+			Dissertation dissertation = new Dissertation();
+			dissertation.setFormName(fileName);;
+			dissertation.setStudentId(studentId);
+			
 			String errorString = null;
 			if(errorString == null){
 				try {
-					ClientServices.insertClient(conn, newclient);
+					DissertationServices.insertDissertation(conn, dissertation);
 					
 				} catch(SQLException e){
 					e.printStackTrace();
@@ -110,15 +98,15 @@ public class DoAddClient extends HttpServlet {
 			}
 			
 			 request.setAttribute("errorString", errorString);
-			 request.setAttribute("newClient", newclient);
+			 request.setAttribute("newDissertation",dissertation);
 		    
 		    if (errorString != null) {
 		    	//request.setAttribute("", o);
-		    	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/AddClient?success=0");
+		    	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/AddDissertation?success=0");
 		        dispatcher.forward(request, response);
 		       }
 		    else {//out.println("<script>  alert('Student inserted Sucessfully');  </script>");
-		           response.sendRedirect(request.getContextPath() + "/EditClient?success=1");
+		           response.sendRedirect(request.getContextPath() + "/EditDissertation?success=1");
 		           
 		    	}
 			
@@ -141,7 +129,6 @@ public class DoAddClient extends HttpServlet {
 			}
 		}
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

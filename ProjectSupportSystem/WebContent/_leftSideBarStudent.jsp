@@ -22,14 +22,10 @@
 						<li><a href=""> view Client Details </a> </li>
 
 					</ul></li> -->
-				<li class="nav-item"><a class="nav-link" href=""
-					onclick="proposal(); return false;">Project Proposal</a></li>
-				<li class="nav-item"><a class="nav-link" href=""
-					onclick="progressReport(); return false;">Progress Report</a></li>
-				<li class="nav-item"><a class="nav-link" href=""
-					onclick="loadInterim(); return false;">Interim Report</a></li>
-				<li class="nav-item"><a class="nav-link" href=""
-					onclick="loadDissertation(); return false;">Dissertation</a></li>
+				<li class="nav-item"><a class="nav-link" href="FindProjectProposal">Project Proposal</a></li>
+				<li class="nav-item"><a class="nav-link" href="FindProgressReport"> Progress Report</a></li>
+				<li class="nav-item"><a class="nav-link" href="FindInterimReport" >Interim Report</a></li>
+				<li class="nav-item"><a class="nav-link" href="FindDissertation">Dissertation</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
 					onclick="loadMedical(); return false;"> Medical</a></li>
 

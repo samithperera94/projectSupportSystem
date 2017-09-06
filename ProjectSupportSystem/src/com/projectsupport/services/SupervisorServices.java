@@ -58,7 +58,7 @@ public class SupervisorServices {
 	
 	
 	public static void editSupervisor(Connection conn,Supervisor supervisor) throws SQLException{
-		String sql = "update Supervisor set FirstName=?,LastName=?,email=?,mobileNo=?,AddressLine1=?,AddressLine2=?,City=?,FormPath=? where Student_idStudent";
+		String sql = "update Supervisor set FirstName=?,LastName=?,email=?,mobileNo=?,AddressLine1=?,AddressLine2=?,City=?,FormPath=? where Student_idStudent=?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, supervisor.getFirstName());
 		pstm.setString(2, supervisor.getLastName());
@@ -68,6 +68,7 @@ public class SupervisorServices {
 		pstm.setString(6, supervisor.getAddressLine2());
 		pstm.setString(7, supervisor.getCity());
 		pstm.setString(8, supervisor.getAgreementForm());
+		pstm.setInt(9,supervisor.getStudentId());
 		pstm.executeUpdate();
 		
 	}

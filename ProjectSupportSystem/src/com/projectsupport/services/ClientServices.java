@@ -56,7 +56,7 @@ public class ClientServices {
 	}
 	
 	public static void editClient(Connection conn,Client client) throws SQLException {
-		String sql = "update Client set name=?,registrationNo=?,addressLine1=?,addressLine2=?,addressLine3=?,email=?,telephoneNo=?,formName=? where Student_idStudent";
+		String sql = "update Client set name=?,registrationNo=?,addressLine1=?,addressLine2=?,addressLine3=?,email=?,telephoneNo=?,formName=? where Student_idStudent=?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, client.getOrganizationName());
 		pstm.setString(2, client.getRegistrationNo());
@@ -66,6 +66,7 @@ public class ClientServices {
 		pstm.setString(6, client.getOrganizationEmail());
 		pstm.setString(7, client.getTelephoneNo());
 		pstm.setString(8, client.getFormName());
+		pstm.setInt(9, client.getStudentId());
 		pstm.executeUpdate();
 	}
 	
