@@ -7,13 +7,13 @@
 			<ul class="nav nav-pills flex-column">
 				<li class="nav-item"><a class="nav-link active" href=""
 					onclick="">Dashboard</a></li>
-				<li class="nav-item"><a class="nav-link" href="" onclick="">
+				<li class="nav-item"><a class="nav-link" href="">
 						Notifications</a></li>
 				<li class="nav-item"><a class="nav-link" href="">Insert
 						Marks</a></li>
 				<li class="nav-item"><a class="nav-link" href="">Arrange
 						Panals</a></li>
-				<li class="nav-item"><a class="nav-link" href=""> Student
+				<li class="nav-item"><a class="nav-link" href="ShowStudentList"> Student
 						Progress</a></li>
 			</ul>
 		</nav>

@@ -23,11 +23,10 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.projectsupport.models.InterimReport;
-import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
 import com.projectsupport.services.InterimReportServices;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.SupervisorServices;
+
 
 /**
  * Servlet implementation class DoAddInterimReport

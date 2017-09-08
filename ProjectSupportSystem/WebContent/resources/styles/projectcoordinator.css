@@ -39,6 +39,16 @@ h3 {
 
 }
 
+#studentlist {
+	width: 1050px;
+	height: 550px;
+	margin-left: 170px;
+	margin-top: 30px;
+	position: absolute;
+	float: left;
+	padding: 20px;
+	background-color:#EEEEEE;
+}
 
 #student {
 	width: 800px;
@@ -75,6 +85,18 @@ h3 {
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   border-right: 1px solid #eee;
+}
+
+#submittedlist {
+	width: 800px;
+	height: 550px;
+	margin-left: 270px;
+	margin-top: 30px;
+	position: absolute;
+	float: left;
+	padding: 20px;
+
+	background-color:#EEEEEE;
 }
 
 .sidebar {

@@ -1,15 +1,14 @@
 package com.projectsupport.models;
 
 public class Student {
-	int studentId;
-	String firstName;
-	String lastName;
-	String NIC;
-	String email;
-	String address;
-	String mobileNo;
-	String dob;
-	String gender;
+	private int studentId;
+	private String regNo;
+	private String nic;
+	private String fullName;
+	private String initial;
+	private String surName;
+	private String email;
+	private String telephoneNo;
 	
 	public int getStudentId() {
 		return studentId;
@@ -17,23 +16,35 @@ public class Student {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getRegNo() {
+		return regNo;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setRegNo(String regNo) {
+		this.regNo = regNo;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getNic() {
+		return nic;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setNic(String nic) {
+		this.nic = nic;
 	}
-	public void setNIC(String nic){
-		this.NIC = nic; 
+	public String getFullName() {
+		return fullName;
 	}
-	public String getNIC(){
-		return NIC;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public String getInitial() {
+		return initial;
+	}
+	public void setInitial(String initial) {
+		this.initial = initial;
+	}
+	public String getSurName() {
+		return surName;
+	}
+	public void setSurName(String surName) {
+		this.surName = surName;
 	}
 	public String getEmail() {
 		return email;
@@ -41,30 +52,14 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
+	public String getTelephoneNo() {
+		return telephoneNo;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setTelephoneNo(String telephoneNo) {
+		this.telephoneNo = telephoneNo;
 	}
-	public String getMobileNo() {
-		return mobileNo;
-	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
-	}
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+	
+
 	
 
 }

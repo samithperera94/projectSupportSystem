@@ -13,11 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.projectsupport.models.ProgressReport;
-import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
 import com.projectsupport.services.ProgressReportServices;
-import com.projectsupport.services.SupervisorServices;
+
 
 /**
  * Servlet implementation class DoViewProgressReport
