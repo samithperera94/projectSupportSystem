@@ -45,7 +45,7 @@ public class FindSupervisor extends HttpServlet {
 			dispatcher.forward(request, response);
 			return;
 		}
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
 		Supervisor supervisor = null;
 		try {

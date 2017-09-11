@@ -23,7 +23,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<script type="text/javascript" src="resources/scripts/loadDissertation.js"></script>
+<script type="text/javascript" src="resources/scripts/loadSubmission.js"></script>
 
 </head>
 <body>
@@ -50,7 +50,7 @@
 				<center>
 					<h4>Final Dissertation</h4>
 				</center>
-				<div ng-app="myApp" ng-controller="MyController">
+				<div ng-app="myApp" ng-controller="DissertationController">
 				<div class="form-group">
 					<div class="col-sm-9">Please refer the instructions given in
 						the Final Dissertation guidelines</div>

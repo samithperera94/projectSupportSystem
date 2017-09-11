@@ -23,7 +23,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script type="text/javascript"
-	src="resources/scripts/loadProjectProposal.js"></script>
+	src="resources/scripts/loadSubmission.js"></script>
 
 
 </head>
@@ -52,7 +52,7 @@
 				<center>
 					<h4>Project Details</h4>
 				</center>
-				<div ng-app="myApp" ng-controller="MyController">
+				<div ng-app="myApp" ng-controller="ProposalController">
 					<div class="form-group">
 						<label for="projectTitle" class="col-sm-3 control-label">
 							Project Title: </label>

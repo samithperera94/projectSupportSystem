@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,13 +41,26 @@ public class DoViewSupervisor extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
+		int studentId;
 		User currentUser = MyUtils.getLoginedUser(session);
-		String studentId = currentUser.getUserName();
+		if (currentUser == null) {
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+			dispatcher.forward(request, response);
+			return;
+		}
+		String user1 = currentUser.getUserName();
+
+		System.out.println(user1);
+		if (user1.equals("pro01")) {
+			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
+		} else {
+			studentId = Integer.parseInt(currentUser.getUserName());
+		}
 		String errorString = null;
 		Supervisor supervisor = null;
 		try {
 			supervisor = SupervisorServices.findSupervisor(conn, studentId);
-		} catch (SQLException e){
+		} catch (SQLException e) {
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}

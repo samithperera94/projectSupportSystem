@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,8 +39,21 @@ public class DoViewInterimReport extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
+		int studentId;
 		User currentUser = MyUtils.getLoginedUser(session);
-		int studentId = Integer.parseInt(currentUser.getUserName());
+		if (currentUser == null) {
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+			dispatcher.forward(request, response);
+			return;
+		}
+		String user1 = currentUser.getUserName();
+
+		System.out.println(user1);
+		if (user1.equals("pro01")) {
+			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
+		} else {
+			studentId = Integer.parseInt(currentUser.getUserName());
+		}
 		String errorString = null;
 		InterimReport interim = null;
 		try {

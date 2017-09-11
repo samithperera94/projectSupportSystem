@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ShowStudentSubmissions
@@ -28,6 +29,9 @@ public class ShowStudentSubmissions extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String studentId = request.getParameter("stuID");
+		HttpSession session = request.getSession();
+		session.setAttribute("studentID",studentId);
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/projectcoordinator/onestudentsubmissions.jsp");
 		dispather.forward(request, response);
 		System.out.println("add client servlet");

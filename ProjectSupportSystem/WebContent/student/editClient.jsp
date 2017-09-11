@@ -21,7 +21,7 @@
 <script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script type="text/javascript" src="resources/scripts/loadClient.js"></script>
+<script type="text/javascript" src="resources/scripts/loadSubmission.js"></script>
 
 </head>
 
@@ -51,7 +51,7 @@
 				<center>
 					<h4>Client Agreement Form</h4>
 				</center>
-				<div ng-app="myApp" ng-controller="MyController">
+				<div ng-app="myApp" ng-controller="ClientController">
 					<div class="form-group">
 						<label for="nameOfOrganization" class="col-sm-3 control-label">Name
 							of the Organization:</label>

@@ -22,7 +22,7 @@
 <script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script type="text/javascript" src="resources/scripts/loadProgressReport.js"> </script>
+<script type="text/javascript" src="resources/scripts/loadSubmission.js"> </script>
 
 
 </head>
@@ -49,7 +49,7 @@
 				</c:if>
 
 				<h4>PROGRESS REPORT</h4>
-				<div ng-app="myApp" ng-controller="MyController">
+				<div ng-app="myApp" ng-controller="ProgressController">
 					<div class="form-group col-sm-12">
 						<label for="exampleTextarea">Work carried out between this
 							meeting and previous meeting: </label>

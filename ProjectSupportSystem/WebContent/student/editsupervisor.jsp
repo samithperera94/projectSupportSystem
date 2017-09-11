@@ -22,7 +22,7 @@
 <script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script type="text/javascript" src="resources/scripts/loadSupervisor.js"></script>
+<script type="text/javascript" src="resources/scripts/loadSubmission.js"></script>
 
 </head>
 <body>
@@ -53,7 +53,7 @@
 				<center>
 					<h4>Supervisor/Advisor Agreement</h4>
 				</center>
-				<div ng-app="myApp" ng-controller="MyController">
+				<div ng-app="myApp" ng-controller="SupController">
 					<div class="form-group">
 						<label for="InputFirstName" class="col-sm-3 control-label">First
 							Name:</label>

@@ -40,7 +40,7 @@ public class DownloadSupervisorFrom extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		String studentId = currentUser.getUserName();
+		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
 		Supervisor supervisor = null;
 		try {

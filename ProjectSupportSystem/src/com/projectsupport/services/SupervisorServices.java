@@ -26,10 +26,10 @@ public class SupervisorServices {
 		
 	}
 	
-	public static Supervisor findSupervisor(Connection conn, String userId) throws SQLException {
+	public static Supervisor findSupervisor(Connection conn,int userId) throws SQLException {
 		String sql = "Select FirstName,LastName,email,mobileNo,AddressLine1,AddressLine2,City,FormPath from Supervisor where Student_idStudent= ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setString(1, userId);
+		pstm.setInt(1, userId);
 		ResultSet rs = pstm.executeQuery();
 		while(rs.next()){
 			String firstName = rs.getString("FirstName");
