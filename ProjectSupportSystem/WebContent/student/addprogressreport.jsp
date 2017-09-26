@@ -35,7 +35,8 @@
 	</div>
 	<div class="changer" id="formload">
 		<div id="progressReport1">
-			<form class="form-horizontal" method="POST" action="DoAddProgressReport">
+			<form class="form-horizontal" method="POST"
+				action="DoAddProgressReport">
 				<c:if test="${param.success eq 1}">
 					<div class="alert alert-success">
 						<strong>Successfully Deleted !</strong>
@@ -53,26 +54,55 @@
 				<h5>...............................................................................</h5>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Work carried out between this
-						meeting and previous meeting: </label>
-					<textarea class="form-control" id="workCarried" name="workCarried" rows="3"
-						required></textarea>
+						meeting and previous meeting: </label> <select class="form-control">
+						<option>Feasibility Study</option>
+						<option>Find a project and meet client</option>
+						<option>Gather client requirements</option>
+						<option>Define scope</option>
+						<option>Define users and use cases</option>
+						<option>Requirement Analysis</option>
+						<option>Client Feedback</option>
+						<option>UI-Design</option>
+						<option>UI-Development</option>
+						<option>Back-end Development</option>
+						
+
+					</select>
+				</div>
+				<div class="form-group col-sm-12">
+					<label for="exampleTextarea">Describe the above task: </label>
+					<textarea class="form-control" id="problems" name="problems"
+						rows="3" required></textarea>
 				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Problems Encountered: </label>
-					<textarea class="form-control" id="problems" name="problems" rows="3"
-						required></textarea>
+					<textarea class="form-control" id="problems" name="problems"
+						rows="3" required></textarea>
 				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Planned work that were unable
 						to carry out with reasons: </label>
-					<textarea class="form-control" id="WorkPlannedButNotDone" name="workPlannedButNotDone" rows="3"
-						required></textarea>
+					<textarea class="form-control" id="WorkPlannedButNotDone"
+						name="workPlannedButNotDone" rows="3" required></textarea>
 				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Work planned until next
-						meeting: </label>
-					<textarea class="form-control" id="workPlanned" name="workPlanned" rows="3"
-						required></textarea>
+						meeting: </label> <select class="form-control">
+						<option>Testing</option>
+						<option>Feasibility Study</option>
+						<option>Find a project and meet client</option>
+						<option>Gather client requirements</option>
+						<option>Define scope</option>
+						<option>Define users and use cases</option>
+						<option>Requirement Analysis</option>
+						<option>Client Feedback</option>
+						<option>UI-Design</option>
+						<option>UI-Development</option>
+						<option>Back-end Development</option>
+						
+
+					</select>
+
 				</div>
 
 				<!-- 	<div class="form-group">

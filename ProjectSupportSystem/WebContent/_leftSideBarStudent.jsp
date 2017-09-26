@@ -23,6 +23,7 @@
 
 					</ul></li> -->
 				<li class="nav-item"><a class="nav-link" href="FindProjectProposal">Project Proposal</a></li>
+				<li class="nav-item"><a class="nav-link" href="FindProjectPlan">Project Plan</a></li>
 				<li class="nav-item"><a class="nav-link" href="FindProgressReport"> Progress Report</a></li>
 				<li class="nav-item"><a class="nav-link" href="FindInterimReport" >Interim Report</a></li>
 				<li class="nav-item"><a class="nav-link" href="FindDissertation">Dissertation</a></li>

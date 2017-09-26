@@ -78,7 +78,7 @@ public class DoAddProjectProposal extends HttpServlet {
 		proposal.setEvaluation(evaluation);
 		proposal.setStudentId(studentId);
 		
-
+		
 		String errorString = null;
 		if(errorString == null){
 			try {

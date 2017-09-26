@@ -24,16 +24,29 @@
 
 <title>BIT-University of Colombo School of Computing - Project
 	Evaluation Support System</title>
+
 </head>
 <body>
 
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
+	<%-- <jsp:include page="../_header.jsp" />  --%>
+	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">UCSC </a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li> <a href="#"> You are logged in as: ${user.userName} </a></li>
+			<li> <a href="#">${student.fullName} </a> </li>
+			
+			<li> <a href="#"> ${student.studentId}</a>
+			</ul>
 	</div>
+	</nav>
 
-	<div class="container" id="formload">
+
+	<div class="container-fluid" id="formload">
 		<div id="submittedlist">
 			<div ng-app="myApp">
 				<div class="container-fluid spacing">
@@ -325,7 +338,11 @@
 										</p>
 									</div>
 								</div>
+								<iframe src={{client.formName}} width="100%" height="500px">
+
+								</iframe>
 							</div>
+
 						</form>
 					</div>
 					<p></p>
@@ -342,18 +359,29 @@
 					<button type="button" class="btn btn-info col-sm-12"
 						data-toggle="collapse" data-target="#interim">Interim
 						Report</button>
-					<div id="interim" class="collapse">
+					<div id="interim" class="collapse in">
 						<form class="form-horizontal" enctype="multipart/form-data">
 							<div ng-controller="InterimController">
 								<div class="form-group">
-									<div class="form-group">
-										<p class="help-block col-sm-6">
-											<a href="DownloadInterimReport" target="_blank">
-												Uploaded:{{interim.formName}} </a>
-										</p>
+									<label for="hide1" class="col-sm-1 control-label"></label>
+									<p class="help-block col-sm-6">
+										<a href="DownloadInterimReport" target="_blank">
+											Uploaded:{{interim.formName}} </a>
+									</p>
+									<iframe src="Group_12.pdf" width="100%" height="500px">
+
+									</iframe>
+									<label for="hide2" class="col-sm-10 control-label"></label> <br />
+									<label for="InputMarks" class="col-sm-3 control-label">Insert
+										Marks</label>
+									<div class=col-sm-4>
+										<input type="text" class="form-control">
+										<button type="submit" class="btn btn-default">Save</button>
 									</div>
+
 								</div>
-								
+
+
 							</div>
 
 						</form>
@@ -363,7 +391,27 @@
 				<div class="container-fluid spacing">
 					<button type="button" class="btn btn-info col-sm-12"
 						data-toggle="collapse" data-target="#dist">Dissertation</button>
-					<div id="dist" class="collapse"></div>
+					<div id="dist" class="collapse in">
+						<form class="form-horizontal" enctype="multipart/form-data">
+							<div ng-controller="DissertationController">
+								<div class="form-group">
+									<label for="hide1" class="col-sm-1 control-label"></label>
+									<p class="help-block col-sm-6">
+										<a href="DownloadDissertation" target="_blank">
+											Uploaded:{{dissertation.formName}} </a>
+									</p>
+									<label for="hide2" class="col-sm-10 control-label"></label> <br />
+									<label for="InputMarks" class="col-sm-3 control-label">Insert
+										Marks</label>
+									<div class=col-sm-4>
+										<input type="text" class="form-control">
+										<button type="submit" class="btn btn-default">Save</button>
+									</div>
+
+								</div>
+							</div>
+						</form>
+					</div>
 					<p></p>
 				</div>
 			</div>

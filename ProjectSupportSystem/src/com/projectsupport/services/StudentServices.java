@@ -41,6 +41,26 @@ public class StudentServices {
 			
 		}
 		
+		public static Student findStudent(Connection conn,int studentId) throws SQLException {
+			String sql = "select * from Student where idStudent=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, studentId);
+			ResultSet rs = pstm.executeQuery();
+			while(rs.next()){
+				int studId = rs.getInt("idStudent");
+				String regNo = rs.getString("RegNo");
+				String fullName = rs.getString("FullName");
+				String initial = rs.getString("Initial");
+				Student student = new Student();
+				student.setStudentId(studId);
+				student.setFullName(fullName);
+				student.setRegNo(regNo);
+				student.setInitial(initial);
+				return student;
+			}
+			return null;
+		}
+}
+		
 	
 
-}
