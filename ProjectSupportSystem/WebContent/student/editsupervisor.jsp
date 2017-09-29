@@ -136,8 +136,8 @@
 
 
 					<button type="submit" class="btn btn-default">Save</button>
-					<a class="btn btn-default" ng-click="state=false"> Edit </a> <a
-						class="btn btn-default" href="DeleteSupervisor"> Delete </a>
+					<a class="btn btn-default" ng-click="state=false"> Edit </a> 
+					<a class="btn btn-default" href="DeleteSupervisor"> Delete </a>
 				</div>
 			</form>
 

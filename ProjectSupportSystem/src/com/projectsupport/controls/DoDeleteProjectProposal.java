@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
+import com.projectsupport.services.ProjectPlanServices;
 import com.projectsupport.services.ProjectProposalServices;
 
 /**
@@ -50,6 +51,7 @@ public class DoDeleteProjectProposal extends HttpServlet {
 			try {
 				System.out.println("Inside try block");
 				ProjectProposalServices.deleteProgressReport(conn, studentId);
+				ProjectPlanServices.deleteProjectPlan(conn, studentId);
 			} catch (SQLException e){
 				e.printStackTrace();
 				errorString = e.getMessage();

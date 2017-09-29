@@ -30,18 +30,18 @@
 
 	<%-- <jsp:include page="../_header.jsp" />  --%>
 	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
-	
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">UCSC </a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li> <a href="#"> You are logged in as: ${user.userName} </a></li>
-			<li> <a href="#">${student.fullName} </a> </li>
-			
-			<li> <a href="#"> ${student.studentId}</a>
-			</ul>
+			<li><a href="#"> You are logged in as: ${user.userName} </a></li>
+			<li><a href="#">${student.fullName} </a></li>
+
+			<li><a href="#"> ${student.studentId}</a>
+		</ul>
 	</div>
 	</nav>
 
@@ -161,6 +161,172 @@
 											ng-disabled="state" ng-init="state=true" required>{{proposal.evaluation}}</textarea>
 									</div>
 								</div>
+							</div>
+							<div class="form-group" ng-controller="PlanController">
+								<table class="table table-bordered">
+									<thead>
+										<tr class="warning">
+											<th>Step</th>
+											<th>Starting-Date</th>
+											<th>Ending Date</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr1">
+													<option>Find a project and meet client</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate1}}" id="sdate1"
+												name="sdate1" ng-disabled="state" ng-init="state=true"
+												required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate1"
+												name="edate1" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr2">
+													<option>Feasibility Study</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate2}}"
+												id="example-date-input" name="date2" ng-disabled="state"
+												ng-init="state=true"required"></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate2"
+												name="edate2" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr3">
+													<option>Gather client requirements</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate3}}"
+												id="example-date-input" name="sdate3" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate3"
+												name="edate3" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr4">
+													<option>Define scope</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate4}}"
+												id="example-date-input" name="sdate4" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate4"
+												name="edate4" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr5">
+													<option>Define users and use cases</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate5}}"
+												id="example-date-input" name="sdate5" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate5"
+												name="edate5" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr6">
+													<option>Requirement Analysis</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate6}}"
+												id="example-date-input" name="sdate6" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate6"
+												name="edate6" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+									
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr7">
+													<option>UI-Design</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate7}}"
+												id="example-date-input" name="sdate7" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate7"
+												name="edate7" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr8">
+													<option>UI-Development</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate8}}"
+												id="example-date-input" name="sdate8" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate8"
+												name="edate8" ng-disabled="state" ng-init="state=true"
+												required></td>
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr9">
+													<option>Back-end Development</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate9}}"
+												id="example-date-input" name="sdate9" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate10"
+												name="edate9" ng-disabled="state" ng-init="state=true"
+												required></td>
+										</tr>
+										<tr class="info">
+											<td class="col-sm-6"><select class="form-control"
+												name="pr10">
+													<option>Testing</option>
+											</select></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.startingDate10}}"
+												id="example-date-input" name="sdate10" ng-disabled="state"
+												ng-init="state=true" required></td>
+											<td class="col-sm-3"><input class="form-control"
+												type="date" value="{{plan.endingDate1}}" id="edate10"
+												name="edate10" ng-disabled="state" ng-init="state=true"
+												required></td>
+
+										</tr>
+
+									</tbody>
+								</table>
 							</div>
 						</form>
 					</div>
@@ -368,7 +534,7 @@
 										<a href="DownloadInterimReport" target="_blank">
 											Uploaded:{{interim.formName}} </a>
 									</p>
-									<iframe src="Group_12.pdf" width="100%" height="500px">
+									<iframe src="test/Group_12.pdf" width="100%" height="500px">
 
 									</iframe>
 									<label for="hide2" class="col-sm-10 control-label"></label> <br />

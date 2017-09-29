@@ -2,11 +2,19 @@ package com.projectsupport.models;
 
 public class ProgressReport {
 	private String workCarried;
+	private String describe;
 	private String problems;
 	private String workPlannedButNotDone;
 	private String workPlanned;
 	private int mark;
 	private int studentId;
+	
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
 	public String getWorkCarried() {
 		return workCarried;
 	}

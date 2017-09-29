@@ -101,6 +101,17 @@ h3 {
 	background-color:#EEEEEE;
 }
 
+#dashboard {
+	width: 800px;
+	height: 550px;
+	margin-left: 270px;
+	margin-top: 30px;
+	position: absolute;
+	float: left;
+	padding: 20px;
+	background-color:#EEEEEE;
+}
+
 .sidebar {
   padding-left: 0;
   padding-right: 0;

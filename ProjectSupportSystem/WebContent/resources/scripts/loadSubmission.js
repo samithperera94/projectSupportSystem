@@ -19,6 +19,7 @@ app.controller('ProposalController', function($scope, $http) {
 		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProjectProposal'
 	}).then(function successCallback(response) {
 		$scope.proposal = response.data;
+		
 		console.log('sucess');
 	}, function errorCallback(response) {
 		console.log('error');
@@ -71,6 +72,19 @@ app.controller('ProgressController', function($scope, $http) {
 		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReport'
 	}).then(function successCallback(response) {
 		$scope.progressreport = response.data;
+		console.log('sucess');
+	}, function errorCallback(response) {
+		console.log('error');
+	});
+
+});
+
+app.controller('PlanController', function($scope, $http) {
+	$http({
+		method : 'GET',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProjectPlan'
+	}).then(function successCallback(response) {
+		$scope.plan = response.data;
 		console.log('sucess');
 	}, function errorCallback(response) {
 		console.log('error');

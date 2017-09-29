@@ -33,7 +33,7 @@ public class ProjectPlanServices {
 		pstm.setString(19, plan.getStartingDate10());
 		pstm.setString(20, plan.getEndingDate10());
 		pstm.setInt(21, plan.getStudentId());
-		pstm.executeQuery();
+		pstm.executeUpdate();
 		
 	}
 	
@@ -118,7 +118,7 @@ public class ProjectPlanServices {
 		pstm.executeUpdate();
 	}
 	
-	public static void deleteProgressReport(Connection conn,int StudentId) throws SQLException {
+	public static void deleteProjectPlan(Connection conn,int StudentId) throws SQLException {
 		String sql = "Delete from Plan where Student_idStudent=?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setInt(1, StudentId);

@@ -151,26 +151,29 @@
 						</thead>
 						<tbody>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr1">
+								<td class="col-sm-6"><select class="form-control"
+									name="pr1">
 										<option>Find a project and meet client</option>
 								</select></td>
 								<td class="col-sm-3"><input class="form-control"
-									type="date" id="sdate1" name="sdate1"></td>
+									type="date" value="2011-08-19" id="sdate1" name="sdate1"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate1"></td>
-								
 
-								
+
+
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr2">
-										<option>Feasibility Study</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr2">
+										<option>Feasibility Study</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
-									type="date" id="example-date-input" name="date2"></td>
+									type="date" id="example-date-input" name="sdate2"></td>
 								<td class="col-sm-3"><input class="form-control"
-									type="date" id="example-date-input"  name="edate2"></td>
-								
-										<!-- <option>Find a project and meet client</option>
+									type="date" id="example-date-input" name="edate2"></td>
+
+								<!-- <option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
 										<option>Define users and use cases</option>
@@ -181,17 +184,19 @@
 										<option>Back-end Development</option>
 										<option>Testing</option>
  -->
-								
+
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr3">
-										<option>Gather client requirements </option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr3">
+										<option>Gather client requirements</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate3"></td>
 								<td class="col-sm-3"><input class="form-control"
-									type="date" id="example-date-input"  name="edate3"></td>
-								
-										<!-- <option>Feasibility Study</option>
+									type="date" id="example-date-input" name="edate3"></td>
+
+								<!-- <option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Define scope</option>
 										<option>Define users and use cases</option>
@@ -202,17 +207,19 @@
 										<option>Back-end Development</option>
 										<option>Testing</option>
  -->
-								
+
 							</tr>
 							<tr class="info">
-							<td class="col-sm-6"><select class="form-control" name="pr4">
-										<option>Define scope</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr4">
+										<option>Define scope</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate4"></td>
 								<td class="col-sm-3"><input class="form-control"
-									type="date" id="example-date-input"  name="edate4"></td>
-								
-										<!-- <option>Feasibility Study</option>
+									type="date" id="example-date-input" name="edate4"></td>
+
+								<!-- <option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define users and use cases</option>
@@ -223,16 +230,18 @@
 										<option>Back-end Development</option>
 										<option>Testing</option> -->
 
-								
+
 							</tr>
 							<tr class="info">
-							<td class="col-sm-6"><select class="form-control" name="pr5">
-										<option>Define users and use cases</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr5">
+										<option>Define users and use cases</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate5"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate5"></td>
-								
+
 								<!-- 		<option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
@@ -247,14 +256,16 @@
 								</select></td> -->
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr6">
-										<option>Requirement Analysis</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr6">
+										<option>Requirement Analysis</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate6"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate6"></td>
-								
-									<!-- 	<option>Feasibility Study</option>
+
+								<!-- 	<option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
@@ -268,14 +279,16 @@
 								</select></td> -->
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr7">
-										<option>UI-Design</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr7">
+										<option>UI-Design</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate7"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate7"></td>
-								
-										<!-- <option>Feasibility Study</option>
+
+								<!-- <option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
@@ -289,14 +302,16 @@
 								</select></td> -->
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr8">
-										<option>UI-Development</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr8">
+										<option>UI-Development</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate8"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate8"></td>
-								
-									<!-- 	<option>Feasibility Study</option>
+
+								<!-- 	<option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
@@ -310,14 +325,16 @@
 								</select></td> -->
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr9">
-										<option>Back-end Development</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr9">
+										<option>Back-end Development</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate9"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate9"></td>
-								
-									<!-- 	<option>Feasibility Study</option>
+
+								<!-- 	<option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
@@ -331,14 +348,16 @@
 								</select></td> -->
 							</tr>
 							<tr class="info">
-								<td class="col-sm-6"><select class="form-control" name="pr10">
-										<option>Testing</option></select></td>
+								<td class="col-sm-6"><select class="form-control"
+									name="pr10">
+										<option>Testing</option>
+								</select></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="sdate10"></td>
 								<td class="col-sm-3"><input class="form-control"
 									type="date" id="example-date-input" name="edate10"></td>
-								
-									<!-- 	<option>Feasibility Study</option>
+
+								<!-- 	<option>Feasibility Study</option>
 										<option>Find a project and meet client</option>
 										<option>Gather client requirements</option>
 										<option>Define scope</option>
@@ -355,8 +374,8 @@
 
 						</tbody>
 					</table>
-				</div>		
-				
+				</div>
+
 
 
 

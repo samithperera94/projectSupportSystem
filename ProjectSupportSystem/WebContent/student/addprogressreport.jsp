@@ -54,7 +54,7 @@
 				<h5>...............................................................................</h5>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Work carried out between this
-						meeting and previous meeting: </label> <select class="form-control">
+						meeting and previous meeting: </label> <select class="form-control" name="workCarried">
 						<option>Feasibility Study</option>
 						<option>Find a project and meet client</option>
 						<option>Gather client requirements</option>
@@ -71,7 +71,7 @@
 				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Describe the above task: </label>
-					<textarea class="form-control" id="problems" name="problems"
+					<textarea class="form-control" id="description" name="description"
 						rows="3" required></textarea>
 				</div>
 				<div class="form-group col-sm-12">
@@ -87,7 +87,7 @@
 				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Work planned until next
-						meeting: </label> <select class="form-control">
+						meeting: </label> <select class="form-control" name="workPlanned">
 						<option>Testing</option>
 						<option>Feasibility Study</option>
 						<option>Find a project and meet client</option>

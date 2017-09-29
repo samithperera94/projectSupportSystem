@@ -9,13 +9,14 @@ import com.projectsupport.models.ProgressReport;
 
 public class ProgressReportServices {
 	public static void insertProgressReport(Connection conn,ProgressReport pro) throws SQLException {
-		String sql = "Insert into ProgressReports (workCarried,problems,workPlannedButNotDone,workPlanned,Student_idStudent) values (?,?,?,?,?)";
+		String sql = "Insert into ProgressReports (workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned,Student_idStudent) values (?,?,?,?,?,?)";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1,pro.getWorkCarried());
-		pstm.setString(2,pro.getProblems());
-		pstm.setString(3,pro.getWorkPlannedButNotDone());
-		pstm.setString(4,pro.getWorkPlanned());
-		pstm.setInt(5,pro.getStudentId());
+		pstm.setString(2, pro.getDescribe());
+		pstm.setString(3,pro.getProblems());
+		pstm.setString(4,pro.getWorkPlannedButNotDone());
+		pstm.setString(5,pro.getWorkPlanned());
+		pstm.setInt(6,pro.getStudentId());
 		pstm.executeUpdate();
 	}
 	
@@ -26,19 +27,20 @@ public class ProgressReportServices {
 		ResultSet rs1 = pstm1.executeQuery();
 		if(rs1.next()){
 			int latest = rs1.getInt(1);
-			String sql2 = "select workCarried,problems,workPlannedButNotDone,workPlanned from ProgressReports where idProgressReports=?";
+			String sql2 = "select workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned from ProgressReports where idProgressReports=?";
 			PreparedStatement pstm2 = conn.prepareStatement(sql2);
 			pstm2.setInt(1, latest);
-			
 			ResultSet rs2 = pstm2.executeQuery();
 			while(rs2.next()){
 				String workCarried = rs2.getString("workCarried");
+				String describe = rs2.getString("describeTheWork");
 				String problems = rs2.getString("problems");
 				String workPlannedButNotDone = rs2.getString("workPlannedButNotDone");
 				String workPlanned = rs2.getString("workPlanned");
 				//System.out.println(workPlanned);
 				ProgressReport pro = new ProgressReport();
 				pro.setWorkCarried(workCarried);
+				pro.setDescribe(describe);
 				pro.setProblems(problems);
 				pro.setWorkPlannedButNotDone(workPlannedButNotDone);
 				pro.setWorkPlanned(workPlanned);
@@ -57,13 +59,14 @@ public class ProgressReportServices {
 		ResultSet rs1 = pstm1.executeQuery();
 		if(rs1.next()){
 			int latest = rs1.getInt(1);
-			String sql2 = "Update ProgressReports set workCarried=?,problems=?,workPlannedButNotDone=?,workPlanned=? where idProgressReports=?";
+			String sql2 = "Update ProgressReports set workCarried=?,describeTheWork=?,problems=?,workPlannedButNotDone=?,workPlanned=? where idProgressReports=?";
 			PreparedStatement pstm2 = conn.prepareStatement(sql2);
 			pstm2.setString(1,pro.getWorkCarried());
-			pstm2.setString(2,pro.getProblems());
-			pstm2.setString(3,pro.getWorkPlannedButNotDone());
-			pstm2.setString(4,pro.getWorkPlanned());
-			pstm2.setInt(5,latest);
+			pstm2.setString(2, pro.getDescribe());
+			pstm2.setString(3,pro.getProblems());
+			pstm2.setString(4,pro.getWorkPlannedButNotDone());
+			pstm2.setString(5,pro.getWorkPlanned());
+			pstm2.setInt(6,latest);
 			pstm2.executeUpdate();
 		}
 			

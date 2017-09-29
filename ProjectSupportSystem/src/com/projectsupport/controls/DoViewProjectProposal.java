@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.projectsupport.models.ProjectPlan;
 import com.projectsupport.models.ProjectProposal;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
+import com.projectsupport.services.ProjectPlanServices;
 import com.projectsupport.services.ProjectProposalServices;
 
 /**
@@ -58,25 +60,32 @@ public class DoViewProjectProposal extends HttpServlet {
 		
 		String errorString = null;
 		ProjectProposal proposal = new ProjectProposal();
+		//ProjectPlan plan = new ProjectPlan();
 		try {
 			proposal = ProjectProposalServices.findProjectProposal(conn, studentId);
+			//plan = ProjectPlanServices.findProjectPlan(conn, studentId);	
+			//System.out.println(plan.getStartingDate10());
+			//request.setAttribute("plan", plan);
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}
 		String json = new Gson().toJson(proposal);
+		//String json1 = new Gson().toJson(plan);
+		//String twoJson = "["+json+","+json1+"]";
 		request.setAttribute("errorString", errorString);
-		request.setAttribute("projectProposalDetails", proposal);
+		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(json);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
