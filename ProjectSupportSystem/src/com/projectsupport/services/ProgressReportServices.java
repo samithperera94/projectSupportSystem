@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.projectsupport.models.ProgressReport;
+import com.projectsupport.models.ProgressReportSub;
 
 public class ProgressReportServices {
 	public static void insertProgressReport(Connection conn,ProgressReport pro) throws SQLException {
@@ -86,5 +89,42 @@ public class ProgressReportServices {
 			pstm.executeUpdate();
 		}
 	}
+	
+	public static void insertProgressReportSub(Connection conn,ProgressReportSub det) throws SQLException {
+		String sql = "Insert into progressReportDetails (progressNo,endDate,endTime) values (?,?,?)";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1,det.getReportNo());
+		pstm.setString(2, det.getEndDate());
+		pstm.setString(3,det.getEndTime());
+		pstm.executeUpdate();
+		
+	}
+	
+	public static void deleteProgressReportSub(Connection conn,int reportNo) throws SQLException {
+		String sql = "Delete from progressReportDetails where progressNo=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, reportNo);
+		pstm.executeUpdate();
+	}
+	
+	public static List<ProgressReportSub> findReportDetails(Connection conn) throws SQLException{
+		String sql = "Select progressNo,endDate,endTime from progressReportDetails";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		ResultSet rs = pstm.executeQuery();
+		List<ProgressReportSub> list = new ArrayList<ProgressReportSub>();
+		while(rs.next()){
+			int reportNo = rs.getInt("progressNo");
+			String endDate = rs.getString("endDate");
+			String endTime = rs.getString("endTime");
+			ProgressReportSub reportDetails = new ProgressReportSub();
+			reportDetails.setReportNo(reportNo);
+			reportDetails.setEndDate(endDate);
+			reportDetails.setEndTime(endTime);
+			list.add(reportDetails);
+		}
+		return list;
+	}
+	
+	
 
 }

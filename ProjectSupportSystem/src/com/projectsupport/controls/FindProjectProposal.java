@@ -55,7 +55,7 @@ public class FindProjectProposal extends HttpServlet {
 			proposal = ProjectProposalServices.findProjectProposal(conn, studentId);
 			plan = ProjectPlanServices.findProjectPlan(conn, studentId);
 			request.setAttribute("plan", plan);
-			System.out.println(plan.getStartingDate1());
+			//System.out.println(plan.getStartingDate1());
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
