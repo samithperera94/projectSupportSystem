@@ -8,7 +8,7 @@
   xhttp.open("GET", "student/addsupervisor.jsp", true);
   xhttp.send();
  
-} */
+} 
 
 function addClient() {
   var xhttp = new XMLHttpRequest();
@@ -63,9 +63,9 @@ function loadDissertation() {
 	  };
 	  xhttp.open("GET", "student/dissertation.html", true);
 	  xhttp.send();
-	}
+	}*/
 
-function loadMedical() {
+/*function loadMedical() {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -74,9 +74,9 @@ function loadMedical() {
 	  };
 	  xhttp.open("GET", "student/medical.html", true);
 	  xhttp.send();
-}
+}*/
 
-function viewSupervisor() {
+/*function viewSupervisor() {
 	  var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -86,7 +86,27 @@ function viewSupervisor() {
 	  xhttp.open("GET", "student/viewSupervisor.jsp", true);
 	  xhttp.send();
 } 
+*/
 
+var app = angular.module('myapp', []);
+ app.controller('viewMessages', function($scope, $http) {
+	 
+	 $scope.displayMessages = function() {
+			$scope.myArray = [];
+			$http({
+				method : 'GET',
+				url : 'http://localhost:8080/ProjectSupportSystem/DoViewMessagesList'
+			}).then(function successCallback(response) {
+				$scope.myArray = response.data;
+				console.log('success');
+			}, function errorCallback(response) {
+				console.log('error');
+			});
+		}
+	 
+
+ 
+ });
 
  
 

@@ -1,6 +1,7 @@
 package com.projectsupport.models;
 
 public class ProgressReport {
+	private int reportNo;
 	private String workCarried;
 	private String describe;
 	private String problems;
@@ -50,6 +51,12 @@ public class ProgressReport {
 	}
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+	public int getReportNo() {
+		return reportNo;
+	}
+	public void setReportNo(int reportNo) {
+		this.reportNo = reportNo;
 	}
 
 }

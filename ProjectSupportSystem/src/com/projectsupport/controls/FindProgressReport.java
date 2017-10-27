@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.projectsupport.models.ProgressReport;
+import com.projectsupport.models.ProgressReportSub;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
 import com.projectsupport.services.ProgressReportServices;
@@ -48,13 +49,30 @@ public class FindProgressReport extends HttpServlet {
 		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
 		ProgressReport progressreport = null;
+		ProgressReportSub progressreportdetails = null;
 		try {
 			progressreport = ProgressReportServices.findProgressReport(conn, studentId);
+			
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}
+		
+		
+		try {
+			progressreportdetails = ProgressReportServices.findLatestReport(conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 		if(progressreport == null){
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddProgressReport");
+			dispatcher.forward(request, response);
+		}
+		else if(progressreport.getReportNo() < progressreportdetails.getReportNo()){
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AddProgressReport");
 			dispatcher.forward(request, response);
 		}

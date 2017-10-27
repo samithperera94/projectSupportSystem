@@ -51,7 +51,8 @@
 					</div>
 				</c:if>
 
-				<h4>PROGRESS REPORT</h4>
+				<h4>PROGRESS REPORT NO ${reportNo} </h4>
+				<h4>  ${timeRemainingProgress} </h4>
 				<div ng-app="myApp" ng-controller="ProgressController">
 					<div class="form-group col-sm-12">
 						<label for="exampleTextarea">Work carried out between this
@@ -77,7 +78,7 @@
 						<label for="exampleTextarea">Describe the above task: </label>
 						<textarea class="form-control" id="exampleTextarea" rows="3"
 							name="workCarried" ng-disabled="state" ng-init="state=true"
-							required>{{progressreport.workCarried}}</textarea>
+							required>{{progressreport.describe}}</textarea>
 					</div>
 					<div class="form-group col-sm-12">
 						<label for="exampleTextarea">Problems Encountered: </label>

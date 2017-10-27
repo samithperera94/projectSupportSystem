@@ -48,10 +48,13 @@
 					</div>
 				</c:if>
 
-				<h4>PROGRESS REPORT</h4>
+				<h4>PROGRESS REPORT NO ${reportNo}</h4>
 
 
 				<h5>...............................................................................</h5>
+				<div class="form-group col-sm-12">
+					<input type="hidden" name="reportNo" id="reportNo" value="${reportNo}"/>
+				</div>
 				<div class="form-group col-sm-12">
 					<label for="exampleTextarea">Work carried out between this
 						meeting and previous meeting: </label> <select class="form-control" name="workCarried">

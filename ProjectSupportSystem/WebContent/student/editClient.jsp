@@ -50,6 +50,7 @@
 
 				<center>
 					<h4>Client Agreement Form</h4>
+					<h4>  ${timeRemainingClient} </h4>
 				</center>
 				<div ng-app="myApp" ng-controller="ClientController">
 					<div class="form-group">

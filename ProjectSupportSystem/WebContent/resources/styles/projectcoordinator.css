@@ -76,7 +76,7 @@ h3 {
 }
 
 
-.sidebar {
+ .sidebar {
   position: absolute;
   top: 132px;
   bottom: 0;
@@ -84,20 +84,18 @@ h3 {
   z-index: 1000;
   padding: 20px;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto; Scrollable contents if viewport is shorter than content.
   border-right: 1px solid #eee;
-}
+} 
 
 
 #submittedlist {
-	width: 900px;
+	width: 1330px;;
 	height: 1500px;
-	margin-left: 170px;
-	margin-top: 30px;
+	margin-top: 100px;
 	position: absolute;
 	float: left;
-	padding: 20px;
-
+	/* //padding: 20px; */
 	background-color:#EEEEEE;
 }
 

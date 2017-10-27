@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import com.projectsupport.models.FormSub;
 
@@ -47,7 +44,6 @@ public class SystemUtilServices {
 		}
 		return list;
 	}
-	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");	
-	Calendar cal = Calendar.getInstance();
+	
 	
 }

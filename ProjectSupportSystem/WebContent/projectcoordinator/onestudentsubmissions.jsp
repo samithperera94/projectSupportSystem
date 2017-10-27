@@ -336,13 +336,14 @@
 					<button type="button" class="btn btn-info col-sm-12"
 						data-toggle="collapse" data-target="#super">Supervisor
 						Details</button>
-					<div id="super" class="collapse">
+					<div id="super" class="collapse col-sm-6">
 						<form class="form-horizontal" enctype="multipart/form-data">
 
 							<div ng-controller="SupController">
 								<div class="form-group">
 									<label for="InputFirstName" class="col-sm-3 control-label">First
-										Name:</label>
+										Name:
+									</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" name="firstName"
 											id="firstName" value="{{supervisor.firstName}}"
@@ -526,6 +527,7 @@
 						data-toggle="collapse" data-target="#interim">Interim
 						Report</button>
 					<div id="interim" class="collapse in">
+						<div class="col-sm-8">
 						<form class="form-horizontal" enctype="multipart/form-data">
 							<div ng-controller="InterimController">
 								<div class="form-group">
@@ -537,20 +539,26 @@
 									<iframe src="test/Group_12.pdf" width="100%" height="500px">
 
 									</iframe>
-									<label for="hide2" class="col-sm-10 control-label"></label> <br />
-									<label for="InputMarks" class="col-sm-3 control-label">Insert
-										Marks</label>
-									<div class=col-sm-4>
-										<input type="text" class="form-control">
-										<button type="submit" class="btn btn-default">Save</button>
 									</div>
-
-								</div>
 
 
 							</div>
 
 						</form>
+						</div>
+						<div class=col-sm-3>
+							<table class="table table-bordered" style="margin-top:50px;">
+							<tbody>
+							<tr> 
+								<th>Insert Marks </th>
+								<td> <input type="text" class="form-control"> </td>
+								<td> <a type="button" class="btn btn-primary btn"> save </a></td>
+							</tr>
+							</tbody>
+							</table>
+						
+					</div>
+						
 					</div>
 					<p></p>
 				</div>

@@ -72,7 +72,7 @@ public class InsertProgressReportInfo extends HttpServlet {
 	        reportDetails.setEndTime(realTime);
 	        
 	        String errorString = null;
-	        if(errorString == null){
+	        if(errorString == null) {
 				try {
 					ProgressReportServices.insertProgressReportSub(conn, reportDetails);
 					System.out.println("done");
@@ -80,7 +80,7 @@ public class InsertProgressReportInfo extends HttpServlet {
 					e.printStackTrace();
 					errorString = e.getMessage();
 					
-				}
+				} 
 				
 			}
 	        

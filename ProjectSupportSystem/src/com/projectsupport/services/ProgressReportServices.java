@@ -12,14 +12,15 @@ import com.projectsupport.models.ProgressReportSub;
 
 public class ProgressReportServices {
 	public static void insertProgressReport(Connection conn,ProgressReport pro) throws SQLException {
-		String sql = "Insert into ProgressReports (workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned,Student_idStudent) values (?,?,?,?,?,?)";
+		String sql = "Insert into ProgressReports (reportNo,workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned,Student_idStudent) values (?,?,?,?,?,?,?)";
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setString(1,pro.getWorkCarried());
-		pstm.setString(2, pro.getDescribe());
-		pstm.setString(3,pro.getProblems());
-		pstm.setString(4,pro.getWorkPlannedButNotDone());
-		pstm.setString(5,pro.getWorkPlanned());
-		pstm.setInt(6,pro.getStudentId());
+		pstm.setInt(1, pro.getReportNo());
+		pstm.setString(2,pro.getWorkCarried());
+		pstm.setString(3, pro.getDescribe());
+		pstm.setString(4,pro.getProblems());
+		pstm.setString(5,pro.getWorkPlannedButNotDone());
+		pstm.setString(6,pro.getWorkPlanned());
+		pstm.setInt(7,pro.getStudentId());
 		pstm.executeUpdate();
 	}
 	
@@ -30,11 +31,12 @@ public class ProgressReportServices {
 		ResultSet rs1 = pstm1.executeQuery();
 		if(rs1.next()){
 			int latest = rs1.getInt(1);
-			String sql2 = "select workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned from ProgressReports where idProgressReports=?";
+			String sql2 = "select reportNo,workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned from ProgressReports where idProgressReports=?";
 			PreparedStatement pstm2 = conn.prepareStatement(sql2);
 			pstm2.setInt(1, latest);
 			ResultSet rs2 = pstm2.executeQuery();
 			while(rs2.next()){
+				int reportNo = rs2.getInt("reportNo");
 				String workCarried = rs2.getString("workCarried");
 				String describe = rs2.getString("describeTheWork");
 				String problems = rs2.getString("problems");
@@ -42,6 +44,7 @@ public class ProgressReportServices {
 				String workPlanned = rs2.getString("workPlanned");
 				//System.out.println(workPlanned);
 				ProgressReport pro = new ProgressReport();
+				pro.setReportNo(reportNo);
 				pro.setWorkCarried(workCarried);
 				pro.setDescribe(describe);
 				pro.setProblems(problems);
@@ -123,6 +126,32 @@ public class ProgressReportServices {
 			list.add(reportDetails);
 		}
 		return list;
+	}
+	
+	public static ProgressReportSub findLatestReport(Connection conn) throws SQLException {
+		String sql1 = "Select MAX(progressNo) from progressReportDetails";
+		PreparedStatement pstm1 = conn.prepareStatement(sql1);
+		ResultSet rs1 = pstm1.executeQuery();
+		if(rs1.next()){
+			int no = rs1.getInt(1);
+			String sql2 = "select * from progressReportDetails where progressNo=?";
+			PreparedStatement pstm2 = conn.prepareStatement(sql2);
+			pstm2.setInt(1,no);
+			ResultSet rs2 = pstm2.executeQuery();
+			while(rs2.next()){
+				int reportNo = rs2.getInt("progressNo");
+				String endDate = rs2.getString("endDate");
+				String endTime = rs2.getString("endTime");
+				ProgressReportSub prsub = new ProgressReportSub();
+				prsub.setReportNo(reportNo);
+				prsub.setEndDate(endDate);
+				prsub.setEndTime(endTime);
+				return prsub;
+			}
+			
+			
+		}
+		return null;
 	}
 	
 	

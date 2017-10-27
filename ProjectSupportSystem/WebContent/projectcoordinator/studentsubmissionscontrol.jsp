@@ -43,11 +43,48 @@
 				<button type="button" class="btn btn-info col-sm-12"
 					data-toggle="collapse" data-target="#message">Post a
 					message</button>
-				<div id="message" class="collapse">
-					<table>
-						<th>report</th>
+				<div id="message" class="collapse" ng-controller="messageController"
+					ng-init="displayMessages()" style="margin-top: 50px;">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="" class="col-sm-3 control-label">Message
+								Header: </label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									ng-model="message.header" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-3 control-label">Message in
+								Details: </label>
+							<div class="col-sm-8">
+								<textarea class="form-control" rows="3"
+									ng-model="message.detail" required> </textarea>
+							</div>
+						</div>
+						<input type="button" class="btn btn-default" value="SAVE"
+							ng-click="insertMessageData()" />
+					</form>
+					<div class="table table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Message Topic</th>
+									<th>Message </th>
+									<th>Delete</th>
 
-					</table>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="z in myArray2">
+									<td>{{z.header}}</td>
+									<td>{{z.detail}}</td>
+									<td><button ng-click="deleteMessage(z.messsageId)" class="btn btn-danger btn-xs">Delete</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
 				</div>
 			</div>
 
@@ -56,15 +93,16 @@
 				<button type="button" class="btn btn-info col-sm-12"
 					data-toggle="collapse" data-target="#progressR">Progress
 					Report Submissions Controller</button>
-				<div id="progressR" class="collapse">
-					<form class="form-horizontal" ng-controller="progressController">
+				<div id="progressR" class="collapse"
+					ng-controller="progressController" ng-init="displayDataPR()">
+					<form class="form-horizontal">
 
 						<div class="form-group">
 							<p></p>
 							<label for="projectTitle" class="col-sm-2 control-label">
 								Report No: </label>
 							<div class="col-sm-10	">
-								<select class="form-control" ng-model="progress.no" required>
+								<select class="form-control" ng-model="progress.no">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -83,7 +121,7 @@
 								End date: </label>
 							<div class="col-sm-4">
 								<input type="date" class="form-control"
-									ng-model="progress.enddate" required>
+									ng-model="progress.enddate">
 							</div>
 							<label for="projectTitle" class="col-sm-2 control-label">
 								End Time: </label>
@@ -93,11 +131,11 @@
 
 							</div>
 						</div>
-						<input type="button" value="SAVE" ng-click="insertProgressData()" />
+						<input type="button" class="btn btn-default" value="SAVE"
+							ng-click="insertProgressData()" />
 
 					</form>
-					<div class="table table-responsive"
-						ng-controller="reportListController">
+					<div class="table table-responsive">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -105,7 +143,7 @@
 									<th>ReportNo</th>
 									<th>End Date</th>
 									<th>End Time</th>
-									<th>....</th>
+									<th>Delete</th>
 
 								</tr>
 							</thead>
@@ -114,7 +152,8 @@
 									<td>{{x.reportNo}}</td>
 									<td>{{x.endDate}}</td>
 									<td>{{x.endTime}}</td>
-									<td>remove</td>
+									<td><button ng-click="deletePRData(x.reportNo)"
+											class="btn btn-danger btn-xs">Delete</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -126,13 +165,14 @@
 				<button type="button" class="btn btn-info col-sm-12"
 					data-toggle="collapse" data-target="#other">Other
 					Submissions Controller</button>
-				<div id="other" class="collapse">
-					<form class="form-horizontal" ng-controller="formController">
+				<div id="other" class="collapse" ng-controller="formController"
+					ng-init="displayDataForm()">
+					<form class="form-horizontal">
 						<div class="form-group">
 							<label for="projectTitle" class="col-sm-2 control-label">
 								Form/Report type: </label>
 							<div class="col-sm-10	">
-								<select class="form-control" ng-model="form.type" required>
+								<select class="form-control" ng-model="form.type">
 									<option>Supervisor Details</option>
 									<option>Client Details</option>
 									<option>Project Proposal</option>
@@ -147,45 +187,45 @@
 							<label for="projectTitle" class="col-sm-2 control-label">
 								End date: </label>
 							<div class="col-sm-4">
-								<input type="date" ng-model="form.enddate" class="form-control" required>
+								<input type="date" ng-model="form.enddate" class="form-control">
 							</div>
 							<label for="projectTitle" class="col-sm-2 control-label">
 								End Time: </label>
 							<div class="col-sm-4">
-								<input type="time" ng-model="form.endtime" class="form-control" required>
+								<input type="time" ng-model="form.endtime" class="form-control">
 
 							</div>
 						</div>
-						<button type="button" class="btn-default" ng-click="insertFormSubData()">Save</button>
-						<div class="table table-responsive" ng-controller="formSubListController">
-						<table class="table table-striped">
-							<thead>
-								<tr>
+						<button type="button" class="btn btn-default"
+							"
+							ng-click="insertFormSubData()">Save</button>
+						<div class="table table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
 
-									<th>FormType</th>
-									<th>End Date</th>
-									<th>End Time</th>
-									<th>....</th>
+										<th>FormType</th>
+										<th>End Date</th>
+										<th>End Time</th>
+										<th>Delete</th>
 
-								</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="y in myArray2">
-									<td>{{y.formType}}</td>
-									<td>{{y.endDate}}</td>
-									<td>{{y.endTime}}</td>
-									<td>remove</td>
-								</tr>
-							</tbody>
-						</table>						
-						
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="y in myArray2">
+										<td>{{y.formType}}</td>
+										<td>{{y.endDate}}</td>
+										<td>{{y.endTime}}</td>
+										<td><button ng-click="deleteFormData(y.formType)"
+												class="btn btn-danger btn-xs">Delete</button></td>
+									</tr>
+								</tbody>
+							</table>
+
 						</div>
 					</form>
 				</div>
 			</div>
-
-
-
 		</div>
 	</div>
 </body>

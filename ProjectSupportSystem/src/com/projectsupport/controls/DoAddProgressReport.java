@@ -46,6 +46,7 @@ public class DoAddProgressReport extends HttpServlet {
 			return;
 		}
 		int studentId = Integer.parseInt(currentUser.getUserName());
+		int reportNo = Integer.parseInt(request.getParameter("reportNo"));
 		String workCarried = request.getParameter("workCarried");
 		String describe = request.getParameter("description");
 		String problems = request.getParameter("problems");
@@ -54,6 +55,7 @@ public class DoAddProgressReport extends HttpServlet {
 		
 		ProgressReport newReport = new ProgressReport();
 		newReport.setStudentId(studentId);
+		newReport.setReportNo(reportNo);
 		newReport.setWorkCarried(workCarried);
 		newReport.setDescribe(describe);
 		newReport.setProblems(problems);

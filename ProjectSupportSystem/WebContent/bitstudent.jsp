@@ -30,9 +30,8 @@
 	<jsp:include page="_leftSideBarStudent.jsp"/>
 	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	
-	<div class="changer" id="formload">
-		
-
+	<div class="changer" id="formload" style="margin-left:300px;">
+		<h2> Messages Goes Here </h2>
 
 	</div>
 
