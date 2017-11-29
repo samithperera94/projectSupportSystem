@@ -42,7 +42,7 @@
 			<div class="container-fluid spacing">
 				<button type="button" class="btn btn-info col-sm-12"
 					data-toggle="collapse" data-target="#message">Post a
-					message</button>
+					message </button>
 				<div id="message" class="collapse" ng-controller="messageController"
 					ng-init="displayMessages()" style="margin-top: 50px;">
 					<form class="form-horizontal">
@@ -116,6 +116,17 @@
 								</select>
 							</div>
 						</div>
+						<div class="form-group">
+							<label for="projectTitle" class="col-sm-2 control-label">
+								Start-Date-Time: </label>
+							<div class="col-sm-10">
+								<input type="date" class="form-control"
+									ng-model="progress.enddate">
+							</div>
+							
+
+						</div>
+						
 						<div class="form-group">
 							<label for="projectTitle" class="col-sm-2 control-label">
 								End date: </label>

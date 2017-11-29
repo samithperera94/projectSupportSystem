@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+	var app = angular.module('myApp', []);
 	app.controller('progressController', function($scope, $http) {
 	
 		$scope.insertProgressData = function() {
@@ -150,12 +150,12 @@ var app = angular.module('myApp', []);
 		
 		$scope.deleteMessage = function(msgId){
 			if(confirm("Are you sure do you want to delete this data ?")){
-				var messageID = {"msgId":msgId}
+				var msgId = {"msgId":msgId}
 				$http({
 					method : 'POST',
 					url : 'http://localhost:8080/ProjectSupportSystem/DeleteMessages',
 					contentType: 'application/json',
-					data : JSON.stringify(messageID)
+					data : JSON.stringify(msgId)
 				}).then(function successCallback(response) {
 					console.log('success');
 					$scope.displayMessages();

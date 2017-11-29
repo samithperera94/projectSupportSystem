@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-</div class="left-side-bar">
+
 <div class="container-fluid">
 	<div class="row">
 		<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
