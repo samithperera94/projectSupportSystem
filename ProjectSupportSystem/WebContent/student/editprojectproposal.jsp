@@ -176,8 +176,7 @@
 									</select></td>
 									<td class="col-sm-3"><input class="form-control"
 										type="date" value="{{plan.startingDate1}}" id="sdate1"
-										name="sdate1" ng-disabled="state" ng-init="state=true"
-										required></td>
+										name="sdate1" ng-disabled="state" ng-init="state=true" required></td>
 									<td class="col-sm-3"><input class="form-control"
 										type="date" value="{{plan.endingDate1}}" id="edate1"
 										name="edate1" ng-disabled="state" ng-init="state=true"
@@ -433,7 +432,7 @@
 
 							</tbody>
 						</table>
-					</div>
+						</div>
 
 
 
@@ -441,6 +440,7 @@
 					<button type="submit" class="btn btn-default">Save</button>
 					<a class="btn btn-default" ng-click="state=false"> Edit </a> 
 					<a class="btn btn-default" href="DoDeleteProjectProposal"> Delete </a>
+				
 					</div>
 				</div>
 			</form>
