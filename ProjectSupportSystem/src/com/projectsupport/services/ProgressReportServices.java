@@ -4,15 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.projectsupport.models.ProgressReport;
 import com.projectsupport.models.ProgressReportSub;
+import com.projectsupport.models.ProjectPlan;
 
 public class ProgressReportServices {
-	public static void insertProgressReport(Connection conn,ProgressReport pro) throws SQLException {
-		String sql = "Insert into ProgressReports (reportNo,workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned,Student_idStudent) values (?,?,?,?,?,?,?)";
+	public static void insertProgressReport(Connection conn,ProgressReport pro,ProjectPlan plan,ProgressReportSub submission) throws SQLException, ParseException {
+		String sql = "Insert into ProgressReports (reportNo,workCarried,describeTheWork,problems,workPlannedButNotDone,workPlanned,marks,Student_idStudent) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setInt(1, pro.getReportNo());
 		pstm.setString(2,pro.getWorkCarried());
@@ -20,10 +25,13 @@ public class ProgressReportServices {
 		pstm.setString(4,pro.getProblems());
 		pstm.setString(5,pro.getWorkPlannedButNotDone());
 		pstm.setString(6,pro.getWorkPlanned());
-		pstm.setInt(7,pro.getStudentId());
+		pstm.setFloat(7,MarkingAutomation(plan,pro,submission));
+		pstm.setInt(8,pro.getStudentId());
 		pstm.executeUpdate();
 	}
 	
+	
+
 	public static ProgressReport findProgressReport(Connection conn, int stundentID) throws SQLException {
 		String sql1 = "select MAX(idProgressReports) from ProgressReports where Student_idStudent=?";
 		PreparedStatement pstm1 = conn.prepareStatement(sql1);
@@ -54,25 +62,26 @@ public class ProgressReportServices {
 			}
 			
 			}
-		return null;
+				return null;
 		}
 
 
-	public static void editProgressReport(Connection conn, ProgressReport pro) throws SQLException {
+	public static void editProgressReport(Connection conn, ProgressReport pro,ProjectPlan plan,ProgressReportSub submission) throws SQLException, ParseException {
 		String sql1 = "select MAX(idProgressReports) from ProgressReports where Student_idStudent=?";
 		PreparedStatement pstm1 = conn.prepareStatement(sql1);
 		pstm1.setInt(1,pro.getStudentId());
 		ResultSet rs1 = pstm1.executeQuery();
 		if(rs1.next()){
 			int latest = rs1.getInt(1);
-			String sql2 = "Update ProgressReports set workCarried=?,describeTheWork=?,problems=?,workPlannedButNotDone=?,workPlanned=? where idProgressReports=?";
+			String sql2 = "Update ProgressReports set workCarried=?,describeTheWork=?,problems=?,workPlannedButNotDone=?,workPlanned=?,marks=? where idProgressReports=?";
 			PreparedStatement pstm2 = conn.prepareStatement(sql2);
 			pstm2.setString(1,pro.getWorkCarried());
 			pstm2.setString(2, pro.getDescribe());
 			pstm2.setString(3,pro.getProblems());
 			pstm2.setString(4,pro.getWorkPlannedButNotDone());
 			pstm2.setString(5,pro.getWorkPlanned());
-			pstm2.setInt(6,latest);
+			pstm2.setFloat(6,MarkingAutomation(plan,pro,submission));
+			pstm2.setInt(7,latest);
 			pstm2.executeUpdate();
 		}
 			
@@ -154,6 +163,149 @@ public class ProgressReportServices {
 		return null;
 	}
 	
+	public static float MarkingAutomation(ProjectPlan plan,ProgressReport progressreport, ProgressReportSub submission) throws ParseException{
+		if(progressreport.getWorkCarried().equals("Find a project and meet client")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate1());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+				
+		}
+		else if(progressreport.getWorkCarried().equals("Feasibility Study")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate2());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Gather client requirements")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate3());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Define scope")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate4());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Define users and use cases")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate5());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Requirement Analysis")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate6());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		
+		else if(progressreport.getWorkCarried().equals("UI-Design")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate7());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("UI-Development")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate8());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Back-end Developmen")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate9());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		else if(progressreport.getWorkCarried().equals("Testing")){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date deadline = sdf.parse(submission.getEndDate());
+			Date planDate = sdf.parse(plan.getEndingDate10());
+			if(planDate.after(deadline) || planDate.equals(deadline)){
+				return (float) 0.5;
+			}
+			else{
+				return 0;
+			}
+		}
+		return 0;
+	}
+	public static void insertMarks(Connection conn,ProjectPlan plan,ProgressReport progressreport, ProgressReportSub submission) throws ParseException,SQLException {
+		float finalMarks = MarkingAutomation(plan,progressreport,submission);
+		String sql = "Update ProgressReports set marks=? where Student_idStudent=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setFloat(1,finalMarks);
+		pstm.setInt(2,progressreport.getStudentId());
+		pstm.executeUpdate();
+	}
+	
+	public static ProgressReportSub findProgressReportSub(Connection conn,int progressReportNo) throws SQLException {
+		String sql = "Select * from progressReportDetails where progressNo=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, progressReportNo);
+		ResultSet rs = pstm.executeQuery();
+		while(rs.next()) {
+			String endDate = rs.getString("endDate");
+			String endTime = rs.getString("endTime");
+			ProgressReportSub submission = new ProgressReportSub();
+			submission.setReportNo(progressReportNo);
+			submission.setEndDate(endDate);
+			submission.setEndTime(endTime);
+			return submission;
+			
+		}
+		return null;
+	}
+}
+	
 	
 
-}
+

@@ -54,6 +54,9 @@
 				<h4>PROGRESS REPORT NO ${reportNo} </h4>
 				<h4>  ${timeRemainingProgress} </h4>
 				<div ng-app="myApp" ng-controller="ProgressController">
+				<div class="form-group col-sm-12">
+					<input type="hidden" name="reportNo" id="reportNo" value="${reportNo}"/>
+				</div>
 					<div class="form-group col-sm-12">
 						<label for="exampleTextarea">Work carried out between this
 							meeting and previous meeting: </label> <select class="form-control"
@@ -70,6 +73,7 @@
 							<option>UI-Design</option>
 							<option>UI-Development</option>
 							<option>Back-end Development</option>
+							<option>Testing</option>
 
 
 						</select>
@@ -77,7 +81,7 @@
 					<div class="form-group col-sm-12">
 						<label for="exampleTextarea">Describe the above task: </label>
 						<textarea class="form-control" id="exampleTextarea" rows="3"
-							name="workCarried" ng-disabled="state" ng-init="state=true"
+							name="description" ng-disabled="state" ng-init="state=true"
 							required>{{progressreport.describe}}</textarea>
 					</div>
 					<div class="form-group col-sm-12">
