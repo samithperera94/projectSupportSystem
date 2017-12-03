@@ -7,9 +7,23 @@ public class ProgressReport {
 	private String problems;
 	private String workPlannedButNotDone;
 	private String workPlanned;
-	private int mark;
+	private float mark;
 	private int studentId;
+	private String supervisorState;
+	private String supervisorRemark;
 	
+	public String getSupervisorState() {
+		return supervisorState;
+	}
+	public void setSupervisorState(String supervisorState) {
+		this.supervisorState = supervisorState;
+	}
+	public String getSupervisorRemark() {
+		return supervisorRemark;
+	}
+	public void setSupervisorRemark(String supervisorRemark) {
+		this.supervisorRemark = supervisorRemark;
+	}
 	public String getDescribe() {
 		return describe;
 	}
@@ -40,10 +54,10 @@ public class ProgressReport {
 	public void setWorkPlanned(String workPlanned) {
 		this.workPlanned = workPlanned;
 	}
-	public int getMark() {
+	public float getMark() {
 		return mark;
 	}
-	public void setMark(int mark) {
+	public void setMark(float mark) {
 		this.mark = mark;
 	}
 	public int getStudentId() {

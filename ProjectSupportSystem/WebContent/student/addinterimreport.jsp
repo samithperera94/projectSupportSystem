@@ -60,7 +60,7 @@
 					<div class="col-sm-9">
 						<input type="file" name="formName" required>
 						<p class="help-block col-sm-3">"*filename:
-							interim-report-index-no.pdf"</p>
+							index-no_interim.pdf"</p>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-default">Save</button>

@@ -52,7 +52,7 @@ public class DownloadInterimReport extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		String fileName = interim.getFormName();
-		String path = "/var//www/html/interimReport/";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test/";
 		response.setContentType("APPLICATION/OCTET-STREAM");
 		response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
 		FileInputStream fileinputstream = new FileInputStream(path+fileName);

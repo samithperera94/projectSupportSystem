@@ -92,3 +92,16 @@ app.controller('PlanController', function($scope, $http) {
 
 });
 
+app.controller('ProgressReportListController',function($scope,$http){
+	$scope.reportList = [];
+	$http({
+		method : 'GET',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReportList'
+	}).then(function successCallback(response) {
+		$scope.reportList = response.data;
+		console.log('success');
+	}, function errorCallback(response) {
+		console.log('error');
+	});
+});
+
