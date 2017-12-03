@@ -66,15 +66,15 @@ public class DoAddSupervisor extends HttpServlet {
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
 		Part filepart = request.getPart("agreementForm");
-		String fileName = null;
-		String path = "/var/www/html/";
+		String fileName = currentUser.getUserName()+"_supervisorAgreement.pdf";;
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test";
 		String partHeader = filepart.getHeader("content-disposition");
 		LOGGER.log(Level.INFO,"Part Header = {0}",partHeader);
-		for(String content : filepart.getHeader("content-disposition").split(";")){
+		/*for(String content : filepart.getHeader("content-disposition").split(";")){
 			if(content.trim().startsWith("filename")){
 				fileName = content.substring(content.indexOf('=')+1).trim().replace("\"","");
 			}
-		}
+		}*/
 		
 		try {
 			outputstream = new FileOutputStream(new File(path+File.separator+fileName));

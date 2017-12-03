@@ -14,6 +14,7 @@ import java.util.List;
 import com.projectsupport.models.ProgressReport;
 import com.projectsupport.models.ProgressReportSub;
 import com.projectsupport.models.ProjectPlan;
+import com.projectsupport.models.Student;
 
 public class ProgressReportServices {
 	public static void insertProgressReport(Connection conn,ProgressReport pro,ProjectPlan plan,ProgressReportSub submission) throws SQLException, ParseException {
@@ -304,7 +305,29 @@ public class ProgressReportServices {
 		}
 		return null;
 	}
-}
+	
+	public static List<ProgressReport> getProgressReportList(Connection conn,int studentId) throws SQLException {
+		String sql = "select reportNo,marks,SupervisorsState,SupervisorRemarks from ProgressReports where Student_idStudent=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, studentId);
+		ResultSet rs = pstm.executeQuery();
+		List<ProgressReport> list = new ArrayList<ProgressReport>();
+		while(rs.next()){
+			int reportNo = rs.getInt("reportNo");
+			float marksObtained  = rs.getFloat("marks");
+			String supervisorState = rs.getString("SupervisorsState");
+			String supervisorRemarks = rs.getString("SupervisorRemarks");
+			ProgressReport progressreport = new ProgressReport();
+			progressreport.setStudentId(studentId);
+			progressreport.setReportNo(reportNo);
+			progressreport.setMark(marksObtained);
+			progressreport.setSupervisorState(supervisorState);
+			progressreport.setSupervisorRemark(supervisorRemarks);
+			list.add(progressreport);
+		}
+		return list;
+	}
+} 
 	
 	
 

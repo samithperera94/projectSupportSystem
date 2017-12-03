@@ -51,7 +51,7 @@ public class DownloadSupervisorFrom extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		String fileName = supervisor.getAgreementForm();
-		String path = "/var//www/html/";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test/";
 		response.setContentType("APPLICATION/OCTET-STREAM");
 		response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
 		FileInputStream fileinputstream = new FileInputStream(path+fileName);

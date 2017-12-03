@@ -52,7 +52,7 @@ public class DownloadClientAgreementForm extends HttpServlet {
 		}
 		ServletOutputStream  out = response.getOutputStream();
 		String fileName = client.getFormName();
-		String path = "/var//www/html/clientAgreement/";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test/";
 		//response.setContentType("APPLICATION/pdf");
 		//response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
 		FileInputStream fileinputstream = new FileInputStream(path+fileName);

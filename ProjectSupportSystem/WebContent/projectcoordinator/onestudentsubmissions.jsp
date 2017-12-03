@@ -30,9 +30,10 @@
 
 	<%-- <jsp:include page="../_header.jsp" />  --%>
 	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
+	<div class="row">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">UCSC </a>
 		</div>
@@ -42,33 +43,145 @@
 
 			<li><a href="#"> ${student.studentId}</a>
 		</ul>
-	</div>
+	
 	</nav>
+	</div>
+	<div class="row">
+		<div class="sm-12" id="topspace"> 
+				
+		</div>	
+	</div>
 
+	<div class="row">
+		<div class="col-sm-1">
+			
 
-	<div class="container-fluid" id="formload">
-		<div id="submittedlist">
+		</div>
+		<div class="col-sm-10">
 			<div ng-app="myApp">
+				
 				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
+					<button type="button" class="btn btn-primary col-sm-12"
+						data-toggle="collapse" data-target="#progress">Progress-Report
+						Details</button>
+					
+					<div id="progress" class="collapse in">
+					<div ng-controller="ProgressReportListController">
+					<div class="table table-responsive">
+						<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Progress ReportNo</th>
+								<th>Supervisor's Remark</th>
+								<th>Supervisor's State</th>
+								<th>Marks Obtained</th>
+								<th> view </th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="a in reportList">
+								<td>{{a.reportNo}}</td>
+								<td>{{a.supervisorRemark}}</td>
+								<td>{{a.supervisorState}}</td>
+								<td>{{a.mark}} </td>
+								<td><button class="btn btn-info btn-xs">View </button> </td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+					</div>
+					</div>
+					
+					<p></p>
+				</div>
+
+				<div class="container-fluid spacing">
+					<button type="button" class="btn btn-primary col-sm-12"
+						data-toggle="collapse" data-target="#interim">Interim
+						Report</button>
+					<div id="interim" class="collapse in">
+						<div class="col-sm-6">
+						<form class="form-horizontal" enctype="multipart/form-data">
+							<div ng-controller="InterimController">
+								<div class="form-group">
+									<label for="hide1" class="col-sm-1 control-label"></label>
+									<p class="help-block col-sm-6">
+										<a href="DownloadInterimReport" target="_blank">
+											Uploaded:{{interim.formName}} </a>
+									</p>
+									<iframe src="test/Group_12.pdf" width="100%" height="500px">
+
+									</iframe>
+									</div>
+
+
+							</div>
+
+						</form>
+						</div>
+						<div class=col-sm-3>
+							<table class="table table-bordered" style="margin-top:50px;">
+							<tbody>
+							<tr> 
+								<th>Insert Marks </th>
+								<td> <input type="text" class="form-control"> </td>
+								<td> <a type="button" class="btn btn-primary btn"> save </a></td>
+							</tr>
+							</tbody>
+							</table>
+						
+					</div>
+						
+					</div>
+					<p></p>
+				</div>
+				<div class="container-fluid spacing">
+					<button type="button" class="btn btn-primary col-sm-12"
+						data-toggle="collapse" data-target="#dist">Dissertation</button>
+					<div id="dist" class="collapse in">
+						<form class="form-horizontal" enctype="multipart/form-data">
+							<div ng-controller="DissertationController">
+								<div class="form-group">
+									<label for="hide1" class="col-sm-1 control-label"></label>
+									<p class="help-block col-sm-6">
+										<a href="DownloadDissertation" target="_blank">
+											Uploaded:{{dissertation.formName}} </a>
+									</p>
+									<label for="hide2" class="col-sm-10 control-label"></label> <br />
+									<label for="InputMarks" class="col-sm-3 control-label">Insert
+										Marks</label>
+									<div class=col-sm-4>
+										<input type="text" class="form-control">
+										<button type="submit" class="btn btn-default">Save</button>
+									</div>
+
+								</div>
+							</div>
+						</form>
+					</div>
+					<p></p>
+				</div>
+				<div class="container-fluid spacing">
+					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#proposal">Project
 						Details</button>
 					<div id="proposal" class="collapse">
 						<form class="form-horizontal">
 							<div ng-controller="ProposalController">
 								<div class="form-group">
-									<label for="projectTitle" class="col-sm-3 control-label">
+									<label for="projectTitle" class="col-sm-3 control-label" style="margin-top:50px;">
 										Project Title: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<input type="text" class="form-control" name="projectTitle"
 											placeholder="Project Title" value="{{proposal.projectTitle}}"
-											ng-disabled="state" ng-init="state=true" required>
+											ng-disabled="state" ng-init="state=true" required  style="margin-top:50px;">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="projectTitle" class="col-sm-3 control-label">
 										Number of Attempts: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<input type="text" class="form-control" name="noOfAttempts"
 											placeholder="No of attempts (If repeat Student)"
 											value="{{proposal.noOfAttempts}}" ng-disabled="state"
@@ -78,7 +191,7 @@
 								<div class="form-group">
 									<label for="previousDecision" class="col-sm-3 control-label">
 										previous Decision: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<input type="text" class="form-control"
 											name="previousDecision"
 											placeholder="Previous Decision(if repeat student)"
@@ -89,7 +202,7 @@
 								<div class="form-group">
 									<label for="earlierTitle" class="col-sm-3 control-label">
 										Earlier Project Title: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<input type="text" class="form-control" name="earlierTitle"
 											placeholder="Earlier Project Title(if repeat student)"
 											value={{proposal.earlierProjectTitle}} ng-disabled="state"
@@ -100,7 +213,7 @@
 									<label for="motivationForProject"
 										class="col-sm-3 control-label"> Motivation for the
 										Project: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="motivation" rows="3"
 											placeholder="Motivation for the project" ng-disabled="state"
 											ng-init="state=true" required>{{proposal.motivation}}</textarea>
@@ -109,7 +222,7 @@
 								<div class="form-group">
 									<label for="Objectives" class="col-sm-3 control-label">
 										Objectives: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="objectives" rows="3"
 											placeholder="Objectives" ng-disabled="state"
 											ng-init="state=true" required>{{proposal.objectives}}</textarea>
@@ -118,7 +231,7 @@
 								<div class="form-group">
 									<label for="scope" class="col-sm-3 control-label">
 										Scope: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="scope" rows="3"
 											placeholder="Scope of the project" ng-disabled="state"
 											ng-init="state=true" required>{{proposal.scope}}</textarea>
@@ -127,7 +240,7 @@
 								<div class="form-group">
 									<label for="functionlities" class="col-sm-3 control-label">
 										Critical functionalities: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="funtionalities" rows="3"
 											placeholder="Critical Functionalaties of for project"
 											ng-disabled="state" ng-init="state=true" required>{{proposal.functionalities}}</textarea>
@@ -136,7 +249,7 @@
 								<div class="form-group">
 									<label for="deliverables" class="col-sm-3 control-label">
 										Critical functionalities: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="deliverables" rows="3"
 											placeholder="Deliverables are Items that you would deliver to the client at the end of the project"
 											ng-disabled="state" ng-init="state=true" required>{{proposal.deliverables}}</textarea>
@@ -145,7 +258,7 @@
 								<div class="form-group">
 									<label for="resources" class="col-sm-3 control-label">
 										Resource Requirements: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="resources" rows="3"
 											placeholder="Eg : hardware,software, ...."
 											ng-disabled="state" ng-init="state=true" required>{{proposal.resources}}</textarea>
@@ -155,7 +268,7 @@
 								<div class="form-group">
 									<label for="evaluation" class="col-sm-3 control-label">
 										Self-Evaluation: </label>
-									<div class="col-sm-9">
+									<div class="col-sm-8">
 										<textarea class="form-control" name="evauation" rows="3"
 											placeholder="Proposed way of self evaluating the success of your system"
 											ng-disabled="state" ng-init="state=true" required>{{proposal.evaluation}}</textarea>
@@ -333,7 +446,7 @@
 					<p></p>
 				</div>
 				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
+					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#super">Supervisor
 						Details</button>
 					<div id="super" class="collapse col-sm-6">
@@ -423,7 +536,7 @@
 					<p></p>
 				</div>
 				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
+					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#client">Client
 						Details</button>
 					<div id="client" class="collapse">
@@ -514,81 +627,11 @@
 					</div>
 					<p></p>
 				</div>
-				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
-						data-toggle="collapse" data-target="#progress">Progress-Report
-						Details</button>
-					<div id="progress" class="collapse"></div>
-					<p></p>
-				</div>
-
-				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
-						data-toggle="collapse" data-target="#interim">Interim
-						Report</button>
-					<div id="interim" class="collapse in">
-						<div class="col-sm-8">
-						<form class="form-horizontal" enctype="multipart/form-data">
-							<div ng-controller="InterimController">
-								<div class="form-group">
-									<label for="hide1" class="col-sm-1 control-label"></label>
-									<p class="help-block col-sm-6">
-										<a href="DownloadInterimReport" target="_blank">
-											Uploaded:{{interim.formName}} </a>
-									</p>
-									<iframe src="test/Group_12.pdf" width="100%" height="500px">
-
-									</iframe>
-									</div>
-
-
-							</div>
-
-						</form>
-						</div>
-						<div class=col-sm-3>
-							<table class="table table-bordered" style="margin-top:50px;">
-							<tbody>
-							<tr> 
-								<th>Insert Marks </th>
-								<td> <input type="text" class="form-control"> </td>
-								<td> <a type="button" class="btn btn-primary btn"> save </a></td>
-							</tr>
-							</tbody>
-							</table>
-						
-					</div>
-						
-					</div>
-					<p></p>
-				</div>
-				<div class="container-fluid spacing">
-					<button type="button" class="btn btn-info col-sm-12"
-						data-toggle="collapse" data-target="#dist">Dissertation</button>
-					<div id="dist" class="collapse in">
-						<form class="form-horizontal" enctype="multipart/form-data">
-							<div ng-controller="DissertationController">
-								<div class="form-group">
-									<label for="hide1" class="col-sm-1 control-label"></label>
-									<p class="help-block col-sm-6">
-										<a href="DownloadDissertation" target="_blank">
-											Uploaded:{{dissertation.formName}} </a>
-									</p>
-									<label for="hide2" class="col-sm-10 control-label"></label> <br />
-									<label for="InputMarks" class="col-sm-3 control-label">Insert
-										Marks</label>
-									<div class=col-sm-4>
-										<input type="text" class="form-control">
-										<button type="submit" class="btn btn-default">Save</button>
-									</div>
-
-								</div>
-							</div>
-						</form>
-					</div>
-					<p></p>
-				</div>
 			</div>
+		</div>
+		<div class="col-sm-1">
+		
+		</div>
 		</div>
 	</div>
 

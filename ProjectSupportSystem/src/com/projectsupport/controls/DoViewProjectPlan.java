@@ -61,16 +61,7 @@ public class DoViewProjectPlan extends HttpServlet {
 		ProjectPlan plan = new ProjectPlan();
 		try {
 			plan = ProjectPlanServices.findProjectPlan(conn, studentId);	
-			System.out.println(plan.getStartingDate1());
-			System.out.println(plan.getStartingDate2());
-			System.out.println(plan.getStartingDate3());
-			System.out.println(plan.getStartingDate4());
-			System.out.println(plan.getStartingDate5());
-			System.out.println(plan.getStartingDate6());
-			System.out.println(plan.getStartingDate7());
-			System.out.println(plan.getStartingDate8());
-			System.out.println(plan.getStartingDate9());
-			System.out.println(plan.getStartingDate10());
+			
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();
