@@ -66,7 +66,7 @@
 						Details</button>
 					
 					<div id="progress" class="collapse in">
-					<div ng-controller="ProgressReportListController">
+					<div ng-controller="progressReportMarkController" ng-init="loadProgressReportList();">
 					<div class="table table-responsive">
 						<table class="table table-striped">
 						<thead>
@@ -85,7 +85,7 @@
 								<td>{{a.supervisorRemark}}</td>
 								<td>{{a.supervisorState}}</td>
 								<td>{{a.mark}} </td>
-								<td><button class="btn btn-info btn-xs">View </button> </td>
+								<td> <a type="button" class="btn btn-info btn-xs" href="ShowProgressReportList?stuID={{a.studentId}}&repNO={{a.reportNo}}" target="_blank"> View </a> </td>
 							</tr>
 						</tbody>
 						</table>
@@ -110,7 +110,7 @@
 										<a href="DownloadInterimReport" target="_blank">
 											Uploaded:{{interim.formName}} </a>
 									</p>
-									<iframe src="test/Group_12.pdf" width="100%" height="500px">
+									<iframe ng-src={{interim.formName}} width="100%" height="500px">
 
 									</iframe>
 									</div>

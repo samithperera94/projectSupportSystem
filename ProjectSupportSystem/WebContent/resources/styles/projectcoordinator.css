@@ -154,5 +154,19 @@ h3 {
 	background-color:#e3f2fd;
 	
 }
+.manualMarks {
+	padding:20px;
+	background-color:#e0f2f1;
+	border-radius:5px;
+}
+.systemMarks {
+	background-color:#a5d6a7;
+}
+
+#progressreport1{
+	
+	background-color:#bbdefb;
+	padding:10px;
+}
 
 

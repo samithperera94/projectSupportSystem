@@ -10,11 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import com.projectsupport.models.ProgressReport;
 import com.projectsupport.models.ProgressReportSub;
 import com.projectsupport.models.ProjectPlan;
-import com.projectsupport.models.Student;
+
 
 public class ProgressReportServices {
 	public static void insertProgressReport(Connection conn,ProgressReport pro,ProjectPlan plan,ProgressReportSub submission) throws SQLException, ParseException {
@@ -327,7 +326,63 @@ public class ProgressReportServices {
 		}
 		return list;
 	}
-} 
+	
+	public static ProgressReport getReportByIdandNo(Connection conn,int studentId,int reportNo) throws SQLException{
+		String sql = "select * from ProgressReports where Student_idStudent=? and reportNo=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, studentId);
+		pstm.setInt(2, reportNo);
+		ResultSet rs = pstm.executeQuery();
+		while(rs.next()){
+			float marksObtained  = rs.getFloat("marks");
+			String workCarried = rs.getString("workCarried");
+			String description = rs.getString("describeTheWork");
+			String problems = rs.getString("problems");
+			String workPlannedNotDone = rs.getString("workPlannedButNotDone");
+			String workPlanned = rs.getString("workPlanned");
+			String supervisorState = rs.getString("SupervisorsState");
+			String supervisorRemarks = rs.getString("SupervisorRemarks");
+			ProgressReport progressreport = new ProgressReport();
+			progressreport.setStudentId(studentId);
+			progressreport.setReportNo(reportNo);
+			progressreport.setWorkCarried(workCarried);
+			progressreport.setDescribe(description);
+			progressreport.setProblems(problems);
+			progressreport.setWorkPlannedButNotDone(workPlannedNotDone);
+			progressreport.setWorkPlanned(workPlanned);
+			progressreport.setMark(marksObtained);
+			progressreport.setSupervisorState(supervisorState);
+			progressreport.setSupervisorRemark(supervisorRemarks);
+			return progressreport;
+		}
+		return null;
+	}
+	
+	public static void insertMarks(Connection conn, int studentId,int reportNo,float mark) throws SQLException{
+		String sql = "update ProgressReports set marks=? where Student_idStudent=? and reportNo=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setFloat(1, mark);
+		pstm.setInt(2, studentId);
+		pstm.setInt(3, reportNo);
+		pstm.executeUpdate();
+	}
+	
+	public static float getProgressReportMarks(Connection conn,int studentId,int reportNo) throws SQLException{
+		String sql = "select marks from ProgressReports where Student_idStudent=? and reportNo=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, studentId);
+		pstm.setInt(2, reportNo);
+		ResultSet rs = pstm.executeQuery();
+		while(rs.next()){
+			float prmarks = rs.getFloat("marks");
+			return prmarks;
+		
+		}
+		return 0;
+	}
+
+}
+
 	
 	
 

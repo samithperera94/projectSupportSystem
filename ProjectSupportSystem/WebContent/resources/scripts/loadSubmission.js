@@ -1,5 +1,7 @@
 var app = angular.module('myApp', []);
 
+
+
 app.controller('SupController', function($scope, $http) {
 	$http({
 		method : 'GET',
@@ -67,6 +69,7 @@ app.controller('InterimController', function($scope, $http) {
 });
 
 app.controller('ProgressController', function($scope, $http) {
+	
 	$http({
 		method : 'GET',
 		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReport'
@@ -92,7 +95,8 @@ app.controller('PlanController', function($scope, $http) {
 
 });
 
-app.controller('ProgressReportListController',function($scope,$http){
+/*app.controller('ProgressReportListController',function($scope,$http){
+	$scope.loadProgressReportList = function() {
 	$scope.reportList = [];
 	$http({
 		method : 'GET',
@@ -103,5 +107,52 @@ app.controller('ProgressReportListController',function($scope,$http){
 	}, function errorCallback(response) {
 		console.log('error');
 	});
+	}
+});*/
+
+app.controller('progressReportMarkController', function($scope, $http) {
+	$scope.insertProgressReportMarks = function() {
+	console.log($scope.prMark);
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/InsertProgressReportMark',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.prMark)
+	}).then(function successCallback(data) {
+		$scope.prMark.mark = null;
+		$scope.displayDataPR();
+		$scope.loadProgressReportList();
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+}
+
+$scope.displayDataPR = function() {
+	$http({
+		method : 'GET',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReportMarks'
+	}).then(function successCallback(response) {
+		$scope.marks = response.data;
+		console.log('sucess');
+	}, function errorCallback(response) {
+		console.log('error');
+	});
+}
+
+$scope.loadProgressReportList = function() {
+	$scope.reportList = [];
+	$http({
+		method : 'GET',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReportList'
+	}).then(function successCallback(response) {
+		$scope.reportList = response.data;
+		console.log('success');
+	}, function errorCallback(response) {
+		console.log('error');
+	});
+}
+
 });
+
 
