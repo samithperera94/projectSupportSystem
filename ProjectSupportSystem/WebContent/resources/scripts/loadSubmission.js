@@ -95,21 +95,6 @@ app.controller('PlanController', function($scope, $http) {
 
 });
 
-/*app.controller('ProgressReportListController',function($scope,$http){
-	$scope.loadProgressReportList = function() {
-	$scope.reportList = [];
-	$http({
-		method : 'GET',
-		url : 'http://localhost:8080/ProjectSupportSystem/DoViewProgressReportList'
-	}).then(function successCallback(response) {
-		$scope.reportList = response.data;
-		console.log('success');
-	}, function errorCallback(response) {
-		console.log('error');
-	});
-	}
-});*/
-
 app.controller('progressReportMarkController', function($scope, $http) {
 	$scope.insertProgressReportMarks = function() {
 	console.log($scope.prMark);
@@ -155,4 +140,31 @@ $scope.loadProgressReportList = function() {
 
 });
 
+app.controller('InterimMarkController', function($scope, $http) {
+	$scope.insertInterimMark = function() {
+	console.log($scope.intMark);
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/InsertInterimMark',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.intMark)
+	}).then(function successCallback(data) {
+		$scope.displayInterimMark();
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+}
 
+$scope.displayInterimMark = function() {
+	$http({
+		method : 'GET',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoViewInterimReport'
+	}).then(function successCallback(response) {
+		$scope.interim = response.data;
+		console.log('sucess');
+	}, function errorCallback(response) {
+		console.log('error');
+	});
+}
+});

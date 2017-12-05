@@ -101,7 +101,7 @@
 						data-toggle="collapse" data-target="#interim">Interim
 						Report</button>
 					<div id="interim" class="collapse in">
-						<div class="col-sm-6">
+						<div class="col-sm-8">
 						<form class="form-horizontal" enctype="multipart/form-data">
 							<div ng-controller="InterimController">
 								<div class="form-group">
@@ -110,31 +110,114 @@
 										<a href="DownloadInterimReport" target="_blank">
 											Uploaded:{{interim.formName}} </a>
 									</p>
-									<iframe ng-src={{interim.formName}} width="100%" height="500px">
+									<iframe ng-src="{{interim.formName}}" width="100%" height="500px">
 
 									</iframe>
-									</div>
+								</div>
 
 
 							</div>
 
 						</form>
 						</div>
-						<div class=col-sm-3>
-							<table class="table table-bordered" style="margin-top:50px;">
-							<tbody>
-							<tr> 
-								<th>Insert Marks </th>
-								<td> <input type="text" class="form-control"> </td>
-								<td> <a type="button" class="btn btn-primary btn"> save </a></td>
-							</tr>
-							</tbody>
-							</table>
-						
-					</div>
-						
-					</div>
+						<div class=col-sm-4>
+						<button type="button" class="btn btn col-sm-12" style="margin-top:20px;">Marks Obtained(Maximum 05) </button>
+								<div ng-controller="InterimMarkController" ng-init="displayInterimMark();">
+									<form class="">
+										<div class="form-group">
+											<label for="showmarks" class="col-sm-12 control-label">
+											</label> <br /> <input type="text" class="form-control"
+												name=total" ng-disabled="state" ng-init="state=true"
+												value="{{interim.totalMarks}}" required style="margin-top: 40px;">
+										</div>
+									</form>
+									<form name="markform" method="post">
+							<!-- 		marking data validation -->
+										<div role="alert">
+											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.max"> Not in Valid range (max-05)</span>
+											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.title.$error.max"> Not in Valid range (max-01)</span>
+											<span style="color:red;" class="error" ng-show="markform.title.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.title.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.abstract.$error.max"> Not in Valid range (max-01)</span>
+											<span style="color:red;" class="error" ng-show="markform.abstract.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.abstract.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.introduction.$error.max"> Not in Valid range (max-01)</span>
+											<span style="color:red;" class="error" ng-show="markform.introduction.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.introduction.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.analysis.$error.max"> Not in Valid range (max-01)</span>
+											<span style="color:red;" class="error" ng-show="markform.analysis.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.analysis.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.solution.$error.max"> Not in Valid range (max-01)</span>
+											<span style="color:red;" class="error" ng-show="markform.solution.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.solution.$error.number">Not a Number</span>
+											
+										</div>
+										<table class="table table-bordered" style="margin-top: 20px;">
+										<thead>
+												<tr>
+													<th class="col-sm-8">Marking Criteria</th>
+													<th class="col-sm-4">Marks</th>
+													<!-- <td><a type="button" class="btn btn-primary btn">
+															save </a></td> -->
+												</tr>
+
+											</thead>
+											<tbody>
+												<tr>
+													<th>Title</th>
+													<td><input type="number" step="0.01" min="0" max="1"
+														class="form-control" name="title" ng-model="intMark.title"
+														required value="{{interim.titleM}}"></td>
+													</tr>
+												<tr>
+													<th>Abstract</th>
+													<td><input type="number" min="0" max="1" step="0.01"
+														class="form-control" name="abstract"
+														ng-model="intMark.abstract" required value="{{interim.abstractM}}"></td>
+												</tr>
+												<tr>
+													<th>Introduction</th>
+													<td><input type="number" min="0" max="1" step="0.01"
+														class="form-control" name="introduction"
+														ng-model="intMark.intro" required value="{{interim.introductionM}}"></td>
+												</tr>
+												<tr>
+													<th>Analysis</th>
+													<td><input type="number" min="0" max="1" step="0.01"
+														class="form-control" name="analysis"
+														ng-model="intMark.analysis" required value="{{interim.analysisM}}"></td>
+												</tr>
+												<tr>
+													<th>Design of solution</th>
+													<td><input type="number" min="0" max="1" step="0.01"
+														class="form-control" name="solution"
+														ng-model="intMark.solution" required value="{{interim.solutionM}}"></td>
+												</tr>
+												<tr>
+													<th>Total:</th>
+													<td><input type="number" max="5" min="0" step="0.01"
+														class="form-control" name="totalMark" ng-model="intMark.totalmarks"
+														ng-value="(intMark.title-0)+(intMark.abstract-0)+(intMark.intro-0)+(intMark.analysis-0)+(intMark.solution-0)+0"
+														required value="{{interim.totalMarks}}"></td>
+												</tr>
+
+											</tbody>
+										</table>
+										<!-- <div role="alert">
+										<span class="error" ng-show="markform.title.$error.max"> Not valid number!</span>
+										</div> -->
+										<button type="submit" class="btn btn-primary" ng-click="insertInterimMark();">Insert</button>
+
+									</form>
+
+
+								</div>
+
+							</div>
 					<p></p>
+				</div>
 				</div>
 				<div class="container-fluid spacing">
 					<button type="button" class="btn btn-primary col-sm-12"
