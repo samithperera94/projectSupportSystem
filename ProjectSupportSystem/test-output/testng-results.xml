@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="44596" started-at="2017-12-06T12:07:25Z" finished-at="2017-12-06T12:08:10Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="44596" started-at="2017-12-06T12:07:25Z" finished-at="2017-12-06T12:08:10Z">
+      <class name="com.projectsupport.testing.LoginTest">
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:com.projectsupport.testing.LoginTest@1794d431]" name="userLogin" is-config="true" duration-ms="30275" started-at="2017-12-06T17:37:25Z" finished-at="2017-12-06T17:37:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="validate(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.projectsupport.testing.LoginTest@1794d431]" name="validate" duration-ms="4725" started-at="2017-12-06T17:37:56Z" data-provider="getData" finished-at="2017-12-06T17:38:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15000753]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://localhost:8080/ProjectSupportSystem/userInfo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate -->
+        <test-method status="PASS" signature="validate(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.projectsupport.testing.LoginTest@1794d431]" name="validate" duration-ms="3677" started-at="2017-12-06T17:38:00Z" data-provider="getData" finished-at="2017-12-06T17:38:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15000722]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://localhost:8080/ProjectSupportSystem/doLogin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate -->
+        <test-method status="PASS" signature="validate(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.projectsupport.testing.LoginTest@1794d431]" name="validate" duration-ms="3671" started-at="2017-12-06T17:38:04Z" data-provider="getData" finished-at="2017-12-06T17:38:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[pro01]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://localhost:8080/ProjectSupportSystem/userInfo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate -->
+        <test-method status="PASS" signature="terminateBrowser()[pri:0, instance:com.projectsupport.testing.LoginTest@1794d431]" name="terminateBrowser" is-config="true" duration-ms="2158" started-at="2017-12-06T17:38:08Z" finished-at="2017-12-06T17:38:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateBrowser -->
+      </class> <!-- com.projectsupport.testing.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
