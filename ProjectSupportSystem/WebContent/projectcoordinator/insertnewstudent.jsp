@@ -39,7 +39,7 @@
 	</div>
 	<div class="container-fluid" id="formload">
 		<div id="dashboard">
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="InsertNewStudentList" method="POST" enctype="multipart/form-data">
 			<button type="button" class="btn btn-primary col-sm-12" data-target=""> New Student Insertion </button>
 			<p> *Upload the excel file </p>
 			<div class="form-group">
@@ -50,6 +50,7 @@
 						<p class="help-block col-sm-3"> Excel file should be in the following format </p>
 					</div>
 				</div>
+			<button class="btn" type="submit"> Submit </button> 
 		</form>
 		</div>
 	</div>
