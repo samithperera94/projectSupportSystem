@@ -30,7 +30,13 @@
 	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	<div ng-app="myApp" ng-controller="viewMessages" class="container" id="area">
 	<div class="changer" id="formload" ng-repeat="y in myArray">
-			<div> {{y.detail}}</div>
+		<div class="container">
+			<div class="jumbotron">
+				<div> {{y.detail}}</div>
+				<div> header:: {{y.header}} </div>
+			</div>
+		</div>
+			
 	</div>
 	</div>
 	

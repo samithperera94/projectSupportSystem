@@ -9,12 +9,13 @@
 					onclick="">Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link" href="">
 						Notifications</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Insert
-						Marks</a></li>
+				<li class="nav-item"><a class="nav-link" href="ShowInsertNewStudent">New Student </a></li>
 				<li class="nav-item"><a class="nav-link" href="">Arrange
 						Panals</a></li>
 				<li class="nav-item"><a class="nav-link" href="ShowStudentList"> Student
 						Progress</a></li>
+				<li class="nav-item"><a class="nav-link" href="ShowInterimOverall"> Interim Report</a></li>
+				<li class="nav-item"><a class="nav-link" href="ShowStudentList"> Dissertation</a></li>
 			</ul>
 		</nav>
 	</div>

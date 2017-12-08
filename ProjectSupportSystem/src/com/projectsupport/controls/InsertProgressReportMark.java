@@ -49,7 +49,7 @@ public class InsertProgressReportMark extends HttpServlet {
 		HttpSession session = request.getSession();
 		int studentId = (int) session.getAttribute("studentId");
 		int reportNo =  (int) session.getAttribute("reportNo");
-		System.out.println("sdsdsdsdsadsd"+studentId);
+		//System.out.println("sdsdsdsdsadsd"+studentId);
 		JsonParser parser = new JsonParser();
 	    JsonObject obj = (JsonObject) parser.parse(request.getReader());
 	    float mark = obj.get("mark").getAsFloat();

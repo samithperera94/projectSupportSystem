@@ -11,7 +11,7 @@
 					<a class="navbar-brand" href="http://www.bit.lk"> <img
 						src="resources/Images/bit_logo.png" class="bit_logo">
 					</a>
-					<h3>BACHELOR OF INFORMATION TECHNOLOGY- UCSC</h3>
+					<h3> BACHELOR OF INFORMATION TECHNOLOGY- UCSC</h3>
 					<a class="navbar-brand" href="http://ucsc.cmb.ac.lk/"> <img
 						src="resources/Images/ucsc_logo.png" class="ucsc_logo">
 					</a>

@@ -153,7 +153,7 @@
 							<div class="form-group">
 								<label for="showmarks" class="col-sm-12 control-label">
 								</label> <br /> <input type="text" class="form-control" name="prmarks" ng-disabled="state"
-									ng-init="state=true" value="{{marks}}"required style="margin-top: 40px;">
+									ng-init="state=true" value="{{marks}}" required style="margin-top: 40px;">
 							</div>
 						</form>
 
