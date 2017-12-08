@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ShowInsertNewStudent
+ * Servlet implementation class ShowInterimOverall
  */
-@WebServlet("/ShowInsertNewStudent")
-public class ShowInsertNewStudent extends HttpServlet {
+@WebServlet("/ShowInterimOverall")
+public class ShowInterimOverall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowInsertNewStudent() {
+    public ShowInterimOverall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,9 @@ public class ShowInsertNewStudent extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/projectcoordinator/insertnewstudent.jsp");
+		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/projectcoordinator/interimReportOverall.jsp");
 		dispather.forward(request, response);
-		return;
+		System.out.println("show student list");
 	}
 
 	/**

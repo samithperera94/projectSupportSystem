@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,13 +34,23 @@
 	
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-
+	
 	<div id="loginedUser">
 		<p>You are logged in as: ${user.userName}</p>
 	</div>
 	<div class="container-fluid" id="formload">
 		<div id="dashboard">
 		<form class="form-horizontal" action="InsertNewStudentList" method="POST" enctype="multipart/form-data">
+		<c:if test="${param.success eq 0}">
+				<div class="alert alert-danger">
+					<strong> Something went Wrong !</strong>
+				</div>
+		</c:if>
+		<c:if test="${param.success eq 1}">
+				<div class="alert alert-success">
+					<strong> Student list has been successfully inserted !</strong>
+				</div>
+		</c:if>
 			<button type="button" class="btn btn-primary col-sm-12" data-target=""> New Student Insertion </button>
 			<p> *Upload the excel file </p>
 			<div class="form-group">

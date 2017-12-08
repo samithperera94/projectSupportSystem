@@ -149,6 +149,13 @@ app.controller('InterimMarkController', function($scope, $http) {
 		contentType: 'application/json',
 		data : JSON.stringify($scope.intMark)
 	}).then(function successCallback(data) {
+		alert("Marks inserted Sucessfully");
+		$scope.intMark.title = null;
+		$scope.intMark.abstract = null;
+		$scope.intMark.intro = null;
+		$scope.intMark.analysis = null;
+		$scope.intMark.solution = null;
+		$scope.intMark.totalmarks=null;
 		$scope.displayInterimMark();
 		console.log(data);
 	},function errorCallback(data) {
@@ -168,3 +175,38 @@ $scope.displayInterimMark = function() {
 	});
 }
 });
+
+app.controller('DissertationMarkController', function($scope, $http) {
+	$scope.insertDissertation = function() {
+	console.log($scope.disMark);
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/InsertDissertationMark',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.disMark)
+	}).then(function successCallback(data) {
+		alert("Marks inserted Sucessfully");
+		$scope.intMark.title = null;
+		$scope.intMark.abstract = null;
+		$scope.intMark.intro = null;
+		$scope.intMark.analysis = null;
+		$scope.intMark.solution = null;
+		$scope.intMark.totalmarks=null;
+		$scope.displayDissertationMark();
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+}
+	$scope.displayDissertationMark = function() {
+		$http({
+			method : 'GET',
+			url : 'http://localhost:8080/ProjectSupportSystem/DoViewDissertation'
+		}).then(function successCallback(response) {
+			$scope.dissert = response.data;
+			console.log('sucess');
+		}, function errorCallback(response) {
+			console.log('error');
+		});
+	}
+	});

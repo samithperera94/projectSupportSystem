@@ -60,6 +60,21 @@ public class StudentServices {
 			}
 			return null;
 		}
+		public static void insertStudent(Connection conn,Student student) throws SQLException {
+			String sql = "Insert into Student (idStudent,RegNo,NIC,FullName,Initial,SurName,Email,TelephoneNo,password) values (?,?,?,?,?,?,?,?,?)";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1,student.getStudentId());
+			pstm.setString(2,student.getRegNo());
+			pstm.setString(3,student.getNic());
+			pstm.setString(4,student.getFullName());
+			pstm.setString(5,student.getInitial());
+			pstm.setString(6,student.getSurName());
+			pstm.setString(7,student.getEmail());
+			pstm.setString(8,student.getTelephoneNo());
+			pstm.setString(9,student.getPassword());
+			pstm.executeUpdate();
+		}
+		
 }
 		
 	

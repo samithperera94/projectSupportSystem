@@ -9,7 +9,21 @@ public class Student {
 	private String surName;
 	private String email;
 	private String telephoneNo;
+	private String password;
+	private String supervisorId; 
 	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getSupervisorId() {
+		return supervisorId;
+	}
+	public void setSupervisorId(String supervisorId) {
+		this.supervisorId = supervisorId;
+	}
 	public int getStudentId() {
 		return studentId;
 	}
