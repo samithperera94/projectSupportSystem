@@ -24,20 +24,17 @@
 	Evaluation Support System</title>
 </head>
 <body>
-
-
-	<jsp:include page="_header.jsp" />
-	<jsp:include page="_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
-	
-	<div class="container" id="formload">
-		
-	</div>
+<div class="container-fluid">
+<div class="row">
+<div><jsp:include page="_header.jsp" /></div>
+</div>
+<div class="row">
+<div class="col-md-2"><jsp:include page="_leftSideBarCoordinator.jsp" /></div>
+<div class="col-md-8 offset-md-2" id="formload"></div>
+</div>
 
 
 
-
+</div>
 </body>
 </html>
