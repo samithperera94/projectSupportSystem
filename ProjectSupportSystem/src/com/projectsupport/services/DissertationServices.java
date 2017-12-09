@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import com.projectsupport.models.Dissertation;
+
 
 
 public class DissertationServices {
@@ -31,10 +33,10 @@ public class DissertationServices {
 			float implementation = rs.getFloat("implementation");
 			float evaluation = rs.getFloat("evaluation");
 			float conclusion = rs.getFloat("conclustion");
-			float reference = rs.getFloat("reference");
+			float reference = rs.getFloat("refer");
 			float appendices = rs.getFloat("appendices");
 			float general = rs.getFloat("general");
-			float total = rs.getFloat("total");
+			float total = rs.getFloat("totalmark");
 			String formName = rs.getString("formName");
 			Dissertation dissertation = new Dissertation();
 			dissertation.setFormName(formName);
@@ -70,8 +72,8 @@ public class DissertationServices {
 		pstm.executeUpdate();
 	}
 	
-	public static void insertDissertationMark(Connection conn,int studentId,float introduction,float analysis,float design,float implementation,float evaluation,float conclusion,float reference,float appendices,float general,float total) throws SQLException{
-		String sql="update InterimReport set introduction=?,analysis=?,design=?,implementation=?,evaluation=?,conclustion=?,references=?,appendices=?,general=?,totalmark=? where Student_idStudent=?";
+	public static void insertDissertationMarks(Connection conn,int studentId,float introduction,float analysis,float design,float implementation,float evaluation,float conclusion,float reference,float appendices,float general,float total) throws SQLException{
+		String sql="update FinalDissertation set introduction=?,analysis=?,design=?,implementation=?,evaluation=?,conclustion=?,refer=?,appendices=?,general=?,totalmark=? where Student_idStudent=?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setFloat(1,introduction);
 		pstm.setFloat(2,analysis);
@@ -86,4 +88,46 @@ public class DissertationServices {
 		pstm.setInt(11,studentId);
 		pstm.executeUpdate();
 	}
+	
+	public static List<Dissertation> getDissertationSubmittedList(Connection conn) throws SQLException{
+		String sql = "select * from FinalDissertation";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		ResultSet rs = pstm.executeQuery();
+		List<Dissertation> list = new ArrayList<Dissertation>();
+		while(rs.next()){
+			String supervisorComment = rs.getString("supervisorComment");
+			String supervisorState = rs.getString("SupervisorState");
+			float introduction = rs.getFloat("introduction");
+			float analysis= rs.getFloat("analysis");
+			float design = rs.getFloat("design");
+			float implementation = rs.getFloat("implementation");
+			float evaluation = rs.getFloat("evaluation");
+			float conclusion = rs.getFloat("conclustion");
+			float reference = rs.getFloat("refer");
+			float appendices = rs.getFloat("appendices");
+			float general = rs.getFloat("general");
+			float total = rs.getFloat("totalmark");
+			String formName = rs.getString("formName");
+			int studentId = rs.getInt("Student_idStudent");
+			Dissertation dissertation = new Dissertation();
+			dissertation.setFormName(formName);
+			dissertation.setSupervisorComment(supervisorComment);
+			dissertation.setSupervisorState(supervisorState);
+			dissertation.setIntroduction(introduction);
+			dissertation.setAnalysis(analysis);
+			dissertation.setDesign(design);
+			dissertation.setImplementation(implementation);
+			dissertation.setEvaluation(evaluation);
+			dissertation.setConclusion(conclusion);
+			dissertation.setReference(reference);
+			dissertation.setAppendices(appendices);
+			dissertation.setGeneral(general);
+			dissertation.setTotal(total);
+			dissertation.setStudentId(studentId);
+			list.add(dissertation);
+		}
+		return list;
+			
+		}
+	
 }

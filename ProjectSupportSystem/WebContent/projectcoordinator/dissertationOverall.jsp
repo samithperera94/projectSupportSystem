@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,9 +35,9 @@
 		<div id="studentlist">
 			<div>
 			<div class="row">
-			<button class="btn btn-primary col-sm-6"> Interim report submit student List</button>
+			<button class="btn btn-primary col-sm-6"> Dissertation submitted student List</button>
 			</div>
-			<div class="row" ng-controller="InterimSubmitted">
+			<div class="row" ng-controller="DissertationSubmitted">
 			<p>Search: <input ng-model="f.studentId"> </p>
 				<div class="table table-responsive">
 				 
@@ -50,11 +51,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="x in intArray | filter:f">
-								<td ng-if="x.totalMarks > 0"> <button class="btn btn-success btn-xs"> Marked </button> </td>
-								<td ng-if="x.totalMarks <= 0"> <button class="btn btn-warning btn-xs"> Not Marked </button> </td>
-								<td>{{x.totalMarks}}</td>
-								<td><a href="ShowStudentSubmissions?stuID={{x.studentId}}" target="_blank"> {{x.studentId}} </a></td>
+							<tr ng-repeat="z in disArray | filter:f">
+								<td ng-if="z.total > 0"> <button class="btn btn-success btn-xs"> Marked </button> </td>
+								<td ng-if="z.total <= 0"> <button class="btn btn-warning btn-xs"> Not Marked </button> </td>
+								<td>{{z.total}}</td>
+								<td> <a href="ShowStudentSubmissions?stuID={{z.studentId}}" target="_blank"> {{z.studentId}} </a></td>
 								
 								
 							</tr>
@@ -62,8 +63,8 @@
 					</table>
 				</div>
 				</div>
-				<div class="row" ng-controller="InterimNotSubmitted">
-					<button class="btn btn-danger col-sm-6"> Student List Interim report not submitted (Automatically Blocked by the System) </button>
+				<div class="row" ng-controller="DissertationNotSubmitted">
+					<button class="btn btn-danger col-sm-6"> Dissertation not submitted student list (Automatically Blocked by the System) </button>
 					<div class="table table-responsive">
 				 
 					<table class="table table-striped">
@@ -76,7 +77,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="y in notIntArray">
+							<tr ng-repeat="y in notDisArray">
 								<td>{{y.nic}}</td>
 								<td>{{y.email}}</td>
 								<td>{{y.telephoneNo }}</td>

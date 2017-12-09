@@ -274,24 +274,19 @@
 									<form name="markform" method="post">
 							<!-- 		marking data validation -->
 										<div role="alert">
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.max"> Not in Valid range (max-05)</span>
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.total.$error.max"> Not in Valid range (max-05)</span>
+											<span style="color:red;" class="error" ng-show="markform.total.$error.min">Not in Valid range (Min-0)</span>
+											<span style="color:red;" class="error" ng-show="markform.total.$error.number">Not a Number</span>
 											<span style="color:red;" class="error" ng-show="markform.analysis.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.design.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.introduction.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.implementation.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.evaluation.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.conclution.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.reference.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.appendices.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.general.$error.number">Not a Number</span>
+											<span style="color:red;" class="error" ng-show="markform.total.$error.number">Not a Number</span>
 											
 										</div>
 										<table class="table table-bordered" style="margin-top: 20px;">
@@ -345,7 +340,7 @@
 												</tr>
 												<tr>
 													<th>Total</th>
-													<td><input type="number" class="form-control" name="total" ng-model="disMark.total" required></td>
+													<td><input type="number" class="form-control" name="total" ng-model="disMark.total" ng-value="(disMark.introduction-0)+(disMark.analysis-0)+(disMark.design-0)+(disMark.implementation-0)+(disMark.evaluation-0)+(disMark.conclution)+(disMark.reference-0)+(disMark.appendices-0)+(disM	ark.general-0)" required></td>
 												</tr>
 
 											</tbody>

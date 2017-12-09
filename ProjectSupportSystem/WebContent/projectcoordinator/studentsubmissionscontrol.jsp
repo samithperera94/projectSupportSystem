@@ -153,8 +153,8 @@
 									<td>{{x.reportNo}}</td>
 									<td>{{x.endDate}}</td>
 									<td>{{x.endTime}}</td>
-									<td><button ng-click="deletePRData(x.reportNo)"
-											class="btn btn-danger btn-xs">Delete</button></td>
+									<td> <button ng-click="deletePRData(x.reportNo)"
+											class="btn btn-danger btn-xs">Delete</button> </td>
 								</tr>
 							</tbody>
 						</table>

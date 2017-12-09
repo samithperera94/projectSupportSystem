@@ -46,6 +46,7 @@ public class InsertDissertationMark extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);
 		HttpSession session = request.getSession();
 		int studentId = Integer.parseInt((String) session.getAttribute("studentID"));
+		System.out.println(studentId);
 		JsonParser parser = new JsonParser();
 	    JsonObject obj = (JsonObject) parser.parse(request.getReader());
 	    float introduction = obj.get("introduction").getAsFloat();
@@ -54,13 +55,13 @@ public class InsertDissertationMark extends HttpServlet {
 	    float implementation = obj.get("implementation").getAsFloat(); 
 	    float evalution = obj.get("evaluation").getAsFloat(); 
 	    float conclusion = obj.get("conclution").getAsFloat(); 
-	    float reference = obj.get("referense").getAsFloat(); 
+	    float reference = obj.get("reference").getAsFloat(); 
 	    float appendices = obj.get("appendices").getAsFloat(); 
 	    float general = obj.get("general").getAsFloat(); 
 	    float  total = introduction+analysis+design+implementation+evalution+conclusion+reference+appendices+general;	    
 	    
 	    try {
-	    	DissertationServices.insertDissertationMark(conn, studentId, introduction, analysis, design, implementation, evalution, conclusion, reference, appendices, general, total);
+	    	DissertationServices.insertDissertationMarks(conn, studentId, introduction, analysis, design, implementation, evalution, conclusion, reference, appendices, general, total);
 	    	System.out.println("Insert Dissertation");
 	    	
 		} catch(SQLException e){
