@@ -26,9 +26,7 @@
 
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
+	
 
 	<div class="container" id="formload" ng-app="myApp">
 		<div id="studentlist">
@@ -37,7 +35,7 @@
 			<button class="btn btn-primary col-sm-6"> Interim report submit student List</button>
 			</div>
 			<div class="row" ng-controller="InterimSubmitted">
-			<p>Search: <input ng-model="f.studentId"> </p>
+			<p>Search: <input ng-model="f.studentId"> </p> <a href="GenerateInterimSubittedPdf" target="_blank"> Generate Pdf </a>
 				<div class="table table-responsive">
 				 
 					<table class="table table-striped">

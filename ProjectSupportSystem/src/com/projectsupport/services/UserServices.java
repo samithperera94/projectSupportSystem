@@ -46,5 +46,14 @@ public class UserServices {
 	      }
 	      return null;
 	  }
+	 
+	  public static void InsertUser(Connection conn,String userName,String password,String position) throws SQLException{
+		  String sql = "insert into User (UserName,password,position) values (?,?,?)";
+		  PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1,userName);
+			pstm.setString(2,password);
+			pstm.setString(3,position);
+			pstm.executeUpdate();
+	  }
 
-}
+} 

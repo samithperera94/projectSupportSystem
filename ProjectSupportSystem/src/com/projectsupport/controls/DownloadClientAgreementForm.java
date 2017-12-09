@@ -41,7 +41,13 @@ public class DownloadClientAgreementForm extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		int studentId = Integer.parseInt(currentUser.getUserName());
+		//System.out.println(session.getAttribute("studentID"));
+		int studentId = 0;
+		try{
+			studentId = Integer.parseInt(currentUser.getUserName());
+		}catch(Exception e){
+			studentId = Integer.parseInt((String) session.getAttribute("studentID"));
+		}
 		String errorString = null;
 		Client client = null;
 		try {
@@ -52,7 +58,7 @@ public class DownloadClientAgreementForm extends HttpServlet {
 		}
 		ServletOutputStream  out = response.getOutputStream();
 		String fileName = client.getFormName();
-		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test/";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/";
 		//response.setContentType("APPLICATION/pdf");
 		//response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
 		FileInputStream fileinputstream = new FileInputStream(path+fileName);

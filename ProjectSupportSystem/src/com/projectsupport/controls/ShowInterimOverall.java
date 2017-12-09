@@ -30,7 +30,7 @@ public class ShowInterimOverall extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/projectcoordinator/interimReportOverall.jsp");
 		dispather.forward(request, response);
-		System.out.println("show student list");
+		//System.out.println("show student list");
 	}
 
 	/**

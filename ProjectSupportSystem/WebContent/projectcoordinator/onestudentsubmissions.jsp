@@ -46,10 +46,12 @@
 	
 	</nav>
 	</div>
-	<div class="row">
-		<div class="sm-12" id="topspace"> 
-				
-		</div>	
+	<div class="row" style="margin-top:50px;">
+		<ul class="pager">
+    		<li class="previous"><a href="ShowStudentSubmissions?stuID=${studentID-1}"> <<< GOTO PREVIOUS STUDENT </a></li>
+    		<li class="next"><a href="ShowStudentSubmissions?stuID=${studentID+1}">GOTO NEXT STUDENT >>> </a></li>
+  		</ul>
+</div>
 	</div>
 
 	<div class="row">
@@ -815,9 +817,7 @@
 										</p>
 									</div>
 								</div>
-								<iframe src={{client.formName}} width="100%" height="500px">
 
-								</iframe>
 							</div>
 
 						</form>
