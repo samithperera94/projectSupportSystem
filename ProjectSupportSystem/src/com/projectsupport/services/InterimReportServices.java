@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import com.projectsupport.models.InterimReport;
+
 
 public class InterimReportServices {
 	public static void insertInterimReport(Connection conn,InterimReport interim) throws SQLException{
@@ -78,9 +80,48 @@ public class InterimReportServices {
 		pstm.setInt(7, studentId);
 		pstm.executeUpdate();
 		
-	}	
+	}
 	
-	
+	public static List<InterimReport> getInterimSubmittedList(Connection conn) throws SQLException {
+		String sql = "SELECT * FROM InterimReport;";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		ResultSet rs = pstm.executeQuery();
+		List<InterimReport> list = new ArrayList<InterimReport>();
+		while(rs.next()){
+			int studentId = rs.getInt("Student_idStudent");
+			String formName = rs.getString("formName");
+			float totalMarks = rs.getFloat("totalmarks");
+			float title = rs.getFloat("titleM");
+			float abstractM = rs.getFloat("abstractM");
+			float intro = rs.getFloat("introductionM");
+			float analysis = rs.getFloat("analysisM");
+			float solution = rs.getFloat("solutionM");
+			String supervisorComment = rs.getString("supervisorComments");
+			String supervisorState = rs.getString("supervisorState");
+			InterimReport interim = new InterimReport();
+			interim.setTotalMarks(totalMarks);
+			interim.setTitleM(title);
+			interim.setAbstractM(abstractM);
+			interim.setIntroductionM(intro);
+			interim.setAnalysisM(analysis);
+			interim.setSolutionM(solution);
+			interim.setSupervisorComment(supervisorComment);
+			interim.setSupervisorState(supervisorState);
+			interim.setStudentId(studentId);
+			interim.setFormName(formName);
+			list.add(interim);
+			
+			
+		}
+		return list;
+		
+	}
 	
 }
+	
+	
+	
+	
+	
+
 

@@ -186,12 +186,16 @@ app.controller('DissertationMarkController', function($scope, $http) {
 		data : JSON.stringify($scope.disMark)
 	}).then(function successCallback(data) {
 		alert("Marks inserted Sucessfully");
-		$scope.intMark.title = null;
-		$scope.intMark.abstract = null;
-		$scope.intMark.intro = null;
-		$scope.intMark.analysis = null;
-		$scope.intMark.solution = null;
-		$scope.intMark.totalmarks=null;
+		$scope.disMark.introduction = null;
+		$scope.disMark.analysis = null;
+		$scope.disMark.design = null;
+		$scope.disMark.implementation = null;
+		$scope.disMark.evaluation = null;
+		$scope.disMark.conclution = null;
+		$scope.disMark.reference = null;
+		$scope.disMark.appendices = null;
+		$scope.disMark.general = null;
+		$scope.disMark.total = null;
 		$scope.displayDissertationMark();
 		console.log(data);
 	},function errorCallback(data) {
