@@ -28,9 +28,7 @@
 
 	<jsp:include page="_header.jsp" />
 	<jsp:include page="_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
+	
 	
 	<div class="container" id="formload">
 		

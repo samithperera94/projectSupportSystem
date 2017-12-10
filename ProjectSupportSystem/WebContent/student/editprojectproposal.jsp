@@ -32,9 +32,7 @@
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp" />
 
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
+
 	<div class="changer" id="formload">
 		<div id="proposal">
 			<form class="form-horizontal" method="POST"

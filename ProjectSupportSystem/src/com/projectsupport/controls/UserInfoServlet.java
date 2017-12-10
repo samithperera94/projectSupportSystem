@@ -63,7 +63,7 @@ public class UserInfoServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			else if(loginedUser.getPosition().equals("supervisor")){
-				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/supervisor.html");
+				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/supervisor.jsp");
 				dispatcher.forward(request, response);
 			}
 			else if(loginedUser.getPosition().equals("assitant")) {

@@ -144,7 +144,7 @@ public class InsertNewStudentList extends HttpServlet {
 
 					}
 				}
-
+				String stuId  = oneRowData[0];
 				int studentId = Integer.parseInt(oneRowData[0]);
 				String regNo = oneRowData[1];
 				String nic = oneRowData[2];
@@ -167,6 +167,7 @@ public class InsertNewStudentList extends HttpServlet {
 
 				try {
 					StudentServices.insertStudent(conn, newStudent);
+					UserServices.InsertUser(conn,stuId,nic, "student");
 					System.out.println("Done at first row");
 
 				} catch (Exception e) {

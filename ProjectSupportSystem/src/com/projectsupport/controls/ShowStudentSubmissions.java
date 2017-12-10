@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.projectsupport.models.Student;
+import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
 import com.projectsupport.services.StudentServices;
 
@@ -39,8 +40,14 @@ public class ShowStudentSubmissions extends HttpServlet {
 			throws ServletException, IOException {
 		String studentId = request.getParameter("stuID");
 		int id = Integer.parseInt(studentId);
-		Connection conn = MyUtils.getStoredConnection(request);
 		HttpSession session = request.getSession();
+		Connection conn = MyUtils.getStoredConnection(request);
+		User currentUser = MyUtils.getLoginedUser(session);
+		if(currentUser== null){
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+	        return;
+		}
 		session.setAttribute("studentID", studentId);
 		Student student = null;
 		try {

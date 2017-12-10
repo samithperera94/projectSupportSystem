@@ -30,9 +30,6 @@
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp" />
 
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
 	<div class="changer" id="formload">
 		<div class="input-data " id="addclient">
 			<form class="form-horizontal" method="POST" action="DoEditClient"
@@ -123,12 +120,11 @@
 						<div class="col-sm-9">
 							<input type="file" name="formName" ng-disabled="state"
 								ng-init="state=true" required>
-							<p class="help-block col-sm-3">"*filename:
+							<p class="help-block col-sm-12">"*filename:
 								clientAgreementForm.pdf"</p>
 
 							<p class="help-block col-sm-6">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="DownloadClientAgreementForm" target="_blank">
+							<a href="DownloadClientAgreementForm" target="_blank">
 									Uploaded: {{client.formName}} </a>
 							</p>
 						</div>

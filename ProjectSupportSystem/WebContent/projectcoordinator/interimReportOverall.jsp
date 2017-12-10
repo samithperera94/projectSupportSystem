@@ -26,18 +26,16 @@
 
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
+	
 
 	<div class="container" id="formload" ng-app="myApp">
 		<div id="studentlist">
 			<div>
 			<div class="row">
-			<button class="btn btn-primary col-sm-6"> Interim report submit student List</button>
+			<button class="btn btn-primary col-sm-12"> Interim report submit student List</button>
 			</div>
 			<div class="row" ng-controller="InterimSubmitted">
-			<p>Search: <input ng-model="f.studentId"> </p>
+			<p>Search: <input ng-model="f.studentId"> </p> <a href="GenerateInterimSubittedPdf" target="_blank"> Generate Pdf </a>
 				<div class="table table-responsive">
 				 
 					<table class="table table-striped">
@@ -63,7 +61,7 @@
 				</div>
 				</div>
 				<div class="row" ng-controller="InterimNotSubmitted">
-					<button class="btn btn-danger col-sm-6"> Student List Interim report not submitted (Automatically Blocked by the System) </button>
+					<button class="btn btn-danger col-sm-12"> Student List Interim report not submitted (Automatically Blocked by the System) </button>
 					<div class="table table-responsive">
 				 
 					<table class="table table-striped">

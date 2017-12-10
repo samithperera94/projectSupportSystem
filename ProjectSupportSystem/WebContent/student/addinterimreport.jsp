@@ -30,9 +30,6 @@
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp" />
 
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
 	<div class="changer" id="formload">
 		<div id="interim">
 			<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="DoAddInterimReport">

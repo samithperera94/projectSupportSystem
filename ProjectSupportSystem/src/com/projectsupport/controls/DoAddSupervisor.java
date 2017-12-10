@@ -26,6 +26,7 @@ import com.projectsupport.models.Supervisor;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
 import com.projectsupport.services.SupervisorServices;
+import com.projectsupport.services.UserServices;
 
 /**
  * Servlet implementation class DoAddSupervisor
@@ -62,12 +63,13 @@ public class DoAddSupervisor extends HttpServlet {
 		String addressLine1 = request.getParameter("addressLine1");
 		String addressLine2 = request.getParameter("addressLine2");
 		String city = request.getParameter("city");
+		String password = "ucsc@123";
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
 		Part filepart = request.getPart("agreementForm");
 		String fileName = currentUser.getUserName()+"_supervisorAgreement.pdf";;
-		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent";
 		String partHeader = filepart.getHeader("content-disposition");
 		LOGGER.log(Level.INFO,"Part Header = {0}",partHeader);
 		/*for(String content : filepart.getHeader("content-disposition").split(";")){
@@ -102,6 +104,7 @@ public class DoAddSupervisor extends HttpServlet {
 			if(errorString == null){
 				try {
 					SupervisorServices.insertSupervisor(conn, newsupervisor);
+					UserServices.InsertUser(conn,email, password, "supervisor");
 					
 				} catch(SQLException e){
 					e.printStackTrace();

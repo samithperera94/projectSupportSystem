@@ -40,7 +40,12 @@ public class DownloadDissertation extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
-		int studentId = Integer.parseInt(currentUser.getUserName());
+		int studentId = 0;
+		try{
+			studentId = Integer.parseInt(currentUser.getUserName());
+		}catch(Exception e){
+			studentId = Integer.parseInt((String) session.getAttribute("studentID"));
+		}
 		String errorString = null;
 		Dissertation dissertation = new Dissertation();
 		try {
@@ -51,7 +56,7 @@ public class DownloadDissertation extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		String fileName = dissertation.getFormName();
-		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/test/";
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/";
 		response.setContentType("APPLICATION/OCTET-STREAM");
 		response.setHeader("Content-Disposition", "attachment;filename=\""+fileName+"\"");
 		FileInputStream fileinputstream = new FileInputStream(path+fileName);
