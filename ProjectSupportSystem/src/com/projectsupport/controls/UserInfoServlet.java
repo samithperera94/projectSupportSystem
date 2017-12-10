@@ -70,8 +70,8 @@ public class UserInfoServlet extends HttpServlet {
 				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/projectcoordinator.jsp");
 				dispatcher.forward(request, response);
 			}
-			else{
-				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin.html");
+			else if(loginedUser.getPosition().equals("admin")){
+				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/pro_coordinator.jsp");
 				dispatcher.forward(request, response);
 			}
 			
