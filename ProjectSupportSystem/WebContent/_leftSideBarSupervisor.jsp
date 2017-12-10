@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <div class="container-fluid">
@@ -16,4 +16,15 @@
 			</ul>
 		</nav>
 	</div>
-</div>
+</div>-->
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" href="">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">Notifications</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="ShowStudentList">Student Progress</a>
+  </li>
+</ul>

@@ -24,15 +24,16 @@
 	Evaluation Support System</title>
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
 	</div>
- <jsp:include page="../_leftSideBarSupervisor.jsp" />
-	<div class="container" id="formload">
-		<div id="studentlist">
+	<div class="row">
+	<div class="col-md-2">
+		<jsp:include page="../_leftSideBarSupervisor.jsp" />
+	</div>
+	<div class="col-md-10">
+	<div id="formload">
 			<div ng-app="myApp" ng-controller="MyController">
 			
 				<div class="table table-responsive">
@@ -68,8 +69,9 @@
 			</div>
 		</div>
 	</div>
-
-
+</div>
+</div>
+</div>
 
 </body>
 </html>

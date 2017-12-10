@@ -1,5 +1,5 @@
 
-<div class="col-sm-2">
+<!--div class="col-sm-2"-->
 <ul class="nav flex-column">
   <li class="nav-item">
     <a class="nav-link active" href="ShowDashboard">Dashboard</a>
@@ -23,4 +23,4 @@
     <a class="nav-link" href="ShowStudentList">Dissertation</a>
   </li>
 </ul>
-</div>
+<!--/div-->

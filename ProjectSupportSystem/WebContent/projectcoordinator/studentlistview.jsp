@@ -34,7 +34,7 @@
 		</div>
 		<div class="col-md-10">
 	
-	<div class="container" id="formload">
+	<div id="formload">
 		<!-- div id="studentlist" -->
 			<div ng-app="myApp" ng-controller="MyController">
 			<p>Search: <input ng-model="f.studentId"> </p>
