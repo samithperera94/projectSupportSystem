@@ -23,16 +23,20 @@
 	Evaluation Support System</title>
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+	<div class="col-md-2">
+		<jsp:include page="../_leftSideBarCoordinator.jsp" />
+	</div>
 	
-
-	<div class="container" id="formload" ng-app="myApp">
-		<div id="studentlist">
+	<div class="col-md-10">
+	<div id="formload" ng-app="myApp">
 			<div>
 			<div class="row">
-			<button class="btn btn-primary col-sm-12"> Interim report submit student List</button>
+			<button class="btn btn-primary btn-lg btn-block"> Interim report submit student List</button>
 			</div>
 			<div class="row" ng-controller="InterimSubmitted">
 			<p>Search: <input ng-model="f.studentId"> </p> <a href="GenerateInterimSubittedPdf" target="_blank"> Generate Pdf </a>
@@ -89,7 +93,7 @@
 		</div>
 	</div>
 
-
-
+</div>
+</div>
 </body>
 </html>

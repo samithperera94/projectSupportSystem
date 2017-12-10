@@ -33,8 +33,8 @@ public class InterimReportServices {
 			float intro = rs.getFloat("introductionM");
 			float analysis = rs.getFloat("analysisM");
 			float solution = rs.getFloat("solutionM");
-			String supervisorComment = rs.getString("supervisorComments");
-			String supervisorState = rs.getString("supervisorState");
+			String supervisorComment = rs.getString("supervisorComment");
+			String supervisorState = rs.getString("supervisorApproval");
 			InterimReport interim = new InterimReport();
 			interim.setTotalMarks(totalMarks);
 			interim.setTitleM(title);
@@ -96,8 +96,8 @@ public class InterimReportServices {
 			float intro = rs.getFloat("introductionM");
 			float analysis = rs.getFloat("analysisM");
 			float solution = rs.getFloat("solutionM");
-			String supervisorComment = rs.getString("supervisorComments");
-			String supervisorState = rs.getString("supervisorState");
+			String supervisorComment = rs.getString("supervisorComment");
+			String supervisorState = rs.getString("supervisorApproval");
 			InterimReport interim = new InterimReport();
 			interim.setTotalMarks(totalMarks);
 			interim.setTitleM(title);

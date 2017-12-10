@@ -39,7 +39,7 @@ h3 {
 
 }
 
-#studentlist {
+/*#studentlist {
 	width: 1050px;
 	height: 550px;
 	margin-left: 170px;
@@ -48,7 +48,7 @@ h3 {
 	float: left;
 	padding: 20px;
 
-}
+}*/
 
 #student {
 	width: 800px;
@@ -101,7 +101,7 @@ h3 {
 #topspace{
 	margin-top: 100px;
 }
-#dashboard {
+/*#dashboard {
 	width: 800px;
 	height: 1000px;
 	margin-left: 270px;
@@ -109,7 +109,7 @@ h3 {
 	position: absolute;
 	float: left;
 	padding: 20px;
-	background-color:#EEEEEE;
+	background-color:#EEEEEE;*/
 }
 
 .sidebar {
@@ -136,10 +136,10 @@ h3 {
 .left-side-bar{
 	position: absolute;
 }
-#loginedUser{
+/*#loginedUser{
 	margin-left:1100px;
 	color:blue;
-}
+}*/
 .panel-group {
 	margin-left:150px;
 	width:60%;

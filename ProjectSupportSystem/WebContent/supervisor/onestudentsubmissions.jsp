@@ -17,9 +17,9 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script type="text/javascript" src="resources/scripts/loadSubmission.js"></script>
+<script type="text/javascript" src="resources/scripts/loadSubmissionsForSup.js"></script>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
 
 
 <title>BIT-University of Colombo School of Computing - Project
@@ -52,7 +52,7 @@
 
 
 	<div class="container-fluid" id="formload">
-		<div id="submittedlist">
+		<div id="submittedlist" style="margin-top:50px;">
 			<div ng-app="myApp">
 				<div class="container-fluid spacing">
 					<button type="button" class="btn btn-info col-sm-12"
@@ -338,11 +338,11 @@
 						<!-- aproval of supervisr -->
 														
 														
-			<div  class="container-fluid" ng-app="myApp"  ng-show="proposal.approval != null" ng-controller="ProposalController">
+			<div  class="container-fluid" ng-app="myApp"  ng-show="proposal.approval != 'Pending'" ng-controller="ProposalController">
 						<label style="color:green;background-color:#bafcc4;font-size:35px;width:100%;">Approved</label>
 				</div>		
 						
-				<div class="container-fluid" ng-app="myApp" ng-show="proposal.approval == null" ng-controller="ProposalController" >
+				<div class="container-fluid" ng-app="myApp" ng-show="proposal.approval == 'Pending'" ng-controller="ProposalController" >
 						
 				<div   ng-controller="ProjectApprove">
 				

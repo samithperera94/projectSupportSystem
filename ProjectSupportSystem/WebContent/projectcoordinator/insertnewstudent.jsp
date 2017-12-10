@@ -31,13 +31,17 @@
 
 </head>
 <body>
-	
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-	
-	
-	<div class="container-fluid" id="formload">
-		<div id="dashboard">
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<jsp:include page="../_leftSideBarCoordinator.jsp" />
+		</div>
+		<div class="col-md-10">
+		<br/>
+		<div class="container-fluid" id="formload">
 		<form class="form-horizontal" action="InsertNewStudentList" method="POST" enctype="multipart/form-data">
 		<c:if test="${param.success eq 0}">
 				<div class="alert alert-danger">
@@ -49,20 +53,30 @@
 					<strong> Student list has been successfully inserted !</strong>
 				</div>
 		</c:if>
-			<button type="button" class="btn btn-primary col-sm-12" data-target=""> New Student Insertion </button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" disbled> New Student Insertion </button>
+			<br/>
+			<br/>
+			<br/>
+			<p class="help-block col-sm-3"> Excel file should be in the following format </p>
+			<span class="border-1">
+			<img src="./resources/Images/stud.png" class="img-fluid" alt="Responsive image">
+			</span>
+			
+			<br/>
+			<br/>
+			<br/>
 			<p> *Upload the excel file </p>
-			<div class="form-group">
-					<label for="Inputform" class="col-sm-12 control-label">Submit
-						Form: </label>
-					<div class="col-sm-12">
-						<input type="file" name="studentlist" required>
-						<p class="help-block col-sm-3"> Excel file should be in the following format </p>
-					</div>
-				</div>
-			<button class="btn" type="submit"> Submit </button> 
+			<form>
+  				<div class="form-group" >
+    			<label for="Inputform">Submit Form: </label>
+    			<input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+  				</div>
+			<button class="btn btn-primary" " type="submit" value="submit"> Submit </button> 
 		</form>
 		</div>
 	</div>
-	
+</div>
+</div>
+</div>	
 </body>
 </html>
