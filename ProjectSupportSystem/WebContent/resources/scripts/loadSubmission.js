@@ -214,3 +214,182 @@ app.controller('DissertationMarkController', function($scope, $http) {
 		});
 	}
 	});
+
+app.controller('SupervisorApprove', function($scope, $http) {
+	
+	$scope.insertApproval = function() {
+		
+	console.log($scope.comm);
+	$scope.giveValue();
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoGiveApprove',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.comm)
+	}).then(function successCallback(data) {
+		alert("supervisor approved");
+		
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+	$scope.changeName();
+}
+	$scope.giveValue = function(){
+		$scope.comm.report="supervisor";
+	}
+	
+	$scope.changeName = function() {
+
+    	document.getElementById("myText").disabled = true ;
+    	document.getElementById("show").style.display = 'none' ;
+    	
+    	 }
+	
+});
+
+
+
+app.controller('ProjectApprove', function($scope, $http) {
+	
+	$scope.insertApproval = function() {
+		
+	console.log($scope.comm);
+	$scope.giveValue();
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoGiveApprove',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.comm)
+	}).then(function successCallback(data) {
+		alert("project approved");
+		
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+	$scope.changeName();
+}
+	$scope.giveValue = function(){
+		$scope.comm.report="project";
+	}
+	
+	$scope.changeName = function() {
+
+    	document.getElementById("myText").disabled = true ;
+    	document.getElementById("show").style.display = 'none' ;
+    	
+    	 }
+	
+});
+
+
+app.controller('ClientApprove', function($scope, $http) {
+	
+	$scope.insertApproval = function() {
+		
+	console.log($scope.comm);
+	$scope.giveValue();
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoGiveApprove',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.comm)
+	}).then(function successCallback(data) {
+		alert("client approved");
+		
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+	$scope.changeName();
+}
+	$scope.giveValue = function(){
+		$scope.comm.report="client";
+	}
+	
+	$scope.changeName = function() {
+
+    	document.getElementById("myText").disabled = true ;
+    	document.getElementById("show").style.display = 'none' ;
+    	
+    	 }
+	
+});
+
+
+app.controller('ProgressApprove', function($scope, $http) {
+	
+	$scope.insertApproval = function() {
+		
+	console.log($scope.comm);
+	$scope.giveValue();
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoGiveApprove',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.comm)
+	}).then(function successCallback(data) {
+		alert("supervisor approved");
+		
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+	$scope.changeName();
+}
+	$scope.giveValue = function(){
+		$scope.comm.report="progress";
+	}
+	
+	$scope.changeName = function() {
+
+    	document.getElementById("myText").disabled = true ;
+    	document.getElementById("show").style.display = 'none' ;
+    	
+    	 }
+	
+});
+
+
+
+
+
+
+
+
+
+app.controller('InterimApprove', function($scope, $http) {
+	
+	$scope.insertApproval = function() {
+		
+	console.log($scope.comm);
+	$scope.giveValue();
+	$http({
+		method : 'POST',
+		url : 'http://localhost:8080/ProjectSupportSystem/DoGiveApprove',
+		contentType: 'application/json',
+		data : JSON.stringify($scope.comm)
+	}).then(function successCallback(data) {
+		alert("interim report approved");
+		
+		console.log(data);
+	},function errorCallback(data) {
+		console.log(data);
+	});
+	$scope.changeName();
+}
+	$scope.giveValue = function(){
+		$scope.comm.report="interim";
+	}
+	
+	$scope.changeName = function() {
+
+    	document.getElementById("myText").disabled = true ;
+    	document.getElementById("show").style.display = 'none' ;
+    	
+    	 }
+	
+});
+
+

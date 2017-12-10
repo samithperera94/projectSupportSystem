@@ -10,6 +10,26 @@ public class Supervisor {
 	String addressLine2;
 	String city;
 	String agreementFormPath;
+	String approval;
+	String supervisorComment;
+	public String getAgreementFormPath() {
+		return agreementFormPath;
+	}
+	public void setAgreementFormPath(String agreementFormPath) {
+		this.agreementFormPath = agreementFormPath;
+	}
+	public String getApproval() {
+		return approval;
+	}
+	public void setApproval(String approval) {
+		this.approval = approval;
+	}
+	public String getSupervisorComment() {
+		return supervisorComment;
+	}
+	public void setSupervisorComment(String supervisorComment) {
+		this.supervisorComment = supervisorComment;
+	}
 	public int getStudentId() {
 		return studentId;
 	}
