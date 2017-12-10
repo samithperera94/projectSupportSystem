@@ -79,5 +79,53 @@ public class SupervisorServices {
 		pstm.executeUpdate();
 	}
 	
+	public static void approveSupervisor(Connection conn,String supervisorId,String approval ,String comment) throws SQLException {
+		//String sql = "Delete from InterimReport where Student_idStudent=?";
+		//supervisor has one student(assumption)
+		String sql="UPDATE Supervisor SET supervisorApproval=?,supervisorComment=? WHERE email=?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1,approval);
+		pstm.setString(2,comment);
+		pstm.setString(3, supervisorId);
+		
+		pstm.executeUpdate();
+		
+		
+	}
+	
+	
+	public static Supervisor viewSupervisor(Connection conn,String userId) throws SQLException {
+		String sql = "SELECT FirstName,LastName,email,mobileNo,AddressLine1,AddressLine2,City,FormPath FROM Supervisor WHERE email= ?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, userId);
+		ResultSet rs = pstm.executeQuery();
+		while(rs.next()){
+			String firstName = rs.getString("FirstName");
+			String lastName = rs.getString("LastName");
+			String email = rs.getString("email");
+			String mobileNo = rs.getString("mobileNo");
+			String AddressLine1 = rs.getString("AddressLine1");
+			String AddressLine2 = rs.getString("AddressLine2");
+			String city = rs.getString("City");
+			String formPath = rs.getString("FormPath");
+			Supervisor supervisor = new Supervisor();
+			supervisor.setFirstName(firstName);
+			supervisor.setLastName(lastName);
+			supervisor.setEmail(email);
+			supervisor.setMobileNo(mobileNo);
+			supervisor.setAddressLine1(AddressLine1);
+			supervisor.setAddressLine2(AddressLine2);
+			supervisor.setCity(city);
+			supervisor.setAgreementForm(formPath);
+			return supervisor;
+
+			
+		}
+		System.out.println("supervisor services finished");
+		return null;
+		
+	}
+
+	
 
 }
