@@ -120,12 +120,11 @@
 						<div class="col-sm-9">
 							<input type="file" name="formName" ng-disabled="state"
 								ng-init="state=true" required>
-							<p class="help-block col-sm-3">"*filename:
+							<p class="help-block col-sm-12">"*filename:
 								clientAgreementForm.pdf"</p>
 
 							<p class="help-block col-sm-6">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="DownloadClientAgreementForm" target="_blank">
+							<a href="DownloadClientAgreementForm" target="_blank">
 									Uploaded: {{client.formName}} </a>
 							</p>
 						</div>

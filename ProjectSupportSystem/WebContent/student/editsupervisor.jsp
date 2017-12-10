@@ -19,9 +19,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="resources/scripts/bitstudent.js"></script>
 <script type="text/javascript" src="resources/scripts/loadSubmission.js"></script>
 
 </head>
@@ -37,7 +37,7 @@
 	<div class="changer" id="formload">
 		<div class="input-data" id="addsupervisor">
 			<form class="form-horizontal" method="POST" action="DoEditSupervisor"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data" name="sup">
 				<c:if test="${param.success eq 1}">
 					<div class="alert alert-success">
 						<strong>Successfully Updated !</strong>
@@ -81,10 +81,11 @@
 					<div class="form-group">
 						<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" name="mobileNo"
+							<input type="number" class="form-control" name="mobileNo"
 								id="mobileNo" value="{{supervisor.mobileNo}}"
 								ng-disabled="state" ng-minlength=10 ng-maxlength=10 required
 								ng-init="state=true">
+							<span style="color:red;" class="error" ng-show="sup.mobileNo.$error.number">Not a Number</span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -119,12 +120,11 @@
 						<div class="col-sm-9">
 							<input type="file" name="agreementForm" ng-disabled="state"
 								required ng-init="state=true">
-							<p class="help-block col-sm-3">"*filename:
+							<p class="help-block col-sm-12">"*filename:
 								supervisorAgreementForm.pdf"</p> <br/>
 							
-							<p class="help-block col-sm-6"> 
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="DownloadSupervisorFrom" target="_blank"> previous:
+							<p class="help-block col-sm-12"> 
+							<a href="DownloadSupervisorFrom" target="_blank"> Uploaded:
 									{{supervisor.agreementFormPath}} </a>
 							</p>
 							

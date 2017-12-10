@@ -34,7 +34,7 @@
 	<div class="changer" id="formload">
 		<div class="input-data" id="addsupervisor" ng-app="">
 			<form class="form-horizontal" method="POST" action="DoAddSupervisor"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data" name="sup">
 				<c:if test="${param.success eq 1}">
 					<div class="alert alert-success">
 						<strong>Successfully Deleted !</strong>
@@ -75,8 +75,9 @@
 				<div class="form-group">
 					<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" name="mobileNo"
+						<input type="number" class="form-control" name="mobileNo"
 							placeholder="Mobile No" ng-minlength=10 ng-maxlength=10>
+							<span style="color:red;" class="error" ng-show="sup.mobileNo.$error.number">Not a Number</span>
 					</div>
 				</div>
 				<div class="form-group">
