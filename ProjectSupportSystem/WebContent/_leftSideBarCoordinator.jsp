@@ -22,5 +22,8 @@
   <li class="nav-item">
     <a class="nav-link" href="ShowStudentList">Dissertation</a>
   </li>
+  <li class="nav-item">
+  <a class="nav-link" href="ShowGiveVivaDates">Give viva dates</a>
+  </li>
 </ul>
 <!--/div-->
