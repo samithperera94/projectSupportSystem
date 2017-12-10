@@ -58,10 +58,24 @@ public class ShowStudentSubmissions extends HttpServlet {
 			e.printStackTrace();
 		}
 		session.setAttribute("student", student);
-		RequestDispatcher dispather = this.getServletContext()
-				.getRequestDispatcher("/projectcoordinator/onestudentsubmissions.jsp");
-		dispather.forward(request, response);
-		System.out.println("add client servlet");
+		String position = currentUser.getPosition();
+		if(position.equals("project")){
+			//pro.cordinator part
+			RequestDispatcher dispather = this.getServletContext()
+					.getRequestDispatcher("/projectcoordinator/onestudentsubmissions.jsp");
+			dispather.forward(request, response);
+			
+			
+			
+		}else{
+			//supervisor part
+			RequestDispatcher dispather = this.getServletContext()
+					.getRequestDispatcher("/supervisor/onestudentsubmissions.jsp");
+			dispather.forward(request, response);
+			
+		}
+		
+		
 	}
 
 	/**
