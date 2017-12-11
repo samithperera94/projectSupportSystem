@@ -27,13 +27,8 @@
 <body>
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-	<div id="loginedUser">
-		<p>You are logged in as: ${user.userName}</p>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
+	<div class="col-md-10">
+	<div class="container-fluid">
 				<h4>Enter dates and times for viva</h4>
 				<br>
 				<br>
@@ -43,8 +38,8 @@
 						<label for="day1" class="col-sm-3 control-label" >Day 1</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day1" placeholder="YYYY-MM-DD" ><br>
-							<input type="text" class="form-control" name="time10" placeholder="Time slot 1" ><br>
-							<input type="text" class="form-control" name="time11" placeholder="Time slot 2" >
+							<input type="text" class="form-control" name="time10" placeholder="EX:8:00 AM - 10:00AM" ><br>
+							<input type="text" class="form-control" name="time11" placeholder="EX:8:00 AM - 10:00AM"" >
 						</div>
 					</div>
 					<br>
@@ -52,8 +47,8 @@
 						<label for="day2" class="col-sm-3 control-label" >Day 2</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day2" placeholder="YYYY-MM-DD" ><br>
-							<input type="text" class="form-control" name="time20" placeholder="Time slot 1" ><br>
-							<input type="text" class="form-control" name="time21" placeholder="Time slot 2" >
+							<input type="text" class="form-control" name="time20" placeholder="EX:8:00 AM - 10:00AM"><br>
+							<input type="text" class="form-control" name="time21" placeholder="EX:8:00 AM - 10:00AM">
 						</div>
 					</div>
 					<br>
@@ -61,8 +56,8 @@
 						<label for="day3" class="col-sm-3 control-label" >Day 3</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day3" placeholder="YYYY-MM-DD" ><br>
-							<input type="text" class="form-control" name="time30" placeholder="Time slot 1" ><br>
-							<input type="text" class="form-control" name="time31" placeholder="Time slot 2" >
+							<input type="text" class="form-control" name="time30" placeholder="EX:8:00 AM - 10:00AM" ><br>
+							<input type="text" class="form-control" name="time31" placeholder="EX:8:00 AM - 10:00AM" >
 						</div>
 					</div>
 					<center>
@@ -72,7 +67,7 @@
 			</div>
 			<div class="col-md-2"></div>
 		</div>
-	</div>
+	
 	<br>
 	<br>
 	<jsp:include page="../_footer.jsp" />

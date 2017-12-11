@@ -216,7 +216,6 @@ app.controller('DissertationMarkController', function($scope, $http) {
 app.controller('SupervisorApprove', function($scope, $http) {
 	
 	$scope.insertApproval = function() {
-		
 	console.log($scope.comm);
 	$scope.giveValue();
 	$http({

@@ -52,7 +52,6 @@ app.controller('MyController',function($scope,$http){
 
 	
 	<jsp:include page="_header.jsp" />
-	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	
 	
 		

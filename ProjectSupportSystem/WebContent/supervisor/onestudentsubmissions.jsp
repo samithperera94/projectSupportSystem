@@ -34,7 +34,7 @@
 
 
 	<%-- <jsp:include page="../_header.jsp" />  --%>
-	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
+	<%-- <jsp:include page="../_leftSideBarCoordinator.jsp" />  --%>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">

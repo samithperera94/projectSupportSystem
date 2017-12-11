@@ -42,7 +42,7 @@
 		<div class="col-md-10">
 		<br/>
 		<div class="container-fluid" id="formload">
-		<form class="form-horizontal" action="InsertNewStudentList" method="POST" enctype="multipart/form-data">
+		<form class="form-horizontal">
 		<c:if test="${param.success eq 0}">
 				<div class="alert alert-danger">
 					<strong> Something went Wrong !</strong>
@@ -66,12 +66,13 @@
 			<br/>
 			<br/>
 			<p> *Upload the excel file </p>
-			<form>
-  				<div class="form-group" >
+			</form>
+			<form action="InsertNewStudentList" method="POST" enctype="multipart/form-data">
+  				<div class="form-group">
     			<label for="Inputform">Submit Form: </label>
-    			<input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+    			<input type="file" name="studentlist" class="form-control-file" id="exampleFormControlFile1" required>
   				</div>
-			<button class="btn btn-primary" " type="submit" value="submit"> Submit </button> 
+			<button class="btn btn-primary" type="submit" value="submit"> Submit </button> 
 		</form>
 		</div>
 	</div>

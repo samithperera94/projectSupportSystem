@@ -30,7 +30,7 @@
 <body>
 
 	<%-- <jsp:include page="../_header.jsp" />  --%>
-	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
+	<%-- <jsp:include page="../_leftSideBarCoordinator.jsp" /> --%>
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-inverse navbar-fixed-top">

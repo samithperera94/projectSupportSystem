@@ -29,7 +29,7 @@
 <body>
 
 	<%-- <jsp:include page="../_header.jsp" />  --%>
-	<!--<jsp:include page="../_leftSideBarCoordinator.jsp" /> -->
+	<%-- <jsp:include page="../_leftSideBarCoordinator.jsp" />  --%>
 	<div class="container-fluid">
 	<div class="row">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -107,6 +107,9 @@
 						<form class="form-horizontal" enctype="multipart/form-data">
 							<div ng-controller="InterimController">
 								<div class="form-group">
+								<p style="margin-top:5px;"> <b> Supervisor States:</b> <button type="button" class="btn btn-success btn-xs">Accepted</button> </br> 
+								 <b> Supervisor Comment: Going well  </b> 
+								</p>
 									<label for="hide1" class="col-sm-1 control-label"></label>
 									<p class="help-block col-sm-6">
 										<a href="DownloadInterimReport" target="_blank">
@@ -237,12 +240,14 @@
 						<form class="form-horizontal" enctype="multipart/form-data">
 							<div ng-controller="DissertationController">
 								<div class="form-group">
+									<p style="margin-top:5px;"> <b> Supervisor States:</b> <button type="button" class="btn btn-success btn-xs">Accepted</button> </br> 
+								 <b> Supervisor Comment: Fine   </b> 
 									<label for="hide1" class="col-sm-1 control-label"></label>
 									<p class="help-block col-sm-6">
 										<a href="DownloadDissertation" target="_blank">
 											Uploaded:{{dissertation.formName}} </a>
 									</p>
-									<iframe ng-src="{{dissertation.formName}}" width="100%" height="700px">
+									<iframe ng-src="{{dissertation.formName}}" width="100%" height="850px">
 
 									</iframe>
 								
@@ -251,7 +256,7 @@
 							</form>
 						</div>
 						<div class="col-sm-4">
-							<button type="button" class="btn btn col-sm-12" style="margin-top:20px;">Marks Obtained(Maximum 05) </button>
+							<button type="button" class="btn btn col-sm-12" style="margin-top:20px;">Marks Obtained(Maximum 90) </button>
 							<div ng-controller="DissertationMarkController" ng-init="displayDissertationMark();">
 									<form class="">
 										<div class="form-group">
@@ -647,7 +652,7 @@
 					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#super">Supervisor
 						Details</button>
-					<div id="super" class="collapse col-sm-6">
+					<div id="super" class="collapse col-sm-12">
 						<form class="form-horizontal" enctype="multipart/form-data">
 
 							<div ng-controller="SupController">
