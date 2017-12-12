@@ -25,17 +25,22 @@
 </head>
 
 <body>
+<div class="container-fluid">
+	<div class="row">
 	<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+	<div class="col-md-2">
 	<jsp:include page="../_leftSideBarCoordinator.jsp" />
+	</div>
 	<div class="col-md-10">
-	<div class="container-fluid">
-				<h4>Enter dates and times for viva</h4>
-				<br>
-				<br>
+	<!--  div class="container-fluid">-->
+	<button type="button" class="btn btn-primary btn-lg btn-block">Enter dates and times for viva</button>
+	<br/>
 				<form class="form-horizontal" method="POST" action="DoGiveVivaTime">
 				
 					<div class="form-group" >
-						<label for="day1" class="col-sm-3 control-label" >Day 1</label>
+						<label for="day1" class="col-sm-2 control-label" >Day 1</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day1" placeholder="YYYY-MM-DD" ><br>
 							<input type="text" class="form-control" name="time10" placeholder="EX:8:00 AM - 10:00AM" ><br>
@@ -44,7 +49,7 @@
 					</div>
 					<br>
 					<div class="form-group" >
-						<label for="day2" class="col-sm-3 control-label" >Day 2</label>
+						<label for="day2" class="col-sm-2 control-label" >Day 2</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day2" placeholder="YYYY-MM-DD" ><br>
 							<input type="text" class="form-control" name="time20" placeholder="EX:8:00 AM - 10:00AM"><br>
@@ -53,7 +58,7 @@
 					</div>
 					<br>
 					<div class="form-group" >
-						<label for="day3" class="col-sm-3 control-label" >Day 3</label>
+						<label for="day3" class="col-sm-2 control-label" >Day 3</label>
 						<div class="col-sm-9">
 							<input type="date" class="form-control" name="day3" placeholder="YYYY-MM-DD" ><br>
 							<input type="text" class="form-control" name="time30" placeholder="EX:8:00 AM - 10:00AM" ><br>
@@ -65,12 +70,15 @@
 					</center>
 				</form>
 			</div>
-			<div class="col-md-2"></div>
 		</div>
 	
 	<br>
 	<br>
+	</div>
+	<div class="row">
 	<jsp:include page="../_footer.jsp" />
+	</div>
+</div>
 </body>
 
 

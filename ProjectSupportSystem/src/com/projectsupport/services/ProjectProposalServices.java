@@ -25,6 +25,31 @@ public class ProjectProposalServices {
 		pstm.setString(11,proposal.getEvaluation());
 		pstm.setInt(12,proposal.getStudentId());
 		pstm.executeUpdate();
+		
+		
+		String sql2="select SurName,supervisorID from Student where idStudent=?";
+		PreparedStatement pstm2 = conn.prepareStatement(sql2);
+		pstm2.setInt(1,proposal.getStudentId());
+		
+		ResultSet rs1 = pstm2.executeQuery();
+		if(rs1.next()){
+		String name = rs1.getString(1);	
+		String superId = rs1.getString(2);
+		String sql1="Insert into submission(Student_idStudent,name,supervisorID,report,approval) values(?,?,?,'interim report','not')";
+		PreparedStatement pstm1 = conn.prepareStatement(sql1);
+		
+		pstm1.setInt(1,proposal.getStudentId());
+		pstm1.setString(2,name);
+		pstm1.setString(3,superId);
+		
+		pstm1.executeUpdate();
+		}
+		
+		
+		
+		
+		
+		
 	}
 	
 	public static ProjectProposal findProjectProposal(Connection conn,int userId) throws SQLException {

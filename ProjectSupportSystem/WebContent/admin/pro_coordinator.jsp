@@ -43,7 +43,7 @@
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Password: </label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control"
+								<input type="password" class="form-control"
 									ng-model="user.password" required>
 							</div>
 						</div>

@@ -35,6 +35,8 @@
 	<div class="col-md-10">
 	<div id="formload">
 			<div ng-app="myApp" ng-controller="MyController">
+			<br/>
+			<br>
 			
 				<div class="table table-responsive">
 					<table class="table table-striped">
@@ -64,14 +66,13 @@
 						</tbody>
 					</table>
 				</div>
-				<button>View Reports</button>
+				
 				
 			</div>
 		</div>
 	</div>
 </div>
 </div>
-</div>
-
+ 
 </body>
 </html>

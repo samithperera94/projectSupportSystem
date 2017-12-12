@@ -27,7 +27,84 @@
 </head>
 <body>
 
+<div class="container-fluid">
 
+<div class="row">
+	<jsp:include page="_header.jsp" />
+</div>
+<div class="row">
+<div class="col-md-2">
+<jsp:include page="_leftSideBarSupervisor.jsp"/> 
+</div>
+
+<div class="col-md-10">
+					
+	  <div id="formload">
+		<div ng-app="myApp" ng-controller="MyController" ng-init="getDataFromServer()" id="addsupervisor">
+
+			
+			
+			<!-- <button ng-click="getDataFromServer()"> view </button> &nbsp;&nbsp;&nbsp; -->
+			
+			<div class="table table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="col-xs-4"></th>
+							<th class="col-xs-8"></th>
+							
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><label>FirstName</label></td>
+							<td>{{supervisor.firstName}}</td>
+					   </tr>
+					   <tr>
+							<td><label>LastName</label></td>
+							<td>{{supervisor.lastName}}</td>
+					   </tr>
+					   <tr>
+							<td><label>E-mail</label></td>
+							<td>{{supervisor.email}}</td>
+					   </tr>
+					   <tr>
+							<td><label>mobile No</label></td>
+							<td>{{supervisor.mobileNo}}</td>
+					   </tr>
+					   <tr>
+							<td><label>AddressLine1</label></td>
+							<td>{{supervisor.addressLine1}}</td>
+					   </tr>
+					   <tr>
+							<td><label>AddressLine2</label></td>
+							<td>{{supervisor.addressLine2}}</td>
+					   </tr>
+					   <tr>
+							<td><label>City</label></td>
+							<td>{{supervisor.city}}</td>
+					   </tr>
+					   
+					   
+					   
+					   
+					   
+					   
+					   
+					</tbody>
+				</table>
+			</div>
+		<a href="EditSupervisorView" class="btn btn-info" role="button">edit</a>
+		&nbsp;&nbsp;
+		<a href="DeleteSupervisor" class="btn btn-danger" role="button">delete</a>
+		</div>
+
+	</div>
+	</div>
+</div>
+</div>
+			
  <script>
 var app = angular.module('myApp', []);
 
@@ -47,57 +124,7 @@ app.controller('MyController',function($scope,$http){
         };
 });
 
-</script> 
-
-
-	
-	<jsp:include page="_header.jsp" />
-	
-	
-		
-		<jsp:include page="_leftSideBarSupervisor.jsp"/> 
-					
-	  <div class="changer" id="formload">
-		<div ng-app="myApp" ng-controller="MyController" ng-init="getDataFromServer()" id="addsupervisor">
-
-			
-			
-			<!-- <button ng-click="getDataFromServer()"> view </button> &nbsp;&nbsp;&nbsp; -->
-			<a href="EditSupervisorView"> Edit </a> &nbsp;&nbsp;&nbsp; <a href="DeleteSupervisor"> delete   </a>
-			<div class="table table-responsive">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>FirstName</th>
-							<th>LastName</th>
-							<th>E-mail</th>
-							<th>Mobile No</th>
-							<th>AddressLine1</th>
-							<th>AddressLine2</th>
-							<th>City</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>{{supervisor.firstName}}</td>
-							<td>{{supervisor.lastName}}</td>
-							<td>{{supervisor.email}}</td>
-							<td>{{supervisor.mobileNo}}</td>
-							<td>{{supervisor.addressLine1}}</td>
-							<td>{{supervisor.addressLine2}}</td>
-							<td>{{supervisor.city}}</td>
-							
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-		</div>
-
-
-	</div>
-				
+</script> 	  				
 		
 		
 	

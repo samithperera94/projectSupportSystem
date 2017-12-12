@@ -52,7 +52,7 @@ public class ShowStudentSubmissions extends HttpServlet {
 		Student student = null;
 		try {
 			student = StudentServices.findStudent(conn, id);
-			System.out.println(student.getFullName());
+			//System.out.println(student.getFullName());
 		} catch (SQLException e) {
 
 			e.printStackTrace();

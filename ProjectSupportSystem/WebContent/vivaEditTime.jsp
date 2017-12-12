@@ -68,12 +68,12 @@
   					</thead>
   					<tbody>
     					<tr>
-					      <td><%=request.getAttribute("day1")%></td>
-					      <td><%=request.getAttribute("time10")%></td>
+					      <td>2018-02-04</td>
+					      <td>10.00 a.m. - 12.00 a.m.</td>
 					      <td><center><input class="form-check-input position-static" type="checkbox" name="time" id="Checkbox1" value="Day 01 1st slot" aria-label="..."></center></td>
     					</tr>
     					<tr>
-					      <td><%=request.getAttribute("day1")%></td>
+					      <td>2018-02-04</td>
 					      <td><%=request.getAttribute("time11")%></td>
 					      <td><center><input class="form-check-input position-static" type="checkbox" name="time" id="Checkbox2" value="Day 01 2nd slot" aria-label="..."></center></td>
     					</tr>

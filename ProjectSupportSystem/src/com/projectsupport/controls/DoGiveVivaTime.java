@@ -45,7 +45,7 @@ public class DoGiveVivaTime extends HttpServlet {
 	        return;
 		}
 		
-		String date1 = request.getParameter("day1");
+		/*String date1 = request.getParameter("day1");
 		String date2 = request.getParameter("day2");
 		String date3 = request.getParameter("day3");
 		String time10 = request.getParameter("time01");
@@ -54,9 +54,9 @@ public class DoGiveVivaTime extends HttpServlet {
 		String time20 = request.getParameter("time20");
 		String time21 = request.getParameter("time21");
 		String time30 = request.getParameter("time30");
-		String time31 = request.getParameter("time31");
-		String errorString = null;
-		if(errorString == null){
+		String time31 = request.getParameter("time31");*/
+	/*	String errorString = null;
+		if(errorString == null){*/
 	/*	try {
 			ProjectProposalServices.insertProjectProposal(conn, proposal);
 			ProjectPlanServices.insertProjectPlan(conn, plan);
@@ -79,9 +79,9 @@ public class DoGiveVivaTime extends HttpServlet {
 		request.setAttribute("day3", request.getParameter("day3"));
 		request.setAttribute("time30", request.getParameter("time30"));
 		request.setAttribute("time31", request.getParameter("time31"));*/
-		
+		/*
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/viva.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);*/
 	} 
 
 	/**
