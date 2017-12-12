@@ -26,16 +26,27 @@
 
 </head>
 <body>
-
+<div class="container-fluid">
+<div class="row">
 	<jsp:include page="../_header.jsp" />
+</div>
+<div class="row">
+<div class="col-md-2">
 	<jsp:include page="../_leftSideBarStudent.jsp" />
+</div>
 
-
+<div class="col-md-10">
+<br/>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-9"style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
-		<div id="dissertation">
+		<!-- <div id="dissertation"> -->
 			<form class="form-horizontal" enctype="multipart/form-data"
 				method="POST" action="DoAddDissertation">
-				<h4>Supervisor Feedback</h4>
+				<br/>
+				<h4 class="text-center"><u>Supervisor Feedback</u></h4>
+				<br>
 
 				<table class="table table-striped">
 					<thead>
@@ -73,9 +84,13 @@
 
 			</form>
 		</div>
+		</div>
 
-
+</div>
 
 	</div>
+</div>
+</div>
+</div>
 </body>
 </html>
