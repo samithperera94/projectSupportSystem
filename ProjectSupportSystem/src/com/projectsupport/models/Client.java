@@ -10,7 +10,21 @@ public class Client {
 	private String telephoneNo;
 	private String formName;
 	private int StudentId;
+	private String approval;
+	private String supervisorComment;
 	
+	public String getApproval() {
+		return approval;
+	}
+	public void setApproval(String approval) {
+		this.approval = approval;
+	}
+	public String getSupervisorComment() {
+		return supervisorComment;
+	}
+	public void setSupervisorComment(String supervisorComment) {
+		this.supervisorComment = supervisorComment;
+	}
 	public String getOrganizationName() {
 		return organizationName;
 	}

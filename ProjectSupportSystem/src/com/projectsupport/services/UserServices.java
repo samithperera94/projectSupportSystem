@@ -3,7 +3,8 @@ package com.projectsupport.services;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.PreparedStatement;
 import com.projectsupport.models.User;
 
@@ -55,5 +56,38 @@ public class UserServices {
 			pstm.setString(3,position);
 			pstm.executeUpdate();
 	  }
+	  public static List<User> findUsers(Connection conn) throws SQLException{
+			String sql = "Select userName,password,position from User";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			List<User> list = new ArrayList<User>();
+			while(rs.next()){
+				String userName = rs.getString("userName");
+				String password = rs.getString("password");
+				String position = rs.getString("position");
+				User newUser = new User();
+				newUser.setUserName(userName);
+				newUser.setPassword(password);
+				newUser.setPosition(position);
+				list.add(newUser);
+			}
+			return list;
+		}
+	  public static void deleteUsers(Connection conn, String userName) throws SQLException {
+			String sql = "Delete from User where userName=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1,userName);
+			pstm.executeUpdate();
+		}
+	  
+	  public static void insertUser(Connection conn,User user) throws SQLException {
+			String sql = "Insert into User(userName,password,position) values (?,?,?)";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1,user.getUserName());
+			pstm.setString(2,user.getPassword());
+			pstm.setString(3,user.getPosition());
+			pstm.executeUpdate();
+
+		}
 
 } 

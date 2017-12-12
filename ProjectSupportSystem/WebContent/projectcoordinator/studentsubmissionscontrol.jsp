@@ -30,22 +30,26 @@
 
 </head>
 <body>
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
-
-	
-	<div class="container-fluid" id="formload">
-		<div id="dashboard" ng-app="myApp">
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<jsp:include page="../_leftSideBarCoordinator.jsp" />
+		</div>
+		<div class="col-md-10">
+			<div class="container-fluid" id="formload">
+				<div id="dashboard" ng-app="myApp">
 
 			<div class="container-fluid spacing">
-				<button type="button" class="btn btn-info col-sm-12"
-					data-toggle="collapse" data-target="#message">Post a
-					message </button>
+				<button type="button" class="btn btn-primary btn-lg btn-block"
+					data-toggle="collapse" data-target="#message">Set Announcement </button>
 				<div id="message" class="collapse" ng-controller="messageController"
 					ng-init="displayMessages()" style="margin-top: 50px;">
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Message
+							<label for="" class="col-sm-3 control-label">Announcement
 								Header: </label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control"
@@ -53,7 +57,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Message in
+							<label for="" class="col-sm-3 control-label">Announcement in
 								Details: </label>
 							<div class="col-sm-8">
 								<textarea class="form-control" rows="3"
@@ -67,8 +71,8 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>Message Topic</th>
-									<th>Message </th>
+									<th>Announncement Topic</th>
+									<th>Announcement In Detail </th>
 									<th>Delete</th>
 
 								</tr>
@@ -88,9 +92,9 @@
 
 
 			<div class="container-fluid spacing">
-				<button type="button" class="btn btn-info col-sm-12"
-					data-toggle="collapse" data-target="#progressR">Progress
-					Report Submissions Controller</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block"
+					data-toggle="collapse" data-target="#progressR">Set Deadlines For Progress
+					Report Submission</button>
 				<div id="progressR" class="collapse"
 					ng-controller="progressController" ng-init="displayDataPR()">
 					<form class="form-horizontal">
@@ -161,9 +165,9 @@
 
 			</div>
 			<div class="container-fluid spacing">
-				<button type="button" class="btn btn-info col-sm-12"
-					data-toggle="collapse" data-target="#other">Other
-					Submissions Controller</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block"
+					data-toggle="collapse" data-target="#other">Set Deadlines For Other
+					Submissions</button>
 				<div id="other" class="collapse" ng-controller="formController"
 					ng-init="displayDataForm()">
 					<form class="form-horizontal">
@@ -227,5 +231,8 @@
 			</div>
 		</div>
 	</div>
+	</div>
+</div>
+</div>
 </body>
 </html>

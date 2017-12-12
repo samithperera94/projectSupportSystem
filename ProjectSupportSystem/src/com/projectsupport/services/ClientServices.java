@@ -76,5 +76,30 @@ public class ClientServices {
 		pstm.setInt(1, userId);
 		pstm.executeUpdate();
 	}
+	
+	public static void approveClient(Connection conn,String supervisorId,String approval ,String comment) throws SQLException {
+		//String sql = "Delete from InterimReport where Student_idStudent=?";
+		//supervisor has one student(assumption)
+		String sql1 = "SELECT Student_idStudent FROM supervisor WHERE email = ?";
+		PreparedStatement pstm1 = conn.prepareStatement(sql1);
+		pstm1.setString(1,supervisorId);
+		System.out.println("SQL eke bagyk hri");
+		ResultSet rs1 = pstm1.executeQuery();
+		if(rs1.next()){
+			int stuId = rs1.getInt(1);
+
+			String sql2 = "UPDATE Client SET supervisorApproval=?,supervisorComment=? WHERE Student_idStudent=?";
+				PreparedStatement pstm2 = conn.prepareStatement(sql2);
+				pstm2.setString(1,approval);
+				pstm2.setString(2,comment);
+				pstm2.setInt(3, stuId);
+				
+				pstm2.executeUpdate();
+
+
+
+		}
+
+	}
 
 }

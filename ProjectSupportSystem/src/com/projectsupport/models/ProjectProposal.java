@@ -13,6 +13,20 @@ public class ProjectProposal {
 	private String resources;
 	private String evaluation;
 	private int studentId;
+	private String approval;
+	private String supervisorComment;
+	public String getApproval() {
+		return approval;
+	}
+	public void setApproval(String approval) {
+		this.approval = approval;
+	}
+	public String getSupervisorComment() {
+		return supervisorComment;
+	}
+	public void setSupervisorComment(String supervisorComment) {
+		this.supervisorComment = supervisorComment;
+	}
 	public String getProjectTitle() {
 		return projectTitle;
 	}

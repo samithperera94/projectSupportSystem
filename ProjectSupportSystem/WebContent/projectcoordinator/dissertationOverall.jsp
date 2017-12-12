@@ -24,14 +24,19 @@
 	Evaluation Support System</title>
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+		<div class="col-md-2">
 	
+			<jsp:include page="../_leftSideBarCoordinator.jsp" />
+		</div>
+		
+		<div class="col-md-10">
 
-	<div class="container" id="formload" ng-app="myApp">
-		<div id="studentlist">
-			<div>
+	<div id="formload" ng-app="myApp">
 			<div class="row">
 			<button class="btn btn-primary col-sm-6"> Dissertation submitted student List</button>
 			</div>
@@ -89,8 +94,8 @@
 			</div>
 		</div>
 	</div>
-
-
-
+</div>
+</div>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.projectsupport.services;
+	package com.projectsupport.services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -132,6 +132,49 @@ public class StudentServices {
 			return list;
 			
 		}
+		
+		public static List<Student> getStudentListofSupervisor(Connection conn,String supervisorId) throws SQLException {
+			//String sql1 = "SELECT Student_idStudent FROM supervisor WHERE email = ?";
+			//PreparedStatement pstm1 = conn.prepareStatement(sql1);
+			
+			
+			
+				//int stuId = rs1.getInt(1);
+				String sql = "SELECT * FROM Student WHERE supervisorID=?";
+
+				PreparedStatement pstm = conn.prepareStatement(sql);
+				pstm.setString(1,supervisorId);
+				
+				ResultSet rs2 = pstm.executeQuery();
+
+				List<Student> list = new ArrayList<Student>();
+				while(rs2.next()){
+					int studentId = rs2.getInt("idStudent");
+					String nic = rs2.getString("NIC");
+					String fullName = rs2.getString("FullName");
+					String initial = rs2.getString("Initial");
+					String surName = rs2.getString("SurName");
+					String email = rs2.getString("Email");
+					String telephoneNo = rs2.getString("TelephoneNo");
+					Student student = new Student();
+					student.setStudentId(studentId);
+					student.setNic(nic);
+					student.setFullName(fullName);
+					student.setInitial(initial);
+					student.setSurName(surName);
+					student.setEmail(email);
+					student.setTelephoneNo(telephoneNo);
+					list.add(student);
+				
+			}
+			
+			return list;
+			
+			
+			
+			
+		}
+
 		
 		
 		

@@ -11,6 +11,14 @@ public class InterimReport {
 	private float introductionM;
 	private float analysisM;
 	private float solutionM;
+	private String approval;
+	
+	public String getApproval() {
+		return approval;
+	}
+	public void setApproval(String approval) {
+		this.approval = approval;
+	}
 	public String getFormName() {
 		return formName;
 	}

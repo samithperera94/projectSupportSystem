@@ -45,9 +45,10 @@
 					</div>
 				</c:if>
 
-				<center>
+			
 					<h4>Client Agreement Form</h4>
-				</center>
+					<h4>  ${timeRemainingClient} </h4>
+				
 				<div class="form-group">
 					<label for="nameOfOrganization" class="col-sm-3 control-label">Name
 						of the Organization:</label>

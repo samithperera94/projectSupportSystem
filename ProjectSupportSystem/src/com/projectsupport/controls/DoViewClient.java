@@ -50,7 +50,7 @@ public class DoViewClient extends HttpServlet {
 		String user1 = currentUser.getUserName();
 		
 		System.out.println(user1);
-		if(user1.equals("pro01")){
+		if(user1.equals("pro01") || user1.equals("sup01@gmail.com")){
 			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
 		}
 		else{

@@ -24,12 +24,18 @@
 	Evaluation Support System</title>
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarCoordinator.jsp" />
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<jsp:include page="../_leftSideBarCoordinator.jsp" />
+		</div>
+		<div class="col-md-10">
 	
-	<div class="container" id="formload">
-		<div id="studentlist">
+	<div id="formload">
+		<!-- div id="studentlist" -->
 			<div ng-app="myApp" ng-controller="MyController">
 			<p>Search: <input ng-model="f.studentId"> </p>
 				<div class="table table-responsive">
@@ -63,8 +69,9 @@
 			</div>
 		</div>
 	</div>
-
-
+	</div>
+</div>
+</div>
 
 </body>
 </html>
