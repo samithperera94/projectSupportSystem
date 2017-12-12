@@ -48,7 +48,7 @@ public class DoLoginServlet extends HttpServlet {
 		boolean hasError = false;
 		String errorString = null;
 		
-		if(userName == null || password == null || password.length() == 0 || userName.length() == 0) {
+		if(userName == null || password == null || password.length() == 0 || userName.length() == 0) { //checking whether login details are correct or not
 			hasError = true;
 			errorString = "Required UserName and Password";
 		} else {

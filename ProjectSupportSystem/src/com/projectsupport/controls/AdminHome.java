@@ -39,6 +39,7 @@ public class AdminHome extends HttpServlet {
 		if(currentUser == null){
 		    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 		       dispatcher.forward(request, response);
+		       return;
 		  }
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/admin/admin.jsp");
 		dispather.forward(request, response);

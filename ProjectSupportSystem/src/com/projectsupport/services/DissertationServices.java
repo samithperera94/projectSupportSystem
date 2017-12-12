@@ -26,7 +26,7 @@ public class DissertationServices {
 		ResultSet rs = pstm.executeQuery();
 		while (rs.next()) {
 			String supervisorComment = rs.getString("supervisorComment");
-			String supervisorState = rs.getString("SupervisorState");
+			String supervisorApproval = rs.getString("supervisorApproval");
 			float introduction = rs.getFloat("introduction");
 			float analysis= rs.getFloat("analysis");
 			float design = rs.getFloat("design");
@@ -41,7 +41,7 @@ public class DissertationServices {
 			Dissertation dissertation = new Dissertation();
 			dissertation.setFormName(formName);
 			dissertation.setSupervisorComment(supervisorComment);
-			dissertation.setSupervisorState(supervisorState);
+			dissertation.setSupervisorApproval(supervisorApproval);
 			dissertation.setIntroduction(introduction);
 			dissertation.setAnalysis(analysis);
 			dissertation.setDesign(design);
@@ -96,7 +96,7 @@ public class DissertationServices {
 		List<Dissertation> list = new ArrayList<Dissertation>();
 		while(rs.next()){
 			String supervisorComment = rs.getString("supervisorComment");
-			String supervisorState = rs.getString("SupervisorState");
+			String supervisorApproval= rs.getString("SupervisorApproval");
 			float introduction = rs.getFloat("introduction");
 			float analysis= rs.getFloat("analysis");
 			float design = rs.getFloat("design");
@@ -112,7 +112,7 @@ public class DissertationServices {
 			Dissertation dissertation = new Dissertation();
 			dissertation.setFormName(formName);
 			dissertation.setSupervisorComment(supervisorComment);
-			dissertation.setSupervisorState(supervisorState);
+			dissertation.setSupervisorApproval(supervisorApproval);
 			dissertation.setIntroduction(introduction);
 			dissertation.setAnalysis(analysis);
 			dissertation.setDesign(design);

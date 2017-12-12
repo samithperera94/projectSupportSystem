@@ -39,6 +39,7 @@ public class Admin_AddCoor extends HttpServlet {
 		if(currentUser == null){
 		    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 		       dispatcher.forward(request, response);
+		       return;
 		  }
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/admin/pro_coordinator.jsp");
 		dispather.forward(request, response);

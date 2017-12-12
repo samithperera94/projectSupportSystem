@@ -25,13 +25,20 @@
 
 </head>
 <body>
-
+<div class="container-fluid"> <!--full container start-->
+<div class="row"><!--header row start-->
 	<jsp:include page="../_header.jsp" />
+</div><!--header row end-->
+<div class="row"><!-- content row start-->
+<div class="col-md-2"><!--sidebar col start-->
 	<jsp:include page="../_leftSideBarStudent.jsp" />
-
-	
+</div><!--sidebar col end-->
+<div class="col-md-10">	
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-9">
 	<div class="changer" id="formload">
-		<div id="addclient" ng-app="">
+		<div ng-app="">
 			<form class="form-horizontal" method="POST" action="DoAddClient"
 				enctype="multipart/form-data">
 				<c:if test="${param.success eq 1}">
@@ -119,8 +126,12 @@
 				<button type="submit" class="btn btn-default">Save</button>
 			</form>
 		</div>
+		</div>
 	</div>
-
+</div>
+</div>
+</div><!--content row end-->
+</div><!--full container end-->
 
 </body>
 </html>

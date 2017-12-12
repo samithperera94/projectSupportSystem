@@ -34,13 +34,6 @@ public class DeleteFormsubInfo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = MyUtils.getStoredConnection(request);
        	JsonParser parser = new JsonParser();
         JsonObject obj = (JsonObject) parser.parse(request.getReader());
@@ -56,6 +49,28 @@ public class DeleteFormsubInfo extends HttpServlet {
 			}
         	
         }
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+		/*Connection conn = MyUtils.getStoredConnection(request);
+       	JsonParser parser = new JsonParser();
+        JsonObject obj = (JsonObject) parser.parse(request.getReader());
+        String formType = obj.get("formType").getAsString();
+        String errorString = null;
+        System.out.println("Inside DeleteFormSubmission");
+        if(errorString == null){
+        	try {
+				SystemUtilServices.deleteFormSubmission(conn, formType);
+			} catch (SQLException e) {
+				errorString = e.getMessage();
+				e.printStackTrace();
+			}
+        	
+        }*/
 	}
 
 }

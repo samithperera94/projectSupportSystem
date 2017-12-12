@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 public class ConnectionUtils {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		return DBConnection.getMysqlConnection();
+		return DBConnection.getMysqlConnection();  
 
 	}
 
-	public static void closeQuietly(Connection conn) {
+	public static void closeQuietly(Connection conn) {   
 		try {
 			conn.close();
 		} catch (Exception e) {

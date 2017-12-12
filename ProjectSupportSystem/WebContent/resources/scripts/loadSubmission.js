@@ -102,6 +102,7 @@ app.controller('progressReportMarkController', function($scope, $http) {
 		contentType: 'application/json',
 		data : JSON.stringify($scope.prMark)
 	}).then(function successCallback(data) {
+		alert("Marks inserted Sucessfully");
 		$scope.prMark.mark = null;
 		$scope.displayDataPR();
 		$scope.loadProgressReportList();
