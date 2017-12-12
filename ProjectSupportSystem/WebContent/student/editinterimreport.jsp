@@ -26,15 +26,25 @@
 
 </head>
 <body>
-
+<div class="container-fluid">
+<div class="row">
 	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarStudent.jsp" />
-
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<jsp:include page="../_leftSideBarStudent.jsp" />
+	</div>
 	
+	<div class="col-md-10">
+	<br/>
+	<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-9" style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
-		<div id="interim">
+		<!-- <div id="interim"> -->
 			<form class="form-horizontal" enctype="multipart/form-data">
 			<c:if test="${param.success eq 1}">
+			<br/>
 					<div class="alert alert-success">
 						<strong>Successfully Updated !</strong>
 					</div>
@@ -45,7 +55,7 @@
 					</div>
 				</c:if>
 				<center>
-					<h4>Interim Report</h4>
+					<h4><u>Interim Report</u></h4>
 				</center>
 				<div ng-app="myApp" ng-controller="InterimController">
 				<div class="form-group">
@@ -72,7 +82,11 @@
 				</div>
 			</form>
 		</div>
-
 	</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

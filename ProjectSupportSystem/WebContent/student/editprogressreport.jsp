@@ -29,16 +29,25 @@
 
 </head>
 <body>
-
+<div class="container-fluid"> <!--full container start-->
+<div class="row"><!--header row start-->
 	<jsp:include page="../_header.jsp" />
+</div><!--header row end-->
+<div class="row"><!-- content row start-->
+<div class="col-md-2"><!--sidebar col start-->
 	<jsp:include page="../_leftSideBarStudent.jsp" />
-
-	
+</div><!--sidebar col end-->
+<div class="col-md-10">
+<br>
+	<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-9" style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
-		<div id="progressReport1">
+		<!-- <div id="progressReport1"> -->
 			<form class="form-horizontal" method="POST"
 				action="DoEditProgressReport">
 				<c:if test="${param.success eq 1}">
+				<br/>
 					<div class="alert alert-success">
 						<strong>Successfully Updated! </strong>
 					</div>
@@ -49,8 +58,8 @@
 					</div>
 				</c:if>
 
-				<h4>PROGRESS REPORT NO ${reportNo} </h4>
-				<h4>  ${timeRemainingProgress} </h4>
+				<h4 class="text-center"><u>PROGRESS REPORT NO ${reportNo}</u> </h4>
+				<h4 class="text-center">  ${timeRemainingProgress} </h4>
 				<div ng-app="myApp" ng-controller="ProgressController">
 				<div class="form-group col-sm-12">
 					<input type="hidden" name="reportNo" id="reportNo" value="${reportNo}"/>
@@ -136,5 +145,11 @@
 		</div>
 
 	</div>
+</div>
+
+</div>
+</div><!--content col end -->
+</div><!--content row end-->
+</div><!--full container end-->
 </body>
 </html>

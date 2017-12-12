@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection {     //DB connection configuration
 	
 	public static Connection getMysqlConnection() throws ClassNotFoundException,SQLException {
 		String hostName = "localhost";
@@ -14,8 +14,8 @@ public class DBConnection {
 		
 		return getMysqlConnection(hostName,dbName,userName,password);
 			
-	}
-	
+	}      
+					
 	public static Connection getMysqlConnection(String hostname,String dbname,String username,String password) throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		String connectionURL = "jdbc:mysql://" + hostname + ":3306/" + dbname+"?useSSL=false";

@@ -26,15 +26,25 @@
 </head>
 
 <body>
-
+<div class="container-fluid"> <!--full container start-->
+<div class="row"><!--header row start-->
 	<jsp:include page="../_header.jsp" />
+</div><!--header row end-->
+<div class="row"><!-- content row start-->
+<div class="col-md-2"><!--sidebar col start-->
 	<jsp:include page="../_leftSideBarStudent.jsp" />
-
+</div><!--sidebar col end-->
+<div class="col-md-10">
+<br/>
+	<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-9" style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
-		<div class="input-data " id="addclient">
+		<div class="input-data ">
 			<form class="form-horizontal" method="POST" action="DoEditClient"
 				enctype="multipart/form-data">
 				<c:if test="${param.success eq 1}">
+				<br/>
 					<div class="alert alert-success">
 						<strong>Successfully Updated !</strong>
 					</div>
@@ -46,7 +56,7 @@
 				</c:if>
 
 				<center>
-					<h4>Client Agreement Form</h4>
+					<h4><u>Client Agreement Form</u></h4>
 					<h4>  ${timeRemainingClient} </h4>
 				</center>
 				<div ng-app="myApp" ng-controller="ClientController">
@@ -137,7 +147,10 @@
 			</form>
 		</div>
 	</div>
-
-
+	</div>
+	</div>
+</div>
+</div><!--content row end-->
+</div><!--full container end-->
 </body>
 </html>

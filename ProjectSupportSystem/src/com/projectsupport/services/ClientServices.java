@@ -12,7 +12,7 @@ public class ClientServices {
 	public static void insertClient(Connection conn, Client client) throws SQLException {
 		String sql = "Insert into Client (name,registrationNo,addressLine1,addressLine2,addressLine3,email,telephoneNo,formName,Student_idStudent) values (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setString(1,client. getOrganizationName());
+		pstm.setString(1,client.getOrganizationName());
 		pstm.setString(2, client.getRegistrationNo());
 		pstm.setString(3,client.getAddressLine1());
 		pstm.setString(4,client.getAddressLine2());

@@ -1,6 +1,7 @@
 package com.projectsupport.models;
 
 public class Client {
+	//declaring attributes
 	private String organizationName;
 	private String registrationNo;
 	private String addressLine1;
@@ -12,19 +13,6 @@ public class Client {
 	private int StudentId;
 	private String approval;
 	private String supervisorComment;
-	
-	public String getApproval() {
-		return approval;
-	}
-	public void setApproval(String approval) {
-		this.approval = approval;
-	}
-	public String getSupervisorComment() {
-		return supervisorComment;
-	}
-	public void setSupervisorComment(String supervisorComment) {
-		this.supervisorComment = supervisorComment;
-	}
 	public String getOrganizationName() {
 		return organizationName;
 	}
@@ -79,5 +67,18 @@ public class Client {
 	public void setStudentId(int studentId) {
 		StudentId = studentId;
 	}
+	public String getApproval() {
+		return approval;
+	}
+	public void setApproval(String approval) {
+		this.approval = approval;
+	}
+	public String getSupervisorComment() {
+		return supervisorComment;
+	}
+	public void setSupervisorComment(String supervisorComment) {
+		this.supervisorComment = supervisorComment;
+	}
+	
 	
 }

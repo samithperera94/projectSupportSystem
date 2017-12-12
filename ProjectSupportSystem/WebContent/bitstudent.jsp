@@ -27,7 +27,7 @@
   		<div class="col-md-2">   <!--nav bar beginning-->
   			<jsp:include page="_leftSideBarStudent.jsp"/>
   		</div> <!--nav bar end-->
-  		<div style="margin-left:220px" class="col-md-8"><!--msg view -->
+  		<div class="col-md-8"><!--msg view -->
           	
           	<div ng-app="myApp" ng-controller="viewMessages">
             <div class="changer" id="formload" ng-repeat="y in myArray">

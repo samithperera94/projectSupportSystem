@@ -2,8 +2,6 @@ package com.projectsupport.models;
 
 public class InterimReport {
 	private String formName;
-	private String supervisorComment;
-	private String supervisorState;
 	private int studentId;
 	private float totalMarks;
 	private float titleM;
@@ -11,13 +9,15 @@ public class InterimReport {
 	private float introductionM;
 	private float analysisM;
 	private float solutionM;
-	private String approval;
+	private String supervisorApproval;
+	private String supervisorComment;
 	
-	public String getApproval() {
-		return approval;
+	
+	public String getSupervisorApproval() {
+		return supervisorApproval;
 	}
-	public void setApproval(String approval) {
-		this.approval = approval;
+	public void setSupervisorApproval(String supervisorApproval) {
+		this.supervisorApproval = supervisorApproval;
 	}
 	public String getFormName() {
 		return formName;
@@ -31,12 +31,7 @@ public class InterimReport {
 	public void setSupervisorComment(String supervisorComment) {
 		this.supervisorComment = supervisorComment;
 	}
-	public String getSupervisorState() {
-		return supervisorState;
-	}
-	public void setSupervisorState(String supervisorState) {
-		this.supervisorState = supervisorState;
-	}
+	
 	public int getStudentId() {
 		return studentId;
 	}

@@ -74,7 +74,6 @@ public class InsertNewStudentList extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
 		String errorString = null;
-		String page=  "/ShowInsertNewStudent?success=0";
 		if (currentUser == null) {
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 			dispatcher.forward(request, response);
@@ -171,9 +170,14 @@ public class InsertNewStudentList extends HttpServlet {
 					System.out.println("Done at first row");
 
 				} catch (Exception e) {
-					page =  "/ShowInsertNewStudent?success=0";
+					RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/ShowInsertNewStudent?success=0");
+					dispatcher.forward(request, response);
 					errorString = e.getMessage();
 					e.printStackTrace();
+					return;
+					
+					//page =  "/ShowInsertNewStudent?success=0";
+					
 
 				}
 				finally{
@@ -183,14 +187,12 @@ public class InsertNewStudentList extends HttpServlet {
 				}
 				
 				
+				
 		} 
-			if(errorString != null){
-				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ShowInsertNewStudent?success=0");
-				dispatcher.forward(request, response);
-			}
-			else{
-				response.sendRedirect(request.getContextPath() + "/ShowInsertNewStudent?success=1");
-			}
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/ShowInsertNewStudent?success=1");
+			dispatcher.forward(request, response);
+			return;
+	
 
 		} catch (Exception e) {
 			errorString = e.getMessage();
@@ -198,6 +200,10 @@ public class InsertNewStudentList extends HttpServlet {
 					"You either did not specify a file to upload or are trying to upload a file to a protected or nonexistent location.");
 			System.out.println("<br/> ERROr:" + e.getMessage());
 			LOGGER.log(Level.SEVERE, "Problem during file upload. Error: {0}", new Object[] { e.getMessage() });
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/ShowInsertNewStudent?success=2");
+			dispatcher.forward(request, response);
+			return;
+			
 
 		} finally {
 			if (outputstream != null) {
@@ -210,6 +216,8 @@ public class InsertNewStudentList extends HttpServlet {
 			if (writer != null) {
 				writer.close();
 			}
+			
+			
 
 		}
 		

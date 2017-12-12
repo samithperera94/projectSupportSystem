@@ -45,12 +45,17 @@
 		<form class="form-horizontal">
 		<c:if test="${param.success eq 0}">
 				<div class="alert alert-danger">
-					<strong> Something went Wrong !</strong>
+					<strong> Duplicate Data Found. Please try again!</strong>
 				</div>
 		</c:if>
 		<c:if test="${param.success eq 1}">
 				<div class="alert alert-success">
 					<strong> Student list has been successfully inserted !</strong>
+				</div>
+		</c:if>
+		<c:if test="${param.success eq 2}">
+				<div class="alert alert-danger ">
+					<strong> Excel sheet not in correct Form Please Try Again</strong>
 				</div>
 		</c:if>
 			<button type="button" class="btn btn-primary btn-lg btn-block" disbled> New Student Insertion </button>

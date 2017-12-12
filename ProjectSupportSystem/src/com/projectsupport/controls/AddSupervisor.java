@@ -1,6 +1,7 @@
 package com.projectsupport.controls;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.projectsupport.models.User;
+import com.projectsupport.services.MyUtils;
 
 /**
  * Servlet implementation class AddSupervisor
@@ -28,6 +33,14 @@ public class AddSupervisor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Connection conn = MyUtils.getStoredConnection(request);
+		User currentUser = MyUtils.getLoginedUser(session);
+		if(currentUser == null){
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+	        return;
+		}
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/student/addsupervisor.jsp");
 		dispather.forward(request, response);
 		System.out.println("add supervisor servlet");

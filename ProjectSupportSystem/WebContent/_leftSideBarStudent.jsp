@@ -14,12 +14,11 @@
 <%@ page import="java.util.Calendar"%>
 <%@ page import="java.time.LocalTime"%>
 <%@ page import="java.time.Duration"%>
-</div class="left-side-bar">
-<div class="container-fluid">
-	<div class="row">
-		<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-			<ul class="nav nav-pills flex-column">
-			<li class="nav-item"><a class="nav-link" href="ShowSupervisorFeedBack"> Supervisor Feedback </a> </li>
+
+	<ul class="nav flex-column">
+			<li class="nav-item">
+				<a class="nav-link active" href="ShowSupervisorFeedBack"> Supervisor Feedback </a>
+		 	</li>
 				<%
 					String errorString = null;
 					Connection conn = MyUtils.getStoredConnection(request);
@@ -59,11 +58,11 @@
 
 							if (d1.after(currentdate)) {
 								out.print(
-										"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindSupervisor\">Supervisor Details </a></li>");
+										"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindSupervisor\">Supervisor Details </a></li>");
 							} else if (d1.equals(currentdate)) {
 								if (supdur.toMinutes() > 0) {
 									out.print(
-											"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindSupervisor\">Supervisor Details </a></li>");
+											"<li class=\"nav-item active\"><a class=\"nav-link\" href=\"FindSupervisor\">Supervisor Details </a></li>");
 								}
 							}
 
@@ -89,11 +88,11 @@
 
 							if (d1.after(currentdate)) {
 								out.print(
-										"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindClient\"> Client Details </a></li>");
+										"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindClient\"> Client Details </a></li>");
 							} else if (d1.equals(currentdate)) {
 								if (clientdur.toMinutes() > 0) {
 									out.print(
-											"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindClient\"> Client Details </a></li>");
+											"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindClient\"> Client Details </a></li>");
 								}
 							}
 						}
@@ -117,11 +116,11 @@
 
 							if (d1.after(currentdate)) {
 								out.print(
-										"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindProjectProposal\">Project Proposal</a></li>");
+										"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindProjectProposal\">Project Proposal</a></li>");
 							} else if (d1.equals(currentdate)) {
 								if (proposaldur.toMinutes() > 0) {
 									out.print(
-											"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindProjectProposal\">Project Proposal</a></li>");
+											"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindProjectProposal\">Project Proposal</a></li>");
 								}
 							}
 						}
@@ -146,11 +145,11 @@
 
 							if (d1.after(currentdate)) {
 								out.print(
-										"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindInterimReport\" >Interim Report</a></li>");
+										"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindInterimReport\" >Interim Report</a></li>");
 							} else if (d1.equals(currentdate)) {
 								if (interimdur.toMinutes() > 0) {
 									out.print(
-											"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindInterimReport\" >Interim Report</a></li>");
+											"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindInterimReport\" >Interim Report</a></li>");
 								}
 							}
 						}
@@ -174,11 +173,11 @@
 							}
 							if (d1.after(currentdate)) {
 								out.println(
-										"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindDissertation\">Dissertation</a></li>");
+										"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindDissertation\">Dissertation</a></li>");
 							} else if (d1.equals(currentdate)) {
 								if (dissdur.toMinutes() > 0) {
 									out.println(
-											"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindDissertation\">Dissertation</a></li>");
+											"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindDissertation\">Dissertation</a></li>");
 								}
 							}
 						}
@@ -214,11 +213,11 @@
 					
 					if (d1.after(currentdate)) {
 						out.println(
-								"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindProgressReport\"> Progress Report</a></li>");
+								"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindProgressReport\"> Progress Report</a></li>");
 					} else if (d1.equals(currentdate)) {
 						if (progressdur.toMinutes() > 0) {
 							out.println(
-									"<li class=\"nav-item\"><a class=\"nav-link\" href=\"FindProgressReport\"> Progress Report</a></li>");
+									"<li class=\"nav-item\"><a class=\"nav-link active\" href=\"FindProgressReport\"> Progress Report</a></li>");
 						}
 					}
 				%>
@@ -241,9 +240,6 @@
 					onclick="loadMedical(); return false;"> Medical</a></li>
  -->
 			</ul>
-		</nav>
-	</div>
-</div>
 
 
 <!-- <li class="nav-item"> <a class="dropdown-toggle"

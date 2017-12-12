@@ -2,8 +2,6 @@ package com.projectsupport.models;
 
 public class Dissertation {
 	private String formName;
-	private String supervisorState;
-	private String SupervisorRemark;
 	private float introduction;
 	private float analysis;
 	private float design;
@@ -15,6 +13,13 @@ public class Dissertation {
 	private float general;
 	private float total;
 	private String supervisorComment;
+	private String supervisorApproval;
+	public String getSupervisorApproval() {
+		return supervisorApproval;
+	}
+	public void setSupervisorApproval(String supervisorApproval) {
+		this.supervisorApproval = supervisorApproval;
+	}
 	private int studentId;
 	public String getFormName() {
 		return formName;
@@ -22,18 +27,7 @@ public class Dissertation {
 	public void setFormName(String formName) {
 		this.formName = formName;
 	}
-	public String getSupervisorState() {
-		return supervisorState;
-	}
-	public void setSupervisorState(String supervisorState) {
-		this.supervisorState = supervisorState;
-	}
-	public String getSupervisorRemark() {
-		return SupervisorRemark;
-	}
-	public void setSupervisorRemark(String supervisorRemark) {
-		SupervisorRemark = supervisorRemark;
-	}
+
 	public float getIntroduction() {
 		return introduction;
 	}

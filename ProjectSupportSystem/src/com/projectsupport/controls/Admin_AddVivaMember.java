@@ -39,6 +39,7 @@ public class Admin_AddVivaMember extends HttpServlet {
 		if(currentUser == null){
 		    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 		       dispatcher.forward(request, response);
+		       return;
 		  }
 		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/admin/viva_member.jsp");
 		dispather.forward(request, response);

@@ -40,76 +40,9 @@ h3 {
 }
 
 
-#addsupervisor {
-	width: 800px;
-	height: 700px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-	background-color:#EEEEEE;
-	
-
-}
-
-#addclient {
-	width: 800px;
-	height:700px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-
-	background-color:#EEEEEE;
-}
-#progressReport1 {
-	width: 800px;
-	height: 800px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-	background-color:#EEEEEE;
-}
-
-#proposal {
-	width: 900px;
-	height: 1700px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-	background-color:#EEEEEE;
-}
-
 #plan {
 	width: 900px;
 	height: 700px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-	background-color:#EEEEEE;
-}
-
-#interim {
-	width: 800px;
-	height: 400px;
-	margin-left: 270px;
-	margin-top: 30px;
-	position: absolute;
-	float: left;
-	padding: 20px;
-	background-color:#EEEEEE;
-}
-#dissertation {
-	width: 800px;
-	height: 400px;
 	margin-left: 270px;
 	margin-top: 30px;
 	position: absolute;

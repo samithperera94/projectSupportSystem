@@ -34,7 +34,7 @@ public class InterimReportServices {
 			float analysis = rs.getFloat("analysisM");
 			float solution = rs.getFloat("solutionM");
 			String supervisorComment = rs.getString("supervisorComment");
-			String supervisorState = rs.getString("supervisorApproval");
+			String supervisorApproval = rs.getString("supervisorApproval");
 			InterimReport interim = new InterimReport();
 			interim.setTotalMarks(totalMarks);
 			interim.setTitleM(title);
@@ -43,7 +43,7 @@ public class InterimReportServices {
 			interim.setAnalysisM(analysis);
 			interim.setSolutionM(solution);
 			interim.setSupervisorComment(supervisorComment);
-			interim.setSupervisorState(supervisorState);
+			interim.setSupervisorApproval(supervisorApproval);
 			interim.setStudentId(studentId);
 			interim.setFormName(formName);
 			return interim;
@@ -97,7 +97,7 @@ public class InterimReportServices {
 			float analysis = rs.getFloat("analysisM");
 			float solution = rs.getFloat("solutionM");
 			String supervisorComment = rs.getString("supervisorComment");
-			String supervisorState = rs.getString("supervisorApproval");
+			String supervisorApproval = rs.getString("supervisorApproval");
 			InterimReport interim = new InterimReport();
 			interim.setTotalMarks(totalMarks);
 			interim.setTitleM(title);
@@ -106,7 +106,7 @@ public class InterimReportServices {
 			interim.setAnalysisM(analysis);
 			interim.setSolutionM(solution);
 			interim.setSupervisorComment(supervisorComment);
-			interim.setSupervisorState(supervisorState);
+			interim.setSupervisorApproval(supervisorApproval);
 			interim.setStudentId(studentId);
 			interim.setFormName(formName);
 			list.add(interim);

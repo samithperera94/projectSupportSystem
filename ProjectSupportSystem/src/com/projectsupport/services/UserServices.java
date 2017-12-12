@@ -10,7 +10,7 @@ import com.projectsupport.models.User;
 
 
 
-public class UserServices {
+public class UserServices {    //User services 
 	
 	public static User findUser(Connection conn,String userName,String password) throws SQLException{
 		String sql = "Select userName,password,position from User where userName=? and password=?";

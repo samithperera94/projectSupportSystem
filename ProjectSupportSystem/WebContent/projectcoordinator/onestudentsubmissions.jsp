@@ -31,70 +31,74 @@
 	<%-- <jsp:include page="../_header.jsp" />  --%>
 	<%-- <jsp:include page="../_leftSideBarCoordinator.jsp" />  --%>
 	<div class="container-fluid">
-	<div class="row">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">UCSC </a>
+		<div class="row">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">UCSC </a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#"> You are logged in as: ${user.userName} </a></li>
+				<li><a href="#">${student.fullName} </a></li>
+
+				<li><a href="#"> ${student.studentId}</a>
+			</ul>
+
+			</nav>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="#"> You are logged in as: ${user.userName} </a></li>
-			<li><a href="#">${student.fullName} </a></li>
-
-			<li><a href="#"> ${student.studentId}</a>
-		</ul>
-	
-	</nav>
-	</div>
-	<div class="row" style="margin-top:50px;">
-		<ul class="pager">
-    		<li class="previous"><a href="ShowStudentSubmissions?stuID=${studentID-1}"> <<< GOTO PREVIOUS STUDENT </a></li>
-    		<li class="next"><a href="ShowStudentSubmissions?stuID=${studentID+1}">GOTO NEXT STUDENT >>> </a></li>
-  		</ul>
-</div>
+		<div class="row" style="margin-top: 50px;">
+			<ul class="pager">
+				<li class="previous"><a
+					href="ShowStudentSubmissions?stuID=${studentID-1}"> <<< GOTO
+						PREVIOUS STUDENT </a></li>
+				<li class="next"><a
+					href="ShowStudentSubmissions?stuID=${studentID+1}">GOTO NEXT
+						STUDENT >>> </a></li>
+			</ul>
+		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-sm-1">
-			
-
-		</div>
+		<div class="col-sm-1"></div>
 		<div class="col-sm-10">
 			<div ng-app="myApp">
-				
+
 				<div class="container-fluid spacing">
 					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#progress">Progress-Report
 						Details</button>
-					
-					<div id="progress" class="collapse in">
-					<div ng-controller="progressReportMarkController" ng-init="loadProgressReportList();">
-					<div class="table table-responsive">
-						<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Progress ReportNo</th>
-								<th>Supervisor's Remark</th>
-								<th>Supervisor's State</th>
-								<th>Marks Obtained</th>
-								<th> view </th>
 
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="a in reportList">
-								<td>{{a.reportNo}}</td>
-								<td>{{a.supervisorRemark}}</td>
-								<td>{{a.supervisorState}}</td>
-								<td>{{a.mark}} </td>
-								<td> <a type="button" class="btn btn-info btn-xs" href="ShowProgressReportList?stuID={{a.studentId}}&repNO={{a.reportNo}}" target="_blank"> View </a> </td>
-							</tr>
-						</tbody>
-						</table>
+					<div id="progress" class="collapse in">
+						<div ng-controller="progressReportMarkController"
+							ng-init="loadProgressReportList();">
+							<div class="table table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Progress ReportNo</th>
+											<th>Supervisor's Remark</th>
+											<th>Supervisor's State</th>
+											<th>Marks Obtained</th>
+											<th>view</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="a in reportList">
+											<td>{{a.reportNo}}</td>
+											<td>{{a.supervisorRemark}}</td>
+											<td>{{a.supervisorState}}</td>
+											<td>{{a.mark}}</td>
+											<td><a type="button" class="btn btn-info btn-xs"
+												href="ShowProgressReportList?stuID={{a.studentId}}&repNO={{a.reportNo}}"
+												target="_blank"> View </a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
-					</div>
-					</div>
-					
+
 					<p></p>
 				</div>
 
@@ -104,263 +108,318 @@
 						Report</button>
 					<div id="interim" class="collapse in">
 						<div class="col-sm-8">
-						<form class="form-horizontal" enctype="multipart/form-data">
-							<div ng-controller="InterimController">
-								<div class="form-group">
-								<p style="margin-top:5px;"> <b> Supervisor States:</b> <button type="button" class="btn btn-success btn-xs">Accepted</button> </br> 
-								 <b> Supervisor Comment: Going well  </b> 
-								</p>
-									<label for="hide1" class="col-sm-1 control-label"></label>
-									<p class="help-block col-sm-6">
-										<a href="DownloadInterimReport" target="_blank">
-											Uploaded:{{interim.formName}} </a>
-									</p>
-									<iframe ng-src="{{interim.formName}}" width="100%" height="600px">
+							<form class="form-horizontal" enctype="multipart/form-data">
+								<div ng-controller="InterimController">
+									<div class="form-group">
+										<p style="margin-top: 5px;">
+											<b> Supervisor State:</b>
+											<button type="button" class="btn btn-success btn-xs">{{interim.supervisorApproval}}</button>
+											</br> <b> {{interim.supervisorComment}} </b>
+										</p>
+										<label for="hide1" class="col-sm-1 control-label"></label>
+										<p class="help-block col-sm-6">
+											<a href="DownloadInterimReport" target="_blank">
+												Uploaded:{{interim.formName}} </a>
+										</p>
+										<iframe ng-src="{{interim.formName}}" width="100%"
+											height="600px"> </iframe>
+									</div>
 
-									</iframe>
+
 								</div>
 
-
-							</div>
-
-						</form>
+							</form>
 						</div>
 						<div class=col-sm-4>
-						<button type="button" class="btn btn col-sm-12" style="margin-top:20px;">Marks Obtained(Maximum 05) </button>
-								<div ng-controller="InterimMarkController" ng-init="displayInterimMark();">
-									<form class="">
-										<div class="form-group">
-											<label for="showmarks" class="col-sm-12 control-label">
-											</label> <br /> <input type="text" class="form-control"
-												name=total" ng-disabled="state" ng-init="state=true"
-												value="{{interim.totalMarks}}" required style="margin-top: 40px;">
-										</div>
-										<div class="form-group">
-											 Title = {{interim.titleM}} <br/>
-											 Abstract = {{interim.abstractM}} <br/>
-											 Introduction = {{interim.introductionM}} <br/>
-											 Analysis = {{interim.analysisM}} <br/>
-											 Design of solution = {{interim.solutionM }} <br/>
-										
-										</div>
-									</form>
-									<form name="markform" method="post">
-							<!-- 		marking data validation -->
-										<div role="alert">
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.max"> Not in Valid range (max-05)</span>
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.totalMark.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.title.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.abstract.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.max"> Not in Valid range (max-01)</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.solution.$error.number">Not a Number</span>
-											
-										</div>
-										<table class="table table-bordered" style="margin-top: 20px;">
+							<button type="button" class="btn btn col-sm-12"
+								style="margin-top: 20px;">Marks Obtained(Maximum 05)</button>
+							<div ng-controller="InterimMarkController"
+								ng-init="displayInterimMark();">
+								<form class="">
+									<div class="form-group">
+										<label for="showmarks" class="col-sm-12 control-label">
+										</label> <br /> <input type="text" class="form-control" name=total
+											" ng-disabled="state" ng-init="state=true"
+											value="{{interim.totalMarks}}" required
+											style="margin-top: 40px;">
+									</div>
+									<div class="form-group">
+										Title = {{interim.titleM}} <br /> Abstract =
+										{{interim.abstractM}} <br /> Introduction =
+										{{interim.introductionM}} <br /> Analysis =
+										{{interim.analysisM}} <br /> Design of solution =
+										{{interim.solutionM }} <br />
+
+									</div>
+								</form>
+								<form name="markform" method="post">
+									<!-- 		marking data validation -->
+									<div role="alert">
+										<span style="color: red;" class="error"
+											ng-show="markform.totalMark.$error.max"> Not in Valid
+											range (max-05)</span> <span style="color: red;" class="error"
+											ng-show="markform.totalMark.$error.min">Not in Valid
+											range (Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.totalMark.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.title.$error.max"> Not in Valid
+											range (max-01)</span> <span style="color: red;" class="error"
+											ng-show="markform.title.$error.min">Not in Valid range
+											(Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.title.$error.number">Not a Number</span> <span
+											style="color: red;" class="error"
+											ng-show="markform.abstract.$error.max"> Not in Valid
+											range (max-01)</span> <span style="color: red;" class="error"
+											ng-show="markform.abstract.$error.min">Not in Valid
+											range (Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.abstract.$error.number">Not a Number</span>
+										<span style="color: red;" class="error"
+											ng-show="markform.introduction.$error.max"> Not in
+											Valid range (max-01)</span> <span style="color: red;" class="error"
+											ng-show="markform.introduction.$error.min">Not in
+											Valid range (Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.introduction.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.analysis.$error.max"> Not in Valid
+											range (max-01)</span> <span style="color: red;" class="error"
+											ng-show="markform.analysis.$error.min">Not in Valid
+											range (Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.analysis.$error.number">Not a Number</span>
+										<span style="color: red;" class="error"
+											ng-show="markform.solution.$error.max"> Not in Valid
+											range (max-01)</span> <span style="color: red;" class="error"
+											ng-show="markform.solution.$error.min">Not in Valid
+											range (Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.solution.$error.number">Not a Number</span>
+
+									</div>
+									<table class="table table-bordered" style="margin-top: 20px;">
 										<thead>
-												<tr>
-													<th class="col-sm-8">Marking Criteria</th>
-													<th class="col-sm-4">Marks</th>
-													<!-- <td><a type="button" class="btn btn-primary btn">
+											<tr>
+												<th class="col-sm-8">Marking Criteria</th>
+												<th class="col-sm-4">Marks</th>
+												<!-- <td><a type="button" class="btn btn-primary btn">
 															save </a></td> -->
-												</tr>
+											</tr>
 
-											</thead>
-											<tbody>
-												<tr>
-													<th>Title</th>
-													<td><input type="number" step="0.01" min="0" max="1"
-														class="form-control" name="title" ng-model="intMark.title"
-														required></td>
-													</tr>
-												<tr>
-													<th>Abstract</th>
-													<td><input type="number" min="0" max="1" step="0.01"
-														class="form-control" name="abstract"
-														ng-model="intMark.abstract" required></td>
-												</tr>
-												<tr>
-													<th>Introduction</th>
-													<td><input type="number" min="0" max="1" step="0.01"
-														class="form-control" name="introduction"
-														ng-model="intMark.intro" required"></td>
-												</tr>
-												<tr>
-													<th>Analysis</th>
-													<td><input type="number" min="0" max="1" step="0.01"
-														class="form-control" name="analysis"
-														ng-model="intMark.analysis" required></td>
-												</tr>
-												<tr>
-													<th>Design of solution</th>
-													<td><input type="number" min="0" max="1" step="0.01"
-														class="form-control" name="solution"
-														ng-model="intMark.solution" required ></td>
-												</tr>
-												<tr>
-													<th>Total:</th>
-													<td><input type="number" max="5" min="0" step="0.01"
-														class="form-control" name="totalMark" ng-model="intMark.totalmarks"
-														ng-value="(intMark.title-0)+(intMark.abstract-0)+(intMark.intro-0)+(intMark.analysis-0)+(intMark.solution-0)+0"
-														required></td>
-												</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>Title</th>
+												<td><input type="number" step="0.01" min="0" max="1"
+													class="form-control" name="title" ng-model="intMark.title"
+													required></td>
+											</tr>
+											<tr>
+												<th>Abstract</th>
+												<td><input type="number" min="0" max="1" step="0.01"
+													class="form-control" name="abstract"
+													ng-model="intMark.abstract" required></td>
+											</tr>
+											<tr>
+												<th>Introduction</th>
+												<td><input type="number" min="0" max="1" step="0.01"
+													class="form-control" name="introduction"
+													ng-model="intMark.intro"required"></td>
+											</tr>
+											<tr>
+												<th>Analysis</th>
+												<td><input type="number" min="0" max="1" step="0.01"
+													class="form-control" name="analysis"
+													ng-model="intMark.analysis" required></td>
+											</tr>
+											<tr>
+												<th>Design of solution</th>
+												<td><input type="number" min="0" max="1" step="0.01"
+													class="form-control" name="solution"
+													ng-model="intMark.solution" required></td>
+											</tr>
+											<tr>
+												<th>Total:</th>
+												<td><input type="number" max="5" min="0" step="0.01"
+													class="form-control" name="totalMark"
+													ng-model="intMark.totalmarks"
+													ng-value="(intMark.title-0)+(intMark.abstract-0)+(intMark.intro-0)+(intMark.analysis-0)+(intMark.solution-0)+0"
+													required></td>
+											</tr>
 
-											</tbody>
-										</table>
-										<!-- <div role="alert">
+										</tbody>
+									</table>
+									<!-- <div role="alert">
 										<span class="error" ng-show="markform.title.$error.max"> Not valid number!</span>
 										</div> -->
-										<button type="submit" class="btn btn-primary" ng-click="insertInterimMark();">Insert</button>
+									<button type="submit" class="btn btn-primary"
+										ng-click="insertInterimMark();">Insert</button>
 
-									</form>
+								</form>
 
-
-								</div>
 
 							</div>
-					<p></p>
-				</div>
+
+						</div>
+						<p></p>
+					</div>
 				</div>
 				<div class="container-fluid spacing">
 					<button type="button" class="btn btn-primary col-sm-12"
 						data-toggle="collapse" data-target="#dist">Dissertation</button>
 					<div id="dist" class="collapse in">
 						<div class="col-sm-8">
-						<form class="form-horizontal" enctype="multipart/form-data">
-							<div ng-controller="DissertationController">
-								<div class="form-group">
-									<p style="margin-top:5px;"> <b> Supervisor States:</b> <button type="button" class="btn btn-success btn-xs">Accepted</button> </br> 
-								 <b> Supervisor Comment: Fine   </b> 
-									<label for="hide1" class="col-sm-1 control-label"></label>
-									<p class="help-block col-sm-6">
-										<a href="DownloadDissertation" target="_blank">
-											Uploaded:{{dissertation.formName}} </a>
-									</p>
-									<iframe ng-src="{{dissertation.formName}}" width="100%" height="850px">
+							<form class="form-horizontal" enctype="multipart/form-data">
+								<div ng-controller="DissertationController">
+									<div class="form-group">
+										<p style="margin-top: 5px;">
+											<b> Supervisor States:</b>
+											<button type="button" class="btn btn-success btn-xs">{{dissertation.supervisorApproval}}</button>
+											</br> <b> Supervisor Comment:
+												{{dissertation.supervisorComment}} </b> <label for="hide1"
+												class="col-sm-1 control-label"></label>
+										<p class="help-block col-sm-6">
+											<a href="DownloadDissertation" target="_blank">
+												Uploaded:{{dissertation.formName}} </a>
+										</p>
+										<iframe ng-src="{{dissertation.formName}}" width="100%"
+											height="850px"> </iframe>
 
-									</iframe>
-								
+									</div>
 								</div>
-							</div>
 							</form>
 						</div>
 						<div class="col-sm-4">
-							<button type="button" class="btn btn col-sm-12" style="margin-top:20px;">Marks Obtained(Maximum 90) </button>
-							<div ng-controller="DissertationMarkController" ng-init="displayDissertationMark();">
-									<form class="">
-										<div class="form-group">
-											<label for="showmarks" class="col-sm-12 control-label">
-											</label> <br /> <input type="text" class="form-control"
-												name=total" ng-disabled="state" ng-init="state=true"
-												value="{{dissert.total}}" required style="margin-top: 40px;">
-										</div>
-										<div class="form-group">
-											 Introduction = {{dissert.introduction}} <br/>
-											 Analysis = {{dissert.analysis}} <br/>
-											 Design = {{dissert.design}} <br/>
-											 Implementation = {{dissert.design}} <br/>
-											 Evaluation = {{dissert.evaluation }} <br/>
-											 Conclusion = {{dissert.conclusion}}<br/>
-											 Reference = {{dissert.reference}} <br/>
-											 Appendices = {{dissert.appendices}} <br/>
-											 General = {{dissert.general}}<br/>
-												 
-										</div>
-									</form>
-									<form name="markform" method="post">
-							<!-- 		marking data validation -->
-										<div role="alert">
-											<span style="color:red;" class="error" ng-show="markform.total.$error.max"> Not in Valid range (max-05)</span>
-											<span style="color:red;" class="error" ng-show="markform.total.$error.min">Not in Valid range (Min-0)</span>
-											<span style="color:red;" class="error" ng-show="markform.total.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.analysis.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.design.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.introduction.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.implementation.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.evaluation.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.conclution.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.reference.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.appendices.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.general.$error.number">Not a Number</span>
-											<span style="color:red;" class="error" ng-show="markform.total.$error.number">Not a Number</span>
-											
-										</div>
-										<table class="table table-bordered" style="margin-top: 20px;">
+							<button type="button" class="btn btn col-sm-12"
+								style="margin-top: 20px;">Marks Obtained(Maximum 90)</button>
+							<div ng-controller="DissertationMarkController"
+								ng-init="displayDissertationMark();">
+								<form class="">
+									<div class="form-group">
+										<label for="showmarks" class="col-sm-12 control-label">
+										</label> <br /> <input type="text" class="form-control" name=total
+											" ng-disabled="state" ng-init="state=true"
+											value="{{dissert.total}}" required style="margin-top: 40px;">
+									</div>
+									<div class="form-group">
+										Introduction = {{dissert.introduction}} <br /> Analysis =
+										{{dissert.analysis}} <br /> Design = {{dissert.design}} <br />
+										Implementation = {{dissert.design}} <br /> Evaluation =
+										{{dissert.evaluation }} <br /> Conclusion =
+										{{dissert.conclusion}}<br /> Reference =
+										{{dissert.reference}} <br /> Appendices =
+										{{dissert.appendices}} <br /> General = {{dissert.general}}<br />
+
+									</div>
+								</form>
+								<form name="markform" method="post">
+									<!-- 		marking data validation -->
+									<div role="alert">
+										<span style="color: red;" class="error"
+											ng-show="markform.total.$error.max"> Not in Valid
+											range (max-05)</span> <span style="color: red;" class="error"
+											ng-show="markform.total.$error.min">Not in Valid range
+											(Min-0)</span> <span style="color: red;" class="error"
+											ng-show="markform.total.$error.number">Not a Number</span> <span
+											style="color: red;" class="error"
+											ng-show="markform.analysis.$error.number">Not a Number</span>
+										<span style="color: red;" class="error"
+											ng-show="markform.design.$error.number">Not a Number</span> <span
+											style="color: red;" class="error"
+											ng-show="markform.introduction.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.implementation.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.evaluation.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.conclution.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.reference.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.appendices.$error.number">Not a
+											Number</span> <span style="color: red;" class="error"
+											ng-show="markform.general.$error.number">Not a Number</span>
+										<span style="color: red;" class="error"
+											ng-show="markform.total.$error.number">Not a Number</span>
+
+									</div>
+									<table class="table table-bordered" style="margin-top: 20px;">
 										<thead>
-												<tr>
-													<th class="col-sm-8">Marking Criteria</th>
-													<th class="col-sm-4">Marks</th>
-													<!-- <td><a type="button" class="btn btn-primary btn">
+											<tr>
+												<th class="col-sm-8">Marking Criteria</th>
+												<th class="col-sm-4">Marks</th>
+												<!-- <td><a type="button" class="btn btn-primary btn">
 															save </a></td> -->
-												</tr>
+											</tr>
 
-											</thead>
-											<tbody>
-												<tr>
-													<th>Introduction </th>
-													<td><input type="number" class="form-control" name="introduction" ng-model="disMark.introduction"
-														required></td>
-													</tr>
-												<tr>
-													<th>Analysis</th>
-													<td><input type="number" class="form-control" name="analysis" ng-model="disMark.analysis" required></td>
-												</tr>
-												<tr>
-													<th>Design</th>
-													<td><input type="number" class="form-control" name="design" ng-model="disMark.design" required"></td>
-												</tr>
-												<tr>
-													<th>Implementation</th>
-													<td><input type="number" class="form-control" name="implementation" ng-model="disMark.implementation" required></td>
-												</tr>
-												<tr>
-													<th>Evaluation</th>
-													<td><input type="number" class="form-control" name="evaluation" ng-model="disMark.evaluation" required></td>
-												</tr>
-												<tr>
-													<th>Conclusion</th>
-													<td><input type="number" class="form-control" name="conclution"
-														ng-model="disMark.conclution" required ></td>
-												</tr>
-												<tr>
-													<th>Reference</th>
-													<td><input type="number" class="form-control" name="solution" ng-model="disMark.reference" required> </td>
-												</tr>
-												<tr>
-													<th>Appendices</th>
-													<td><input type="number" class="form-control" name="appendices" ng-model="disMark.appendices" required> </td>
-												</tr>
-												<tr>
-													<th> General </th>
-													<td><input type="number" class="form-control" name="general" ng-model="disMark.general" required> </td>
-												</tr>
-												<tr>
-													<th>Total</th>
-													<td><input type="number" class="form-control" name="total" ng-model="disMark.total" ng-value="(disMark.introduction-0)+(disMark.analysis-0)+(disMark.design-0)+(disMark.implementation-0)+(disMark.evaluation-0)+(disMark.conclution)+(disMark.reference-0)+(disMark.appendices-0)+(disM	ark.general-0)" required></td>
-												</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th>Introduction</th>
+												<td><input type="number" class="form-control"
+													name="introduction" ng-model="disMark.introduction"
+													required></td>
+											</tr>
+											<tr>
+												<th>Analysis</th>
+												<td><input type="number" class="form-control"
+													name="analysis" ng-model="disMark.analysis" required></td>
+											</tr>
+											<tr>
+												<th>Design</th>
+												<td><input type="number" class="form-control"
+													name="design" ng-model="disMark.design"required"></td>
+											</tr>
+											<tr>
+												<th>Implementation</th>
+												<td><input type="number" class="form-control"
+													name="implementation" ng-model="disMark.implementation"
+													required></td>
+											</tr>
+											<tr>
+												<th>Evaluation</th>
+												<td><input type="number" class="form-control"
+													name="evaluation" ng-model="disMark.evaluation" required></td>
+											</tr>
+											<tr>
+												<th>Conclusion</th>
+												<td><input type="number" class="form-control"
+													name="conclution" ng-model="disMark.conclution" required></td>
+											</tr>
+											<tr>
+												<th>Reference</th>
+												<td><input type="number" class="form-control"
+													name="solution" ng-model="disMark.reference" required>
+												</td>
+											</tr>
+											<tr>
+												<th>Appendices</th>
+												<td><input type="number" class="form-control"
+													name="appendices" ng-model="disMark.appendices" required>
+												</td>
+											</tr>
+											<tr>
+												<th>General</th>
+												<td><input type="number" class="form-control"
+													name="general" ng-model="disMark.general" required>
+												</td>
+											</tr>
+											<tr>
+												<th>Total</th>
+												<td><input type="number" class="form-control"
+													name="total" ng-model="disMark.total"
+													ng-value="(disMark.introduction-0)+(disMark.analysis-0)+(disMark.design-0)+(disMark.implementation-0)+(disMark.evaluation-0)+(disMark.conclution-0)+(disMark.reference-0)+(disMark.appendices-0)+(disMark.general-0)"
+													required></td>
+											</tr>
 
-											</tbody>
-										</table>
-										<!-- <div role="alert">
+										</tbody>
+									</table>
+									<!-- <div role="alert">
 										<span class="error" ng-show="markform.title.$error.max"> Not valid number!</span>
 										</div> -->
-										<button type="submit" class="btn btn-primary" ng-click="insertDissertation();">Insert</button>
+									<button type="submit" class="btn btn-primary"
+										ng-click="insertDissertation();">Insert</button>
 
-									</form>
+								</form>
 
 
-								</div>
+							</div>
 						</div>
 					</div>
 					<p></p>
@@ -373,12 +432,13 @@
 						<form class="form-horizontal">
 							<div ng-controller="ProposalController">
 								<div class="form-group">
-									<label for="projectTitle" class="col-sm-3 control-label" style="margin-top:50px;">
-										Project Title: </label>
+									<label for="projectTitle" class="col-sm-3 control-label"
+										style="margin-top: 50px;"> Project Title: </label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control" name="projectTitle"
 											placeholder="Project Title" value="{{proposal.projectTitle}}"
-											ng-disabled="state" ng-init="state=true" required  style="margin-top:50px;">
+											ng-disabled="state" ng-init="state=true" required
+											style="margin-top: 50px;">
 									</div>
 								</div>
 								<div class="form-group">
@@ -579,7 +639,7 @@
 												name="edate6" ng-disabled="state" ng-init="state=true"
 												required></td>
 
-									
+
 										</tr>
 										<tr class="info">
 											<td class="col-sm-6"><select class="form-control"
@@ -658,8 +718,7 @@
 							<div ng-controller="SupController">
 								<div class="form-group">
 									<label for="InputFirstName" class="col-sm-3 control-label">First
-										Name:
-									</label>
+										Name: </label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" name="firstName"
 											id="firstName" value="{{supervisor.firstName}}"
@@ -727,7 +786,7 @@
 											<a href="DownloadSupervisorFrom" target="_blank">
 												Uploaded: {{supervisor.agreementFormPath}} </a>
 										</p>
-										
+
 
 									</div>
 								</div>
@@ -831,10 +890,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-1">
-		
-		</div>
-		</div>
+		<div class="col-sm-1"></div>
+	</div>
 	</div>
 
 

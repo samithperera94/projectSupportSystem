@@ -27,54 +27,69 @@
 
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarStudent.jsp" />
-
-	
-	<div class="changer" id="formload">
-		<div id="dissertation">
-			<form class="form-horizontal" enctype="multipart/form-data">
-				<c:if test="${param.success eq 1}">
-					<div class="alert alert-success">
-						<strong>Successfully Updated !</strong>
-					</div>
-				</c:if>
-				<c:if test="${param.success eq 0}">
-					<div class="alert alert-warning">
-						<strong>Something went Wrong!</strong>
-					</div>
-				</c:if>
-				<center>
-					<h4>Final Dissertation</h4>
-				</center>
-				<div ng-app="myApp" ng-controller="DissertationController">
-				<div class="form-group">
-					<div class="col-sm-9">Please refer the instructions given in
-						the Final Dissertation guidelines</div>
-				</div>
-				<div class="form-group">
-					<label for="Inputform" class="col-sm-3 control-label">Submit:
-					</label>
-					<div class="col-sm-9">
-						<input type="file" name="formName" required>
-						<p class="help-block col-sm-7">"*filename:
-							final-dissertation-index-no.pdf"</p>
-					</div>
-				</div>
-				<div class="form-group">	
-					<p class="help-block col-sm-6"> 
-								<a href="DownloadDissertation" target="_blank"> Uploaded:{{dissertation.formName}} </a>
-							</p>
-				</div>
-
-				<a class="btn btn-default" href="DoDeleteDissertation"> Delete </a>
-				</div>
-			</form>
-		</div>
-
-
-
+<div class="container-fluid">
+	<div class="row">
+		<jsp:include page="../_header.jsp" />
 	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<jsp:include page="../_leftSideBarStudent.jsp" />
+		</div>
+		<div class="col-md-10">
+		<br/>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-9" style="background-color:#EEEEEE;">
+		
+			<div class="changer" id="formload">
+				<!-- <div id="dissertation"> -->
+				<br/>
+					<form class="form-horizontal" enctype="multipart/form-data">
+						<c:if test="${param.success eq 1}">
+							<div class="alert alert-success">
+								<strong>Successfully Updated !</strong>
+							</div>
+						</c:if>
+						<c:if test="${param.success eq 0}">
+							<div class="alert alert-warning">
+								<strong>Something went Wrong!</strong>
+							</div>
+						</c:if>
+						<center>
+							<h4><u>Final Dissertation</u></h4>
+						</center>
+						<div ng-app="myApp" ng-controller="DissertationController">
+						<div class="form-group">
+							<div class="col-sm-9">Please refer the instructions given in
+								the Final Dissertation guidelines</div>
+						</div>
+						<div class="form-group">
+							<label for="Inputform" class="col-sm-3 control-label">Submit:
+							</label>
+							<div class="col-sm-9">
+								<input type="file" name="formName" required>
+								<p class="help-block col-sm-7">"*filename:
+									final-dissertation-index-no.pdf"</p>
+							</div>
+						</div>
+						<div class="form-group">	
+							<p class="help-block col-sm-6"> 
+										<a href="DownloadDissertation" target="_blank"> Uploaded:{{dissertation.formName}} </a>
+									</p>
+						</div>
+		
+						<a class="btn btn-default" href="DoDeleteDissertation"> Delete </a>
+						</div>
+					</form>
+				</div>
+		
+		
+		
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
