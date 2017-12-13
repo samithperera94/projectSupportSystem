@@ -41,13 +41,14 @@
 					</div>
 				</c:if>
 				<c:if test="${param.success eq 0}">
-					<div class="alert alert-warning">
-						<strong>Successfully Updated !</strong>
+					<div class="alert alert-danger">
+						<strong> Something went wrong TRY AGAIN!</strong>
 					</div>
 				</c:if>
 
 				<center>
 					<h4>Supervisor/Advisor Agreement </h4>
+					<h4>${timeRemainingSup} </h4>
 				</center>
 				<div class="form-group">
 					<label for="InputFirstName" class="col-sm-3 control-label">First

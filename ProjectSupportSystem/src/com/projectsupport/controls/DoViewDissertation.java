@@ -49,10 +49,10 @@ public class DoViewDissertation extends HttpServlet {
 		String user1 = currentUser.getUserName();
 
 		System.out.println(user1);
-		if (user1.equals("pro01")) {
-			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
-		} else {
+		try{
 			studentId = Integer.parseInt(currentUser.getUserName());
+		}catch(Exception e){
+			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
 		}
 		String errorString = null;
 		Dissertation dissertation = null;

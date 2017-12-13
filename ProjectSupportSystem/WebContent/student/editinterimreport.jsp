@@ -56,6 +56,7 @@
 				</c:if>
 				<center>
 					<h4><u>Interim Report</u></h4>
+					<h4> ${timeRemainingInterim} </h4>
 				</center>
 				<div ng-app="myApp" ng-controller="InterimController">
 				<div class="form-group">

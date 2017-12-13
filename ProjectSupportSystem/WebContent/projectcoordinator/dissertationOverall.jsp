@@ -38,10 +38,10 @@
 
 	<div id="formload" ng-app="myApp">
 			<div class="row">
-			<button class="btn btn-primary col-sm-6"> Dissertation submitted student List</button>
+			<button class="btn btn-primary col-md-12"> Dissertation submitted student List</button>
 			</div>
 			<div class="row" ng-controller="DissertationSubmitted">
-			<p>Search: <input ng-model="f.studentId"> </p>
+			<p>Search: <input ng-model="f.studentId"> </p><a href="GenerateDissSubmittedList" target="_blank"> Generate Pdf </a>
 				<div class="table table-responsive">
 				 
 					<table class="table table-striped">
@@ -67,7 +67,7 @@
 				</div>
 				</div>
 				<div class="row" ng-controller="DissertationNotSubmitted">
-					<button class="btn btn-danger col-sm-6"> Dissertation not submitted student list (Automatically Blocked by the System) </button>
+					<button class="btn btn-danger col-md-12"> Dissertation not submitted student list (Automatically Blocked by the System) </button>
 					<div class="table table-responsive">
 				 
 					<table class="table table-striped">
@@ -94,8 +94,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>
 </body>
 </html>

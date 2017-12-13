@@ -16,9 +16,9 @@
 <%@ page import="java.time.Duration"%>
 
 	<ul class="nav flex-column">
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 				<a class="nav-link active" href="ShowSupervisorFeedBack"> Supervisor Feedback </a>
-		 	</li>
+		 	</li> -->
 				<%
 					String errorString = null;
 					Connection conn = MyUtils.getStoredConnection(request);
@@ -140,7 +140,7 @@
 							} else {
 								String showingTime = interimdur.toString().substring(2);
 								String timeRemainingInterim = "You have Days:" + diff + " Time: " + showingTime;
-								session.setAttribute("timeRemaininInterim", timeRemainingInterim);
+								session.setAttribute("timeRemainingInterim", timeRemainingInterim);
 							}
 
 							if (d1.after(currentdate)) {

@@ -45,6 +45,7 @@
 				</c:if>
 				<center>
 					<h4>Interim Report</h4>
+					 <h4> ${timeRemainingInterim} </h4>
 				</center>
 
 				<div class="form-group">

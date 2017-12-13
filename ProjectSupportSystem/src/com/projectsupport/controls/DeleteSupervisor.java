@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +38,11 @@ public class DeleteSupervisor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
+		if(currentUser == null){
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+	        return;
+		}
 		int studentId = Integer.parseInt(currentUser.getUserName());
 		String errorString = null;
         

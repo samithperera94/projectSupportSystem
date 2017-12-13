@@ -23,6 +23,15 @@ public class SupervisorServices {
 		pstm.setInt(9, supervisor.getStudentId());
 		pstm.executeUpdate();
 		
+		String sql2 = "Update Student set supervisorID=? where idStudent=?";
+		PreparedStatement pstm2 = conn.prepareStatement(sql2);
+		pstm2.setString(1,supervisor.getEmail());
+		pstm2.setInt(2,supervisor.getStudentId());
+		pstm2.executeUpdate();
+		
+		
+		
+		
 		
 	}
 	

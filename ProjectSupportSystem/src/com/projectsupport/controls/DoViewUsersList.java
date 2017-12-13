@@ -36,7 +36,7 @@ public class DoViewUsersList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorString = null;
-		Connection conn = MyUtils.getStoredConnection(request);
+		Connection conn = MyUtils.getStoredConnection(request); //sending json objects lists 
 		System.out.println("al least servlet working");
 		List<User> userList = null;
 		try {

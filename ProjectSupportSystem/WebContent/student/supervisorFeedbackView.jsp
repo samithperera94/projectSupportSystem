@@ -42,7 +42,7 @@
 <div class="col-md-9"style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
 		<!-- <div id="dissertation"> -->
-			<form class="form-horizontal" enctype="multipart/form-data"
+			<!-- <form class="form-horizontal" enctype="multipart/form-data"
 				method="POST" action="DoAddDissertation">
 				<br/>
 				<h4 class="text-center"><u>Supervisor Feedback</u></h4>
@@ -85,7 +85,7 @@
 			</form>
 		</div>
 		</div>
-
+ -->
 </div>
 
 	</div>

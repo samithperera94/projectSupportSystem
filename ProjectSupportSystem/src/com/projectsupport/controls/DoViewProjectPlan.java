@@ -50,11 +50,10 @@ public class DoViewProjectPlan extends HttpServlet {
 		String user1 = currentUser.getUserName();
 		
 		System.out.println(user1);
-		if(user1.equals("pro01") || user1.equals("sup01@gmail.com")){
-			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
-		}
-		else{
+		try{
 			studentId = Integer.parseInt(currentUser.getUserName());
+		}catch(Exception e){
+			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
 		}
 		
 		String errorString = null;

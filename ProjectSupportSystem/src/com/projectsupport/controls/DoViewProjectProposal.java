@@ -13,11 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
-import com.projectsupport.models.ProjectPlan;
 import com.projectsupport.models.ProjectProposal;
 import com.projectsupport.models.User;
 import com.projectsupport.services.MyUtils;
-import com.projectsupport.services.ProjectPlanServices;
 import com.projectsupport.services.ProjectProposalServices;
 
 /**
@@ -51,12 +49,17 @@ public class DoViewProjectProposal extends HttpServlet {
 		String user1 = currentUser.getUserName();
 		
 		System.out.println(user1);
-		if(user1.equals("pro01") || user1.equals("sup01@gmail.com")){
+		try{
+			studentId = Integer.parseInt(currentUser.getUserName());
+		}catch(Exception e){
 			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));
+		}
+		/*if(user1.equals("pro01") || user1.equals("sup01@gmail.com")){
+			
 		}
 		else{
 			studentId = Integer.parseInt(currentUser.getUserName());
-		}
+		}*/
 		
 		String errorString = null;
 		ProjectProposal proposal = new ProjectProposal();

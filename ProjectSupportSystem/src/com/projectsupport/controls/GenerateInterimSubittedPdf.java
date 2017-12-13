@@ -116,10 +116,7 @@ public class GenerateInterimSubittedPdf extends HttpServlet {
 
 	}
 
-	private void insertCell(PdfPTable table, String string, int align, int i, Font font) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

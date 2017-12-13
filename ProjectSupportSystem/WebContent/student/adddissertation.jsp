@@ -47,6 +47,7 @@
 				</c:if>
 				<center>
 					<h4>Final Dissertation</h4>
+					<h4>  ${timeRemainingDiss} </h4>
 				</center>
 
 				<div class="form-group">

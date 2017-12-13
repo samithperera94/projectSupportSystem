@@ -34,17 +34,17 @@ public class DoViewSupervisorDetails extends HttpServlet {
 		String supervisorId=null;
 		User currentUser = MyUtils.getLoginedUser(session);
 		if (currentUser == null) {
-			System.out.println("hiiii yi");
+			//System.out.println("hiiii yi");
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 			dispatcher.forward(request, response);
 			return;
 		}
 		String user1 = currentUser.getUserName();
 
-		System.out.println(user1);
-		System.out.println("hiiii");
+		//System.out.println(user1);
+		//System.out.println("hiiii");
 		
-		if (user1.equals("pro01")) {
+		if(user1.equals("pro01")){
 			//supervisorId = Integer.parseInt((String) request.getSession().getAttribute("supervisorID"));
 		} else {
 			supervisorId = currentUser.getUserName();

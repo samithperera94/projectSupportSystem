@@ -58,6 +58,7 @@
 				</c:if>
 				<center>
 					<h4><u>Project Details</u></h4>
+					<h4> ${timeRemainingProposal } </h4>
 				</center>
 				<div ng-app="myApp">
 					<div ng-controller="ProposalController">

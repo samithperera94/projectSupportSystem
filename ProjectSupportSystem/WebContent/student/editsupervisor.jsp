@@ -58,6 +58,7 @@
 								</c:if>
 								<center>
 									<h4><u>Supervisor/Advisor Agreement</u></h4>
+									<h4>${timeRemainingSup} </h4>
 								</center>
 								<div ng-app="myApp" ng-controller="SupController">
 									<div class="form-group">

@@ -57,6 +57,7 @@
 						</c:if>
 						<center>
 							<h4><u>Final Dissertation</u></h4>
+							<h4> ${timeRemainingDiss} </h4>
 						</center>
 						<div ng-app="myApp" ng-controller="DissertationController">
 						<div class="form-group">

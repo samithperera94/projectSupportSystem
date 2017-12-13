@@ -46,6 +46,7 @@
 				</c:if>
 				<center>
 					<h4>Project Details</h4>
+					<h4> ${timeRemainingProposal} </h4>
 				</center>
 				<div class="form-group">
 					<label for="projectTitle" class="col-sm-3 control-label">
