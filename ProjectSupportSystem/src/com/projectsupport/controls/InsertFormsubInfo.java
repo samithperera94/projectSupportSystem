@@ -42,6 +42,7 @@ public class InsertFormsubInfo extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//receive json object and send it to the database
 		Connection conn = MyUtils.getStoredConnection(request);
 	       	JsonParser parser = new JsonParser();
 	        JsonObject obj = (JsonObject) parser.parse(request.getReader());

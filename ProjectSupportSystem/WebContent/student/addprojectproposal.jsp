@@ -39,10 +39,10 @@
 			<div class="row"><!--to makethe content resposive-->
 				<div class="col-md-1"></div> <!--to leave a space..:D-->
 				<div class="col-md-9" style="background-color:#EEEEEE;"><!--include the table form or whatever-->
-					<div class="changer" id="formload">
-						<div id="proposal">
+					<div class="changer" id="formload"> <!-- form -->
 							<form class="form-horizontal" method="POST"
 								action="DoAddProjectProposal">
+										<!-- alerts -->
 								<c:if test="${param.success eq 1}">
 									<div class="alert alert-success">
 										<strong>Successfully Deleted !</strong>
@@ -53,6 +53,7 @@
 										<strong>Successfully Updated !</strong>
 									</div>
 								</c:if>
+									<!-- end alerts -->
 								<center>
 									<h4>Project Details</h4>
 									<h4> ${timeRemainingProposal} </h4>
@@ -69,7 +70,7 @@
 									<label for="projectTitle" class="col-sm-3 control-label">
 										Number of Attempts: </label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" name="noOfAttempts"
+										<input type="number" class="form-control" name="noOfAttempts"
 											placeholder="No of attempts (If repeat Student)" required>
 									</div>
 								</div>

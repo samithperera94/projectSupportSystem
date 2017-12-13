@@ -19,7 +19,7 @@
 			<!-- <li class="nav-item">
 				<a class="nav-link active" href="ShowSupervisorFeedBack"> Supervisor Feedback </a>
 		 	</li> -->
-				<%
+				<% //checking the deadline has passed or not
 					String errorString = null;
 					Connection conn = MyUtils.getStoredConnection(request);
 					List<FormSub> formList = null;
@@ -183,6 +183,7 @@
 						}
 
 					}
+					//checking the deadline has passed or not in progress reports
 					ProgressReportSub prsub = null;
 					try {
 						prsub = ProgressReportServices.findLatestReport(conn);

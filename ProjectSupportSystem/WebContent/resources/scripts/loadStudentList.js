@@ -1,5 +1,5 @@
 var app = angular.module('myApp', []);
-
+/*retrive student list*/
 app.controller('MyController', function($scope, $http) {
 	$scope.myArray = [];
 	$http({
@@ -14,6 +14,7 @@ app.controller('MyController', function($scope, $http) {
 
 });
 
+/*insert interim report  data*/
 app.controller('InterimSubmitted', function($scope, $http) {
 	$scope.intArray = [];
 	$http({

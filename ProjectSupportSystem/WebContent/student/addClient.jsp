@@ -48,6 +48,7 @@
 							<div ng-app="">
 								<form class="form-horizontal" method="POST" action="DoAddClient"
 									enctype="multipart/form-data">
+											<!-- alerts -->
 									<c:if test="${param.success eq 1}">
 										<div class="alert alert-success">
 											<strong>Successfully Deleted !</strong>
@@ -58,7 +59,7 @@
 											<strong>Something Wrong</strong>
 										</div>
 									</c:if>
-
+                                             <!--  alerts -->
 									<center>
 									<h4>Client Agreement Form</h4>
 									<h4>${timeRemainingClient}</h4>
@@ -76,7 +77,7 @@
 										<label for="registrationNo" class="col-sm-3 control-label">Organization
 											Registration No:</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" name="registrationNo"
+											<input type="number" class="form-control" name="registrationNo"
 												placeholder="Last Name" required>
 										</div>
 									</div>

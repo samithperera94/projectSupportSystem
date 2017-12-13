@@ -43,6 +43,7 @@ public class InsertDissertationMark extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//inserting marks for interim report
 		Connection conn = MyUtils.getStoredConnection(request);
 		HttpSession session = request.getSession();
 		int studentId = Integer.parseInt((String) session.getAttribute("studentID"));

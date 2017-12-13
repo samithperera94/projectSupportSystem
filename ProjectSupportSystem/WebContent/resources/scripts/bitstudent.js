@@ -1,3 +1,4 @@
+/*calling doViewMessageList controller and return that Json to the jsp*/
 var app = angular.module('myApp', []);
  app.controller('viewMessages', function($scope, $http) {
 	$scope.myArray = [];

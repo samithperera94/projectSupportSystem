@@ -1,3 +1,4 @@
+/*load student submited data as JSON Objects */
 var app = angular.module('myApp', []);
 
 app.controller('SupController', function($scope, $http) {

@@ -66,6 +66,7 @@ public class GenerateInterimSubittedPdf extends HttpServlet {
 			errorString = e.getMessage();
 		}
 		try {
+			//adding header to the pdf
 			PdfWriter.getInstance(doc, os);
 			doc.addAuthor("InterimSubmittedList");
 			doc.addCreationDate();
@@ -76,6 +77,7 @@ public class GenerateInterimSubittedPdf extends HttpServlet {
 			doc.open();
 			doc.newPage();
 			doc.add(new Paragraph("Eligible Students List For Dissertation Submission 2017", catFont));
+			//setting table for pdf
 			float[] columnWidths = {0.5f,2f};
 			PdfPTable table = new PdfPTable(columnWidths);
 			PdfPCell c1 = new PdfPCell(new Phrase("*"));

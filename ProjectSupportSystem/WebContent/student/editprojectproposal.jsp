@@ -42,9 +42,9 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-9"style="background-color:#EEEEEE;">
 	<div class="changer" id="formload">
-		<!-- <div id="proposal"> -->
 			<form class="form-horizontal" method="POST"
 				action="DoEditProjectProposal">
+				 <!--  alerts -->
 				<c:if test="${param.success eq 1}">
 				<br/>
 					<div class="alert alert-success">
@@ -56,6 +56,7 @@
 						<strong>Something went wrong !</strong>
 					</div>
 				</c:if>
+				      <!-- alerts -->
 				<center>
 					<h4><u>Project Details</u></h4>
 					<h4> ${timeRemainingProposal } </h4>
@@ -75,7 +76,7 @@
 							<label for="projectTitle" class="col-sm-3 control-label">
 								Number of Attempts: </label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" name="noOfAttempts"
+								<input type="number" class="form-control" name="noOfAttempts"
 									placeholder="No of attempts (If repeat Student)"
 									value="{{proposal.noOfAttempts}}" ng-disabled="state"
 									ng-init="state=true" required>

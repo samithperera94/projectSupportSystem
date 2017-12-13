@@ -1,4 +1,6 @@
-	var app = angular.module('myApp', []);
+/*handling submission links for stude*/
+
+var app = angular.module('myApp', []);
 	app.controller('progressController', function($scope, $http) {
 	
 		$scope.insertProgressData = function() {
@@ -55,7 +57,7 @@
 		
 });
 	
-
+ /*form submission details*/
 	
 	app.controller('formController', function($scope, $http) {
 		

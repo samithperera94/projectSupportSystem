@@ -44,6 +44,7 @@ public class InsertInterimMark extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//insert interim marks json to db
 		Connection conn = MyUtils.getStoredConnection(request);
 		HttpSession session = request.getSession();
 		int studentId = Integer.parseInt((String) session.getAttribute("studentID"));
