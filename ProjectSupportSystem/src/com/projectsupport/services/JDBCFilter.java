@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.projectsupport.DbConnectionLib.ConnectionUtils;
 
+//implementing JDBC Filter 
 
 @WebFilter(filterName = "jdbcFilter",urlPatterns = {"/*"})
 public class JDBCFilter implements Filter{

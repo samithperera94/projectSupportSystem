@@ -44,6 +44,7 @@ public class DoAddProjectProposal extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//Get form data from database and insert
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);

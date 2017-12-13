@@ -37,6 +37,7 @@ public class DoViewProgressReport extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//retrieve progress report details and send it as json object
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);

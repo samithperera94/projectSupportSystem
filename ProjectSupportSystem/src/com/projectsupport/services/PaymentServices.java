@@ -1,4 +1,4 @@
-package com.projectsupport.services;
+/*package com.projectsupport.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,3 +19,4 @@ public class PaymentServices {
 	}
 
 }
+*/

@@ -32,18 +32,20 @@ public class AddClient extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    //check whether if the user has already logined or not, if not redirect to to the login page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
-		User currentUser = MyUtils.getLoginedUser(session);
+		User currentUser = MyUtils.getLoginedUser(session);  
 		if(currentUser == null){
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
 	        dispatcher.forward(request, response);
 	        return;
 		}
-		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/student/addClient.jsp");
+		RequestDispatcher dispather = this.getServletContext().getRequestDispatcher("/student/addClient.jsp"); //redirect to the relevant page
 		dispather.forward(request, response);
-		System.out.println("add client servlet");
+		//System.out.println("add client servlet");
 	}
 
 	/**

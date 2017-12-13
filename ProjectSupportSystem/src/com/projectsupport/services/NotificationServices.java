@@ -10,6 +10,8 @@ import com.projectsupport.models.Notification;
 
 public class NotificationServices {
 	
+	//Getting notification 
+	
 	public static Notification getNotification(Connection conn,String supervisorId) throws SQLException {
 		String sql = "select * from submission where supervisorID= ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);

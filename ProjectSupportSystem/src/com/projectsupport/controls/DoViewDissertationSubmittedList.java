@@ -19,6 +19,8 @@ import com.projectsupport.services.MyUtils;
 /**
  * Servlet implementation class DoViewDissertationSubmittedList
  */
+
+
 @WebServlet("/DoViewDissertationSubmittedList")
 public class DoViewDissertationSubmittedList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,6 +36,7 @@ public class DoViewDissertationSubmittedList extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    //retrive array list from database and send and json object list
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);

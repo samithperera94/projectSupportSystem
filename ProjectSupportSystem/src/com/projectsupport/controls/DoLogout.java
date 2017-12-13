@@ -26,6 +26,7 @@ public class DoLogout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//killing the session
 		request.getSession().invalidate();
 		response.sendRedirect(request.getContextPath()+"/login");
 	}

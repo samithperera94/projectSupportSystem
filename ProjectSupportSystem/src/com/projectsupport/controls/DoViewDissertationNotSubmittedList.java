@@ -34,6 +34,7 @@ public class DoViewDissertationNotSubmittedList extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    //retrieve student array list and sending as Json object list
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);
@@ -46,7 +47,7 @@ public class DoViewDissertationNotSubmittedList extends HttpServlet {
 		}
 		String json = new Gson().toJson(studentList);
 		request.setAttribute("errorString", errorString);
-		request.setAttribute("studentList",studentList);
+		//request.setAttribute("studentList",studentList);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(json);

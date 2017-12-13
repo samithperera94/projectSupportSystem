@@ -65,6 +65,7 @@ public class GenerateDissSubmittedList extends HttpServlet {
 				}
 				try {
 					PdfWriter.getInstance(doc, os);
+					//adding meta data for the pdf
 					doc.addAuthor("Dissertation Submitted List");
 					doc.addCreationDate();
 					doc.addProducer();
@@ -73,7 +74,9 @@ public class GenerateDissSubmittedList extends HttpServlet {
 					doc.setPageSize(PageSize.LETTER);
 					doc.open();
 					doc.newPage();
+					//settting header for the pdf
 					doc.add(new Paragraph("Eligible Students List For Final Evaluation 2017", catFont));
+					//settings for table in pdf
 					float[] columnWidths = {0.5f,2f};
 					PdfPTable table = new PdfPTable(columnWidths);
 					PdfPCell c1 = new PdfPCell(new Phrase("*"));
@@ -98,7 +101,7 @@ public class GenerateDissSubmittedList extends HttpServlet {
 					    /*table.addCell(s);
 				        table.addCell(stuId);*/
 					}
-					doc.add(table);
+					doc.add(table); //add that table to the database
 					doc.close(); 
 				} catch (DocumentException e) {
 					// TODO Auto-generated catch block

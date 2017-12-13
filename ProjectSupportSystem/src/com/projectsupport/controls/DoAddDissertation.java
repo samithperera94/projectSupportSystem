@@ -30,6 +30,8 @@ import com.projectsupport.services.MyUtils;
 /**
  * Servlet implementation class DoAddDissertation
  */
+
+//Get form data and insert into database
 @WebServlet("/DoAddDissertation")
 @MultipartConfig(maxFileSize = 16177215)
 public class DoAddDissertation extends HttpServlet {

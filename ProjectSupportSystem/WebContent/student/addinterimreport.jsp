@@ -26,45 +26,58 @@
 
 </head>
 <body>
-
-	<jsp:include page="../_header.jsp" />
-	<jsp:include page="../_leftSideBarStudent.jsp" />
-
-	<div class="changer" id="formload">
-		<div id="interim">
-			<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="DoAddInterimReport">
-			<c:if test="${param.success eq 1}">
-					<div class="alert alert-success">
-						<strong>Successfully Deleted !</strong>
+<div class="container-fluid"> <!--full container start-->
+	<div class="row"><!--header row start-->
+		<jsp:include page="../_header.jsp" />
+	</div><!--header row end-->
+	<div class="row"><!-- content row start-->
+		<div class="col-md-2"><!--sidebar col start-->
+			<jsp:include page="../_leftSideBarStudent.jsp" />
+		</div><!--sidebar col end-->
+		<div class="col-md-10"> <!--start of the content col-->
+		<br>
+			<div class="row"><!--to makethe content resposive-->
+				<div class="col-md-1"></div> <!--to leave a space..:D-->
+				<div class="col-md-9" style="background-color:#EEEEEE;"><!--include the table form or whatever-->
+					<div class="changer" id="formload">
+							<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="DoAddInterimReport">
+							<c:if test="${param.success eq 1}">
+									<div class="alert alert-success">
+										<strong>Successfully Deleted !</strong>
+									</div>
+								</c:if>
+								<c:if test="${param.success eq 0}">
+									<div class="alert alert-warning">
+										<strong>Something went Wrong!</strong>
+									</div>
+								</c:if>
+								<center>
+									<h4>Interim Report</h4>
+									 <h4> ${timeRemainingInterim} </h4>
+								</center>
+				
+								<div class="form-group">
+									<div class="col-sm-9">Please refer the instructions given in
+										the Interim report guidelines</div>
+								</div>
+								<div class="form-group">
+									<label for="Inputform" class="col-sm-3 control-label">Submit
+										Form: </label>
+									<div class="col-sm-9">
+										<input type="file" name="formName" required>
+										<p class="help-block col-sm-3">"*filename:
+											index-no_interim.pdf"</p>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-default">Save</button>
+							</form>
+						</div>
+				
 					</div>
-				</c:if>
-				<c:if test="${param.success eq 0}">
-					<div class="alert alert-warning">
-						<strong>Something went Wrong!</strong>
-					</div>
-				</c:if>
-				<center>
-					<h4>Interim Report</h4>
-					 <h4> ${timeRemainingInterim} </h4>
-				</center>
-
-				<div class="form-group">
-					<div class="col-sm-9">Please refer the instructions given in
-						the Interim report guidelines</div>
-				</div>
-				<div class="form-group">
-					<label for="Inputform" class="col-sm-3 control-label">Submit
-						Form: </label>
-					<div class="col-sm-9">
-						<input type="file" name="formName" required>
-						<p class="help-block col-sm-3">"*filename:
-							index-no_interim.pdf"</p>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-default">Save</button>
-			</form>
-		</div>
-
 	</div>
+			</div>
+		</div><!--end of the content col-->
+	</div><!--content row end-->
+</div><!--full container end-->
 </body>
 </html>

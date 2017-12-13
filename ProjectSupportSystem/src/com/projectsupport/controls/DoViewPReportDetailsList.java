@@ -36,6 +36,7 @@ public class DoViewPReportDetailsList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//retrieve progress report submission details
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);
 		System.out.println("al least servlet working");

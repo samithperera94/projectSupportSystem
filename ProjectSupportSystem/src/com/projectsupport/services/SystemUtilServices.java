@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.projectsupport.models.FormSub;
 
-
+//Handling student submission links activate deactivate
 
 public class SystemUtilServices {
 	public static void insertFormSubmissions(Connection conn, FormSub formdet) throws SQLException {

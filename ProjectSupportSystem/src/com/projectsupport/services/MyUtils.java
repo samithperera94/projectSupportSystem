@@ -13,21 +13,23 @@ public class MyUtils {
 	public static final String ATT_NAME_CONNECTION = "ATTRIBUTE FOR CONNECTION";
 	private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
 	
+	
+	//Storing connection for a session
 	public static void storeConnection(ServletRequest request,Connection conn){
 		request.setAttribute(ATT_NAME_CONNECTION,conn);
 		
 	}	
-	
+		//getting the stored connection
 	public static Connection getStoredConnection(ServletRequest request){
 		
 		Connection conn = (Connection) request.getAttribute(ATT_NAME_CONNECTION);
 		return conn;
 	}
-	
+		//Store Logined user in a Session
 	public static void storeLoginedUser(HttpSession session,User loginedUser){
 		session.setAttribute("loginedUser", loginedUser);
 	}
-	
+		//Getting logined user in a session
 	public static User getLoginedUser(HttpSession session){
 		User loginedUser = (User) session.getAttribute("loginedUser");
 		return loginedUser;

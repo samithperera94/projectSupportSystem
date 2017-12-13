@@ -35,13 +35,15 @@ public class DoViewInterimSubmittedStudentList extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    //get list of interim submitted student list 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);
 		List<InterimReport> intermList = null;
 		try {
 			intermList = InterimReportServices.getInterimSubmittedList(conn);
-			System.out.println("this is bullshit");
+		
 		} catch (SQLException e){
 			e.printStackTrace();
 			errorString = e.getMessage();

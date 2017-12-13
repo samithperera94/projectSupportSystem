@@ -33,7 +33,7 @@ public class AddProgressReport extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();  //Redirecting to Add progress Report 
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
 		if(currentUser == null){

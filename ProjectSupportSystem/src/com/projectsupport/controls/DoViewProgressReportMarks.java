@@ -36,8 +36,8 @@ public class DoViewProgressReportMarks extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int studentId = (int) session.getAttribute("studentId");
-		int reportNo =  (int) session.getAttribute("reportNo");
+		int studentId = (int) session.getAttribute("studentId"); //get student id from the session
+		int reportNo =  (int) session.getAttribute("reportNo"); 
 		Connection conn = MyUtils.getStoredConnection(request);
 		String errorString = null;
 		float mark = 0;

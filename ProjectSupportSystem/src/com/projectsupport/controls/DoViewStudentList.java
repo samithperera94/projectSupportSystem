@@ -34,6 +34,7 @@ public class DoViewStudentList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//student array list and send it as json list
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);
 		List<Student> studentList = null;

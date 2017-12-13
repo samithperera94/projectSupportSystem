@@ -45,6 +45,8 @@ public class DoAddClient extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    //Get data from  form and insert into database 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);

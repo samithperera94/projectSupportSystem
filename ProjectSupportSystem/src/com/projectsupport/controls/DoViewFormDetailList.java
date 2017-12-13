@@ -35,6 +35,7 @@ public class DoViewFormDetailList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//form  submisson details
 		String errorString = null;
 		Connection conn = MyUtils.getStoredConnection(request);
 		System.out.println("al least servlet working");

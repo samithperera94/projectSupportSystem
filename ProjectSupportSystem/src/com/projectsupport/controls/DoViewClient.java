@@ -37,6 +37,8 @@ public class DoViewClient extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    //get data from the database and show it in the database
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);

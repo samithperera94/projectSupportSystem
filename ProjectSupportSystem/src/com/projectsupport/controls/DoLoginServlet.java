@@ -39,6 +39,8 @@ public class DoLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		String rememeberMeStr = request.getParameter("rememberMe");
@@ -47,13 +49,14 @@ public class DoLoginServlet extends HttpServlet {
 		User currentUser = null;
 		boolean hasError = false;
 		String errorString = null;
-		
+		//if the username and password are empty 
 		if(userName == null || password == null || password.length() == 0 || userName.length() == 0) { //checking whether login details are correct or not
 			hasError = true;
 			errorString = "Required UserName and Password";
 		} else {
 			Connection conn = MyUtils.getStoredConnection(request);
 			try {
+				//searching the student
 				currentUser = UserServices.findUser(conn, userName,password);
 				if(currentUser == null){
 					hasError = true;

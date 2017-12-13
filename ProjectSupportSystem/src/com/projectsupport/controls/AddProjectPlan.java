@@ -32,6 +32,7 @@ public class AddProjectPlan extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    //redirecting to project plan jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);

@@ -39,6 +39,7 @@ public class DoViewSupervisor extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//retrieve supervisor details and send them as json
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		int studentId;

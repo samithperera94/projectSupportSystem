@@ -37,6 +37,7 @@ public class DoViewInterimReport extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// retrieve submitted progress report and 
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		int studentId;
@@ -50,6 +51,7 @@ public class DoViewInterimReport extends HttpServlet {
 
 		System.out.println(user1);
 		try{
+			//
 			studentId = Integer.parseInt(currentUser.getUserName());
 		}catch(Exception e){
 			studentId = Integer.parseInt((String) request.getSession().getAttribute("studentID"));

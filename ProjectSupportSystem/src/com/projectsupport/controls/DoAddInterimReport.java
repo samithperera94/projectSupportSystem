@@ -57,13 +57,18 @@ public class DoAddInterimReport extends HttpServlet {
 	        dispatcher.forward(request, response);
 	        return;
 		}
+		
+		
 		int studentId = Integer.parseInt(currentUser.getUserName());
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
-		Part filepart = request.getPart("formName");
+		//getting file name from the database
+		Part filepart = request.getPart("formName"); 
 		String fileName = currentUser.getUserName()+"_interim.pdf";
-		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/";
+		
+		//data upload location
+		String path = "/home/lakshan/git/projectSupportSystem/ProjectSupportSystem/WebContent/";  
 		String partHeader = filepart.getHeader("content-disposition");
 		LOGGER.log(Level.INFO,"Part Header = {0}",partHeader);
 		/*for(String content : filepart.getHeader("content-disposition").split(";")){

@@ -37,6 +37,7 @@ public class DoViewProjectProposal extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//View project proposal details
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		int studentId;

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.projectsupport.models.Client;
 
+// Services of Client insert update delete Queries
 
 public class ClientServices {
 	public static void insertClient(Connection conn, Client client) throws SQLException {
